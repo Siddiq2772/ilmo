@@ -1,0 +1,40 @@
+{
+  "source": "https://ytubeinfluencers.com/category/islam/",
+  "expected_channels": 962,
+  "pages_expected": 49,
+  "pages_failed": [],
+  "pages_failed_count": 0,
+  "channels_collected": 962,
+  "channels_remaining": 0,
+  "complete": true,
+  "field_coverage": {
+    "upload_frequency": {
+      "filled": 0,
+      "missing": 962,
+      "percentage": 0.0
+    },
+    "language": {
+      "filled": 0,
+      "missing": 962,
+      "percentage": 0.0
+    },
+    "target_audience": {
+      "filled": 0,
+      "missing": 962,
+      "percentage": 0.0
+    },
+    "content_formats": {
+      "filled": 0,
+      "missing": 962,
+      "percentage": 0.0
+    },
+    "primary_topics": {
+      "filled": 0,
+      "missing": 962,
+      "percentage": 0.0
+    }
+  },
+  "tag_source": "Website Primary Topics",
+  "content_format_source": "Website Content Formats",
+  "cache_used": true
+}

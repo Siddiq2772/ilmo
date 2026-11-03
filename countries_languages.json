@@ -1,0 +1,384 @@
+{
+  "total_channels": 963,
+  "total_countries": 41,
+  "countries": [
+    {
+      "name": "Pakistan",
+      "iso2": "PK",
+      "channel_count": 192,
+      "official_languages": ["Urdu", "English"],
+      "local_languages": ["Punjabi", "Pashto", "Sindhi", "Saraiki", "Balochi", "Hindko", "Brahui"],
+      "islamic_content_languages": ["Urdu", "Arabic", "English", "Punjabi", "Pashto"],
+      "scripts": ["Arabic (Nastaliq)", "Arabic (Naskh)", "Latin"]
+    },
+    {
+      "name": "United States",
+      "iso2": "US",
+      "channel_count": 163,
+      "official_languages": ["English"],
+      "local_languages": ["Spanish", "Arabic", "Somali", "Urdu", "Bosnian"],
+      "islamic_content_languages": ["English", "Arabic", "Spanish", "Urdu"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "India",
+      "iso2": "IN",
+      "channel_count": 145,
+      "official_languages": ["Hindi", "English"],
+      "local_languages": ["Urdu", "Bengali", "Telugu", "Marathi", "Tamil", "Gujarati", "Malayalam", "Kannada", "Odia", "Punjabi", "Assamese", "Kashmiri"],
+      "islamic_content_languages": ["Urdu", "Hindi", "English", "Malayalam", "Tamil", "Bengali"],
+      "scripts": ["Arabic (Nastaliq)", "Devanagari", "Latin", "Malayalam", "Tamil", "Bengali"]
+    },
+    {
+      "name": "United Kingdom",
+      "iso2": "GB",
+      "channel_count": 74,
+      "official_languages": ["English"],
+      "local_languages": ["Scots", "Welsh", "Urdu", "Punjabi", "Sylheti/Bengali", "Arabic", "Somali", "Turkish"],
+      "islamic_content_languages": ["English", "Urdu", "Arabic", "Bengali"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Canada",
+      "iso2": "CA",
+      "channel_count": 26,
+      "official_languages": ["English", "French"],
+      "local_languages": ["Arabic", "Punjabi", "Urdu", "Somali", "Persian"],
+      "islamic_content_languages": ["English", "Arabic", "French", "Urdu"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "United Arab Emirates",
+      "iso2": "AE",
+      "channel_count": 25,
+      "official_languages": ["Arabic"],
+      "local_languages": ["English", "Urdu", "Hindi", "Malayalam", "Tagalog", "Persian"],
+      "islamic_content_languages": ["Arabic", "English", "Urdu", "Malayalam"],
+      "scripts": ["Arabic (Naskh)", "Latin"]
+    },
+    {
+      "name": "Saudi Arabia",
+      "iso2": "SA",
+      "channel_count": 21,
+      "official_languages": ["Arabic"],
+      "local_languages": ["English", "Tagalog", "Urdu", "Indonesian", "Bengali"],
+      "islamic_content_languages": ["Arabic", "English", "Urdu"],
+      "scripts": ["Arabic (Naskh)"]
+    },
+    {
+      "name": "Australia",
+      "iso2": "AU",
+      "channel_count": 19,
+      "official_languages": ["English"],
+      "local_languages": ["Arabic", "Turkish", "Indonesian", "Urdu", "Somali"],
+      "islamic_content_languages": ["English", "Arabic", "Turkish", "Urdu"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Bangladesh",
+      "iso2": "BD",
+      "channel_count": 19,
+      "official_languages": ["Bengali"],
+      "local_languages": ["Chittagonian", "Sylheti", "Rangpuri", "Rohingya", "English"],
+      "islamic_content_languages": ["Bengali", "Arabic", "English"],
+      "scripts": ["Bengali", "Arabic"]
+    },
+    {
+      "name": "Indonesia",
+      "iso2": "ID",
+      "channel_count": 17,
+      "official_languages": ["Indonesian"],
+      "local_languages": ["Javanese", "Sundanese", "Madurese", "Minangkabau", "Buginese"],
+      "islamic_content_languages": ["Indonesian", "Arabic", "Javanese", "Sundanese"],
+      "scripts": ["Latin", "Arabic (Pegon)"]
+    },
+    {
+      "name": "Malaysia",
+      "iso2": "MY",
+      "channel_count": 7,
+      "official_languages": ["Malay"],
+      "local_languages": ["English", "Mandarin", "Tamil", "Kelantanese Malay", "Iban"],
+      "islamic_content_languages": ["Malay", "Arabic", "English"],
+      "scripts": ["Latin (Rumi)", "Arabic (Jawi)"]
+    },
+    {
+      "name": "France",
+      "iso2": "FR",
+      "channel_count": 6,
+      "official_languages": ["French"],
+      "local_languages": ["Moroccan Arabic (Darija)", "Kabyle (Berber)", "Comorian", "Turkish"],
+      "islamic_content_languages": ["French", "Arabic"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Kenya",
+      "iso2": "KE",
+      "channel_count": 6,
+      "official_languages": ["Swahili", "English"],
+      "local_languages": ["Somali", "Kikuyu", "Luo", "Luhya", "Oromo"],
+      "islamic_content_languages": ["Swahili", "English", "Somali", "Arabic"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Netherlands",
+      "iso2": "NL",
+      "channel_count": 5,
+      "official_languages": ["Dutch", "Frisian"],
+      "local_languages": ["Moroccan Arabic (Darija)", "Tarifit (Berber)", "Turkish", "English"],
+      "islamic_content_languages": ["Dutch", "Arabic", "Turkish", "English"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Egypt",
+      "iso2": "EG",
+      "channel_count": 4,
+      "official_languages": ["Arabic"],
+      "local_languages": ["Egyptian Arabic", "Sa'idi Arabic", "Siwi", "Nubian"],
+      "islamic_content_languages": ["Arabic", "English"],
+      "scripts": ["Arabic (Naskh)"]
+    },
+    {
+      "name": "Morocco",
+      "iso2": "MA",
+      "channel_count": 4,
+      "official_languages": ["Arabic", "Tamazight"],
+      "local_languages": ["Moroccan Arabic (Darija)", "Tashelhit", "Central Atlas Tamazight", "French"],
+      "islamic_content_languages": ["Arabic", "French", "Tamazight"],
+      "scripts": ["Arabic", "Tifinagh", "Latin"]
+    },
+    {
+      "name": "Germany",
+      "iso2": "DE",
+      "channel_count": 4,
+      "official_languages": ["German"],
+      "local_languages": ["Turkish", "Arabic", "Kurdish", "Bosnian", "English"],
+      "islamic_content_languages": ["German", "Turkish", "Arabic", "English"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "South Africa",
+      "iso2": "ZA",
+      "channel_count": 3,
+      "official_languages": ["English", "Zulu", "Xhosa", "Afrikaans"],
+      "local_languages": ["Urdu", "Gujarati", "Arabic", "Sotho", "Tswana"],
+      "islamic_content_languages": ["English", "Urdu", "Arabic", "Afrikaans"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Sweden",
+      "iso2": "SE",
+      "channel_count": 3,
+      "official_languages": ["Swedish"],
+      "local_languages": ["Arabic", "Somali", "Kurdish", "Turkish", "English"],
+      "islamic_content_languages": ["Swedish", "Arabic", "English"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Qatar",
+      "iso2": "QA",
+      "channel_count": 3,
+      "official_languages": ["Arabic"],
+      "local_languages": ["English", "Urdu", "Hindi", "Malayalam", "Tagalog"],
+      "islamic_content_languages": ["Arabic", "English", "Urdu"],
+      "scripts": ["Arabic", "Latin"]
+    },
+    {
+      "name": "Jordan",
+      "iso2": "JO",
+      "channel_count": 3,
+      "official_languages": ["Arabic"],
+      "local_languages": ["Jordanian Arabic", "Circassian", "Armenian", "English"],
+      "islamic_content_languages": ["Arabic", "English"],
+      "scripts": ["Arabic", "Latin"]
+    },
+    {
+      "name": "Norway",
+      "iso2": "NO",
+      "channel_count": 2,
+      "official_languages": ["Norwegian"],
+      "local_languages": ["Somali", "Arabic", "Kurdish", "Urdu", "English"],
+      "islamic_content_languages": ["Norwegian", "English", "Somali", "Arabic"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Iraq",
+      "iso2": "IQ",
+      "channel_count": 2,
+      "official_languages": ["Arabic", "Kurdish"],
+      "local_languages": ["Iraqi Arabic", "Turkmen", "Syriac"],
+      "islamic_content_languages": ["Arabic", "Kurdish"],
+      "scripts": ["Arabic", "Kurdish Sorani"]
+    },
+    {
+      "name": "Belgium",
+      "iso2": "BE",
+      "channel_count": 2,
+      "official_languages": ["Dutch", "French", "German"],
+      "local_languages": ["Moroccan Arabic", "Turkish", "Berber", "English"],
+      "islamic_content_languages": ["French", "Dutch", "Arabic"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Mexico",
+      "iso2": "MX",
+      "channel_count": 2,
+      "official_languages": ["Spanish"],
+      "local_languages": ["Nahuatl", "Maya", "Tzotzil", "English", "Arabic"],
+      "islamic_content_languages": ["Spanish", "English", "Arabic"],
+      "scripts": ["Latin"]
+    },
+    {
+      "name": "Italy",
+      "iso2": "IT",
+      "channel_count": 2,
+      "official_languages": ["Italian"],
+      "local_languages": ["Moroccan Arabic", "Bengali", "Albanian", "Urdu", "French"],
+      "islamic_content_languages": ["Italian", "Arabic", "English"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Nigeria",
+      "iso2": "NG",
+      "channel_count": 2,
+      "official_languages": ["English"],
+      "local_languages": ["Hausa", "Yoruba", "Igbo", "Fulfulde", "Kanuri", "Nupe"],
+      "islamic_content_languages": ["Hausa", "English", "Yoruba", "Arabic"],
+      "scripts": ["Latin", "Arabic (Ajami)"]
+    },
+    {
+      "name": "Palestine",
+      "iso2": "PS",
+      "channel_count": 1,
+      "official_languages": ["Arabic"],
+      "local_languages": ["Palestinian Arabic", "Levantine Arabic"],
+      "islamic_content_languages": ["Arabic"],
+      "scripts": ["Arabic"]
+    },
+    {
+      "name": "Malta",
+      "iso2": "MT",
+      "channel_count": 1,
+      "official_languages": ["Maltese", "English"],
+      "local_languages": ["Italian", "Arabic"],
+      "islamic_content_languages": ["Maltese", "English", "Arabic"],
+      "scripts": ["Latin"]
+    },
+    {
+      "name": "China",
+      "iso2": "CN",
+      "channel_count": 1,
+      "official_languages": ["Mandarin Chinese"],
+      "local_languages": ["Uyghur", "Kazakh", "Hui (Mandarin)", "Kyrgyz"],
+      "islamic_content_languages": ["Mandarin Chinese", "Uyghur", "Arabic"],
+      "scripts": ["Simplified Chinese", "Arabic (Uyghur Chagatai)"]
+    },
+    {
+      "name": "Senegal",
+      "iso2": "SN",
+      "channel_count": 1,
+      "official_languages": ["French"],
+      "local_languages": ["Wolof", "Pulaar", "Serer", "Mandinka", "Jola"],
+      "islamic_content_languages": ["Wolof", "French", "Arabic", "Pulaar"],
+      "scripts": ["Latin", "Arabic (Wolofal)"]
+    },
+    {
+      "name": "New Zealand",
+      "iso2": "NZ",
+      "channel_count": 1,
+      "official_languages": ["English", "Māori"],
+      "local_languages": ["Samoan", "Hindi", "Arabic", "Somali"],
+      "islamic_content_languages": ["English", "Arabic"],
+      "scripts": ["Latin"]
+    },
+    {
+      "name": "Spain",
+      "iso2": "ES",
+      "channel_count": 1,
+      "official_languages": ["Spanish"],
+      "local_languages": ["Catalan", "Galician", "Basque", "Moroccan Arabic", "Berber"],
+      "islamic_content_languages": ["Spanish", "Arabic"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Austria",
+      "iso2": "AT",
+      "channel_count": 1,
+      "official_languages": ["German"],
+      "local_languages": ["Turkish", "Bosnian", "Croatian", "Serbian", "Arabic", "English"],
+      "islamic_content_languages": ["German", "Turkish", "Bosnian", "Arabic"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Singapore",
+      "iso2": "SG",
+      "channel_count": 1,
+      "official_languages": ["English", "Malay", "Mandarin", "Tamil"],
+      "local_languages": ["Hokkien", "Cantonese", "Teochew"],
+      "islamic_content_languages": ["Malay", "English", "Tamil", "Arabic"],
+      "scripts": ["Latin", "Simplified Chinese", "Tamil"]
+    },
+    {
+      "name": "South Korea",
+      "iso2": "KR",
+      "channel_count": 1,
+      "official_languages": ["Korean"],
+      "local_languages": ["English", "Arabic", "Indonesian", "Uzbek"],
+      "islamic_content_languages": ["Korean", "English", "Arabic"],
+      "scripts": ["Hangul", "Latin"]
+    },
+    {
+      "name": "Kuwait",
+      "iso2": "KW",
+      "channel_count": 1,
+      "official_languages": ["Arabic"],
+      "local_languages": ["Kuwaiti Arabic", "English", "Persian", "Urdu"],
+      "islamic_content_languages": ["Arabic", "English"],
+      "scripts": ["Arabic", "Latin"]
+    },
+    {
+      "name": "Algeria",
+      "iso2": "DZ",
+      "channel_count": 1,
+      "official_languages": ["Arabic", "Tamazight"],
+      "local_languages": ["Algerian Arabic (Darja)", "Chaoui", "Kabyle", "French"],
+      "islamic_content_languages": ["Arabic", "French", "Tamazight"],
+      "scripts": ["Arabic", "Latin", "Tifinagh"]
+    },
+    {
+      "name": "Ghana",
+      "iso2": "GH",
+      "channel_count": 1,
+      "official_languages": ["English"],
+      "local_languages": ["Akan", "Dagbani", "Hausa", "Ewe", "Ga"],
+      "islamic_content_languages": ["English", "Hausa", "Dagbani", "Arabic"],
+      "scripts": ["Latin", "Arabic"]
+    },
+    {
+      "name": "Bahrain",
+      "iso2": "BH",
+      "channel_count": 1,
+      "official_languages": ["Arabic"],
+      "local_languages": ["Bahrani Arabic", "English", "Persian", "Urdu", "Malayalam"],
+      "islamic_content_languages": ["Arabic", "English"],
+      "scripts": ["Arabic", "Latin"]
+    },
+    {
+      "name": "Japan",
+      "iso2": "JP",
+      "channel_count": 1,
+      "official_languages": ["Japanese"],
+      "local_languages": ["English", "Indonesian", "Urdu", "Turkish", "Arabic"],
+      "islamic_content_languages": ["Japanese", "English", "Arabic"],
+      "scripts": ["Kanji/Kana", "Latin"]
+    },
+    {
+      "name": "Unknown / Global / Online",
+      "iso2": "XX",
+      "channel_count": 188,
+      "official_languages": ["Multi-national"],
+      "local_languages": ["English", "Arabic", "Urdu", "Turkish", "French", "Spanish", "Indonesian"],
+      "islamic_content_languages": ["English", "Arabic", "Urdu", "Global"],
+      "scripts": ["Multiple"]
+    }
+  ]
+}
