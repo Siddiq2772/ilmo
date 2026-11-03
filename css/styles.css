@@ -36,7 +36,7 @@
  html {
      min-width: 320px;
      max-width: 100vw;
-     overflow-x: hidden;
+     overflow-x: clip;
      scroll-behavior: smooth;
  }
 
@@ -45,7 +45,7 @@
      min-width: 320px;
      max-width: 100vw;
      min-height: 100vh;
-     overflow-x: hidden;
+     overflow-x: clip;
      background: var(--bg);
      color: var(--text);
      font-size: 14px;
@@ -123,13 +123,17 @@ All icons are local inline SVG symbols; no icon library.
 3. HEADER
 ========================================================= */
  .site-header {
-     position: sticky;
+     position: fixed;
      top: 0;
+     left: 0;
+     right: 0;
+     width: 100%;
      z-index: 100;
      height: var(--header-height);
-     background: rgba(15, 23, 42, .92);
+     background: rgba(15, 23, 42, .95);
      border-bottom: 1px solid rgba(51, 65, 85, .78);
      backdrop-filter: blur(18px);
+     -webkit-backdrop-filter: blur(18px);
  }
 
  .header-inner {
@@ -359,7 +363,7 @@ All icons are local inline SVG symbols; no icon library.
      grid-template-columns: var(--sidebar-wide) minmax(0, 1fr);
      max-width: 1800px;
      min-height: calc(100vh - var(--header-height));
-     margin: 0 auto;
+     margin: var(--header-height) auto 0;
      transition: grid-template-columns .24s var(--ease);
  }
 
