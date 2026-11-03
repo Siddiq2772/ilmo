@@ -7,6 +7,7 @@
   // instead of inventing runtime metadata.
   // =========================================================
   const GITHUB_URL = "https://github.com/Siddiq2772/ilmo";
+  const FEEDBACK_EMAIL = "diekaiju@duck.com";
 
   let VIDEOS = [];
   const PAGE_SIZE = 24;
@@ -94,7 +95,23 @@
       filterPanel: $(".filter-panel"),
       mobileBottomNav: $("#mobileBottomNav"),
       bottomSavedCount: $("#bottomSavedCount"),
-      bottomNavPrefs: $("#bottomNavPrefs")
+      bottomNavPrefs: $("#bottomNavPrefs"),
+      channelRequestModal: $("#channelRequestModal"),
+      channelRequestDialog: $("#channelRequestDialog"),
+      reqModalKicker: $("#reqModalKicker"),
+      reqModalTitle: $("#reqModalTitle"),
+      reqModalSubtitle: $("#reqModalSubtitle"),
+      reqCloseBtn: $("#reqCloseBtn"),
+      reqTypeAdd: $("#reqTypeAdd"),
+      reqTypeRemove: $("#reqTypeRemove"),
+      reqChannelName: $("#reqChannelName"),
+      reqChannelUrl: $("#reqChannelUrl"),
+      reqReason: $("#reqReason"),
+      reqSubmitGmail: $("#reqSubmitGmail"),
+      reqSubmitEmail: $("#reqSubmitEmail"),
+      reqSubmitGithub: $("#reqSubmitGithub"),
+      sidebarChannelRequest: $("#sidebarChannelRequest"),
+      footerChannelRequest: $("#footerChannelRequest")
   };
 
   // =========================================================
@@ -835,6 +852,10 @@
         <svg class="icon sm"><use href="#i-external" /></svg>
         <span>YouTube</span>
       </a>` : ""}
+      <button class="secondary-button channel-report-btn" type="button" data-action="report-channel" data-channel-name="${name}" data-channel-url="${escapeHTML(ch.channel_url || '')}" title="Report or request removal of ${name}">
+        <svg class="icon sm"><use href="#i-flag" /></svg>
+        <span>Report</span>
+      </button>
     </div>
   </article>`;
   }
@@ -845,7 +866,7 @@
       dom.videoGrid.innerHTML = visible.map(createChannelCard).join("");
 
       const countCopy = results.length === 1 ? "1 channel" : `${results.length.toLocaleString()} channels`;
-      dom.resultsCopy.innerHTML = `Showing <strong>${Math.min(visible.length, results.length)} of ${countCopy}</strong> (963 in database)`;
+      dom.resultsCopy.innerHTML = `Showing <strong>${Math.min(visible.length, results.length)} of ${countCopy}</strong> (963 in database) &nbsp;·&nbsp; <button class="channel-suggest-header-btn" type="button" data-action="open-channel-request"><svg class="icon sm"><use href="#i-plus" /></svg><span>Suggest Channel</span></button>`;
 
       if (results.length === 0) {
           dom.emptyStateHost.innerHTML = `
@@ -853,7 +874,10 @@
               <div class="empty-icon">${icon("users")}</div>
               <h2>No channels found</h2>
               <p>We couldn't find any channel matching "${escapeHTML(state.query)}". Try searching by another name, topic, or country.</p>
-              <button class="secondary-button" type="button" data-action="clear-channel-search">Clear Search</button>
+              <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+                <button class="secondary-button" type="button" data-action="clear-channel-search">Clear Search</button>
+                <button class="primary-button" type="button" data-action="open-channel-request">Suggest This Channel</button>
+              </div>
             </div>
           `;
       } else {
@@ -1108,6 +1132,11 @@
           openPreferencesModal(false);
           return;
       }
+      if (button.id === "sidebarChannelRequest" || button.dataset.action === "channel-request") {
+          closeMobileDrawer();
+          openChannelRequestModal("add");
+          return;
+      }
       if (button.dataset.view) {
           if (button.dataset.view === "watch-later") {
               state.view = "watch-later";
@@ -1190,6 +1219,11 @@
           state.category = "All Topics";
           pushNavigationState();
           renderAll();
+      } else if (action === "report-channel") {
+          const { channelName, channelUrl } = actionButton.dataset;
+          openChannelRequestModal("remove", channelName || "", channelUrl || "");
+      } else if (action === "open-channel-request") {
+          openChannelRequestModal("add", state.query || "");
       }
   }
 
@@ -1219,7 +1253,9 @@
       );
 
       if (event.key === "Escape") {
-          if (dom.preferencesModal && dom.preferencesModal.classList.contains("is-open")) {
+          if (dom.channelRequestModal && dom.channelRequestModal.classList.contains("is-open")) {
+              closeChannelRequestModal(false);
+          } else if (dom.preferencesModal && dom.preferencesModal.classList.contains("is-open")) {
               if (!isOpeningForFirstTime) closePreferencesModal();
           } else if (dom.playerModal.classList.contains("is-open")) {
               closePlayer();
@@ -1329,6 +1365,128 @@
       dom.preferencesModal.classList.remove("is-open");
       dom.preferencesModal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
+  }
+
+  // =========================================================
+  // CHANNEL REQUEST & FEEDBACK MODAL LOGIC
+  // =========================================================
+  let channelRequestType = "add";
+
+  function setChannelRequestType(type) {
+      channelRequestType = type === "remove" ? "remove" : "add";
+      if (dom.reqTypeAdd) dom.reqTypeAdd.classList.toggle("active", channelRequestType === "add");
+      if (dom.reqTypeRemove) dom.reqTypeRemove.classList.toggle("active", channelRequestType === "remove");
+
+      if (channelRequestType === "add") {
+          if (dom.reqModalKicker) dom.reqModalKicker.innerHTML = `<svg class="icon sm"><use href="#i-plus" /></svg> Suggest Channel`;
+          if (dom.reqModalTitle) dom.reqModalTitle.textContent = "Suggest a New Channel";
+          if (dom.reqModalSubtitle) dom.reqModalSubtitle.textContent = "Know a beneficial Islamic YouTube channel that should be part of this portal? Let us know!";
+          if (dom.reqReason) dom.reqReason.placeholder = "Tell us what kind of content they produce (lectures, tafseer, language, topics covered)...";
+      } else {
+          if (dom.reqModalKicker) dom.reqModalKicker.innerHTML = `<svg class="icon sm"><use href="#i-flag" /></svg> Report Channel`;
+          if (dom.reqModalTitle) dom.reqModalTitle.textContent = "Report or Request Removal";
+          if (dom.reqModalSubtitle) dom.reqModalSubtitle.textContent = "Help keep the portal pure and authentic. Report channels that contain non-Islamic, musical, or inappropriate content.";
+          if (dom.reqReason) dom.reqReason.placeholder = "Please explain why this channel should be removed (e.g. not Islamic, contains music, inactive, copyright)...";
+      }
+  }
+
+  function openChannelRequestModal(type = "add", channelName = "", channelUrl = "") {
+      setChannelRequestType(type);
+      if (dom.reqChannelName) dom.reqChannelName.value = channelName;
+      if (dom.reqChannelUrl) dom.reqChannelUrl.value = channelUrl;
+      if (dom.reqReason) dom.reqReason.value = "";
+
+      if (dom.channelRequestModal) {
+          dom.channelRequestModal.classList.add("is-open");
+          dom.channelRequestModal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+          history.pushState({ modal: "channelRequest" }, "");
+          if (dom.channelRequestDialog) dom.channelRequestDialog.focus();
+      }
+  }
+
+  function closeChannelRequestModal(fromPopState = false) {
+      if (!dom.channelRequestModal || !dom.channelRequestModal.classList.contains("is-open")) return;
+      if (!fromPopState && history.state && history.state.modal === "channelRequest") {
+          history.back();
+          return;
+      }
+      dom.channelRequestModal.classList.remove("is-open");
+      dom.channelRequestModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+  }
+
+  function buildChannelRequestPayload() {
+      const channelName = (dom.reqChannelName?.value || "").trim();
+      const channelUrl = (dom.reqChannelUrl?.value || "").trim();
+      const reason = (dom.reqReason?.value || "").trim();
+
+      if (!channelName) {
+          showToast("Please provide the channel name or handle.");
+          dom.reqChannelName?.focus();
+          return null;
+      }
+
+      const isAdd = channelRequestType === "add";
+      const actionLabel = isAdd ? "Add Channel Request" : "Remove Channel Request";
+      const subject = `[Portal Curation] ${actionLabel}: ${channelName}`;
+
+      const bodyText =
+`Islamic Video Portal - Channel Request
+---------------------------------------
+Action: ${actionLabel}
+Channel Name / Handle: ${channelName}
+Channel YouTube URL: ${channelUrl || "Not specified"}
+
+Reason / Details:
+${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." : "Please consider removing this channel from the library.")}
+
+Sent from Islamic Video Portal (ilmo)`;
+
+      const markdownBody =
+`### ${actionLabel}
+
+* **Channel Name / Handle:** ${channelName}
+* **YouTube URL:** ${channelUrl || "N/A"}
+* **Action Requested:** ${isAdd ? "Add to portal library" : "Remove from portal library"}
+
+#### Reason / Notes
+${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." : "Please consider removing this channel from the library.")}
+
+---
+*Submitted via Islamic Video Portal*`;
+
+      return { subject, bodyText, markdownBody };
+  }
+
+  function submitChannelViaGmail() {
+      const payload = buildChannelRequestPayload();
+      if (!payload) return;
+
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(FEEDBACK_EMAIL)}&su=${encodeURIComponent(payload.subject)}&body=${encodeURIComponent(payload.bodyText)}`;
+      window.open(gmailUrl, "_blank", "noopener,noreferrer");
+      closeChannelRequestModal(false);
+      showToast("Opened Gmail compose tab.");
+  }
+
+  function submitChannelViaEmail() {
+      const payload = buildChannelRequestPayload();
+      if (!payload) return;
+
+      const mailtoUrl = `mailto:${encodeURIComponent(FEEDBACK_EMAIL)}?subject=${encodeURIComponent(payload.subject)}&body=${encodeURIComponent(payload.bodyText)}`;
+      window.location.href = mailtoUrl;
+      closeChannelRequestModal(false);
+      showToast("Opened default email client.");
+  }
+
+  function submitChannelViaGithub() {
+      const payload = buildChannelRequestPayload();
+      if (!payload) return;
+
+      const issueUrl = `${GITHUB_URL}/issues/new?title=${encodeURIComponent(payload.subject)}&body=${encodeURIComponent(payload.markdownBody)}`;
+      window.open(issueUrl, "_blank", "noopener,noreferrer");
+      closeChannelRequestModal(false);
+      showToast("Opened GitHub Issues tab.");
   }
 
   function initEvents() {
@@ -1520,8 +1678,48 @@
           if (window.matchMedia("(min-width: 821px)").matches && state.mobileDrawerOpen) closeMobileDrawer();
       });
 
+      // Channel Request & Feedback listeners
+      if (dom.reqTypeAdd) {
+          dom.reqTypeAdd.addEventListener("click", () => setChannelRequestType("add"));
+      }
+      if (dom.reqTypeRemove) {
+          dom.reqTypeRemove.addEventListener("click", () => setChannelRequestType("remove"));
+      }
+      if (dom.reqCloseBtn) {
+          dom.reqCloseBtn.addEventListener("click", () => closeChannelRequestModal(false));
+      }
+      if (dom.channelRequestModal) {
+          dom.channelRequestModal.addEventListener("click", event => {
+              if (event.target === dom.channelRequestModal) closeChannelRequestModal(false);
+          });
+      }
+      if (dom.reqSubmitGmail) {
+          dom.reqSubmitGmail.addEventListener("click", submitChannelViaGmail);
+      }
+      if (dom.reqSubmitEmail) {
+          dom.reqSubmitEmail.addEventListener("click", submitChannelViaEmail);
+      }
+      if (dom.reqSubmitGithub) {
+          dom.reqSubmitGithub.addEventListener("click", submitChannelViaGithub);
+      }
+      if (dom.sidebarChannelRequest) {
+          dom.sidebarChannelRequest.addEventListener("click", () => {
+              closeMobileDrawer();
+              openChannelRequestModal("add");
+          });
+      }
+      if (dom.footerChannelRequest) {
+          dom.footerChannelRequest.addEventListener("click", () => openChannelRequestModal("add"));
+      }
+
       // Browser & Mobile Hardware Back-Press Navigation
       window.addEventListener("popstate", event => {
+          // 0. Close channel request modal if open
+          if (dom.channelRequestModal && dom.channelRequestModal.classList.contains("is-open")) {
+              closeChannelRequestModal(true);
+              return;
+          }
+
           // 1. Close video player modal if open
           if (dom.playerModal && dom.playerModal.classList.contains("is-open")) {
               closePlayer(true);

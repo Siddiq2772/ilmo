@@ -98,6 +98,16 @@
             <line x1="15" y1="15" x2="21" y2="21" />
             <line x1="4" y1="4" x2="9" y2="9" />
         </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+        </symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5v14" />
+        </symbol>
+        <symbol id="i-flag" viewBox="0 0 24 24">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" />
+        </symbol>
     </svg>
 
     <header class="site-header">
@@ -181,6 +191,11 @@
                         <svg class="icon">
                             <use href="#i-settings" />
                         </svg><span>Preferences</span>
+                    </button>
+                    <button class="nav-item" type="button" id="sidebarChannelRequest" data-action="channel-request">
+                        <svg class="icon">
+                            <use href="#i-flag" />
+                        </svg><span>Suggest / Report Channel</span>
                     </button>
                 </nav>
             </div>
@@ -298,8 +313,13 @@
 
                 <footer class="site-footer">
                     <span class="footer-brand">Islamic Video Portal</span>
-                    <span class="footer-note">A quiet space for beneficial knowledge. Videos are embedded from
-                        YouTube.</span>
+                    <span class="footer-note">A quiet space for beneficial knowledge. Videos are embedded from YouTube.</span>
+                    <div class="footer-links">
+                        <button class="footer-link-btn" id="footerChannelRequest" type="button">
+                            <svg class="icon sm"><use href="#i-flag" /></svg>
+                            <span>Suggest or Report a Channel</span>
+                        </button>
+                    </div>
                 </footer>
             </div>
         </main>
@@ -445,6 +465,80 @@
             <div class="pref-footer">
                 <button class="secondary-button" id="prefResetBtn" type="button">Reset to Defaults</button>
                 <button class="primary-button pref-save-btn" id="prefSaveBtn" type="button">Save & Continue</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Channel Request & Feedback Modal -->
+    <div class="pref-modal" id="channelRequestModal" aria-hidden="true">
+        <section class="pref-dialog channel-request-dialog" id="channelRequestDialog" role="dialog" aria-modal="true"
+            aria-labelledby="reqModalTitle" tabindex="-1">
+            <div class="pref-header">
+                <div>
+                    <span class="pref-kicker" id="reqModalKicker"><svg class="icon"><use href="#i-users" /></svg> Channel Curation</span>
+                    <h2 class="pref-title" id="reqModalTitle">Suggest or Report a Channel</h2>
+                    <p class="pref-subtitle" id="reqModalSubtitle">Help keep this portal beneficial and authentic. Request a new Islamic channel to be added or report an existing channel to be removed.</p>
+                </div>
+                <button class="pref-close-btn" id="reqCloseBtn" type="button" aria-label="Close modal">
+                    <svg class="icon"><use href="#i-x" /></svg>
+                </button>
+            </div>
+
+            <div class="pref-body">
+                <!-- Action Type Switcher: Add vs Remove -->
+                <div class="req-type-switcher" role="radiogroup" aria-label="Request type">
+                    <button type="button" class="req-type-btn active" id="reqTypeAdd" data-type="add">
+                        <svg class="icon sm"><use href="#i-plus" /></svg>
+                        <span>Request to Add Channel</span>
+                    </button>
+                    <button type="button" class="req-type-btn" id="reqTypeRemove" data-type="remove">
+                        <svg class="icon sm"><use href="#i-flag" /></svg>
+                        <span>Report / Remove Channel</span>
+                    </button>
+                </div>
+
+                <!-- Input Fields -->
+                <div class="req-form-group">
+                    <label class="req-form-label" for="reqChannelName">
+                        Channel Name or Handle <span class="req-star">*</span>
+                    </label>
+                    <input type="text" id="reqChannelName" class="req-form-input" placeholder="e.g. Yaqeen Institute or @yaqeeninstituteofficial" required>
+                </div>
+
+                <div class="req-form-group">
+                    <label class="req-form-label" for="reqChannelUrl">
+                        Channel YouTube Link <span class="req-optional">(optional)</span>
+                    </label>
+                    <input type="url" id="reqChannelUrl" class="req-form-input" placeholder="e.g. https://youtube.com/@channel">
+                </div>
+
+                <div class="req-form-group">
+                    <label class="req-form-label" for="reqReason">
+                        Reason / Notes <span class="req-star">*</span>
+                    </label>
+                    <textarea id="reqReason" class="req-form-textarea" rows="3" placeholder="Tell us why this channel should be added (e.g. language, topics covered) or why it should be removed (e.g. non-Islamic, music, misleading content)..."></textarea>
+                </div>
+
+                <!-- Submission Methods Note -->
+                <div class="req-dest-notice">
+                    <svg class="icon sm"><use href="#i-shield" /></svg>
+                    <span>Submissions are sent directly to <code>diekaiju@duck.com</code> via <strong>Gmail</strong> or as a <strong>GitHub Issue</strong>.</span>
+                </div>
+            </div>
+
+            <div class="pref-footer req-footer">
+                <button class="secondary-button req-method-btn" id="reqSubmitGmail" type="button" title="Send pre-filled request using Gmail Web">
+                    <svg class="icon sm"><use href="#i-mail" /></svg>
+                    <span>Send via Gmail</span>
+                </button>
+                <button class="secondary-button req-method-btn" id="reqSubmitEmail" type="button" title="Send request using your default mail app">
+                    <svg class="icon sm"><use href="#i-mail" /></svg>
+                    <span>Default Email App</span>
+                </button>
+                <button class="primary-button req-method-btn" id="reqSubmitGithub" type="button" title="Open a pre-filled Issue on GitHub repository">
+                    <svg class="icon sm"><use href="#i-github" /></svg>
+                    <span>Open GitHub Issue</span>
+                </button>
             </div>
         </section>
     </div>
