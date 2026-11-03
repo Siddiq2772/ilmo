@@ -786,10 +786,11 @@
       ${country ? `<span class="country-tag">${flag} ${country}</span>` : ""}
       ${countInPortal > 0 ? `<span class="category-tag" style="background:rgba(52,211,153,0.15);color:#6ee7b7;border-color:#34d399;">${countInPortal} in Library</span>` : ""}
     </div>
+    ${(subs || vCount) ? `
     <div class="channel-card-stats">
       ${subs}
       ${vCount}
-    </div>
+    </div>` : ""}
     <div class="channel-card-actions">
       ${actionButton}
       ${ch.channel_url && countInPortal > 0 ? `
