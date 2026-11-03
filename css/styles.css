@@ -1558,6 +1558,11 @@ same theater, rather than using YouTube's recommendation overlays. */
      }
  }
 
+ /* Mobile bottom navigation: strictly hidden on desktop & tablets (> 820px) */
+ .mobile-bottom-nav {
+     display: none;
+ }
+
  /* =========================================================
 11. RESPONSIVE LAYOUT
 ========================================================= */
