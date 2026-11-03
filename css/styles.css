@@ -2899,4 +2899,208 @@ same theater, rather than using YouTube's recommendation overlays. */
     }
 }
 
+/* =========================================================
+   SUPPORT VIEW STYLES
+   ========================================================= */
+.support-view-card {
+    grid-column: 1 / -1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 36px 32px;
+    background: #111c2e;
+    border: 1px solid #23354d;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.support-heart-icon {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    background: rgba(244, 63, 94, 0.12);
+    border: 1.5px solid rgba(244, 63, 94, 0.35);
+    border-radius: 50%;
+    color: #fb7185;
+}
+
+.support-heart-icon .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.support-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+}
+
+.support-note-text {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #cbd5e1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.support-note-text p {
+    margin: 0;
+}
+
+.support-note-text strong {
+    color: #f8fafc;
+}
+
+.support-dua {
+    padding: 12px 16px;
+    background: rgba(16, 185, 129, 0.08);
+    border-left: 3px solid #10b981;
+    border-radius: 0 10px 10px 0;
+    font-size: 13.5px;
+    color: #a7f3d0;
+}
+
+.support-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #283a54 20%, #283a54 80%, transparent);
+    margin: 28px 0 24px;
+}
+
+.support-methods-heading {
+    font-size: 14px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.support-badges-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.support-badges-row a {
+    display: inline-block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.support-badges-row a:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.support-badges-row img {
+    display: block;
+    height: 28px;
+}
+
+.support-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    text-align: left;
+}
+
+.support-action-card {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 16px;
+    background: #0f1828;
+    border: 1px solid #23354d;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.support-action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.support-action-card.paypal-card:hover {
+    border-color: #0079C1;
+}
+
+.support-action-card.kofi-card:hover {
+    border-color: #72A4F2;
+}
+
+.support-action-card.chai-card:hover {
+    border-color: #FF813F;
+}
+
+.support-card-badge {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 4px;
+}
+
+.support-card-desc {
+    font-size: 11.5px;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin-bottom: 14px;
+    flex: 1;
+}
+
+.support-btn {
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 7px;
+    text-align: center;
+    transition: background 0.18s ease;
+}
+
+.paypal-btn {
+    background: #00457C;
+    color: #ffffff;
+}
+
+.kofi-btn {
+    background: #72A4F2;
+    color: #0a192f;
+}
+
+.chai-btn {
+    background: #FF813F;
+    color: #ffffff;
+}
+
+@media (max-width: 620px) {
+    .support-view-card {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+
+    .support-title {
+        font-size: 20px;
+    }
+
+    .support-note-text {
+        font-size: 13.5px;
+    }
+
+    .support-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
 

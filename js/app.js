@@ -111,7 +111,8 @@
       reqSubmitEmail: $("#reqSubmitEmail"),
       reqSubmitGithub: $("#reqSubmitGithub"),
       sidebarChannelRequest: $("#sidebarChannelRequest"),
-      footerChannelRequest: $("#footerChannelRequest")
+      footerChannelRequest: $("#footerChannelRequest"),
+      footerSupportBtn: $("#footerSupportBtn")
   };
 
   // =========================================================
@@ -658,21 +659,25 @@
           else button.removeAttribute("aria-current");
       });
 
-      dom.pageTitle.textContent = state.view === "watch-later"
-          ? "Your saved collection."
-          : state.view === "channels"
-              ? "All Islamic Channels"
-              : state.category !== "All Topics"
-                  ? state.category
-                  : state.channel !== "All Channels"
-                      ? state.channel
-                      : "Learn with intention.";
+      dom.pageTitle.textContent = state.view === "support"
+          ? "Support the Project"
+          : state.view === "watch-later"
+              ? "Your saved collection."
+              : state.view === "channels"
+                  ? "All Islamic Channels"
+                  : state.category !== "All Topics"
+                      ? state.category
+                      : state.channel !== "All Channels"
+                          ? state.channel
+                          : "Learn with intention.";
 
-      dom.pageDescription.textContent = state.view === "watch-later"
-          ? "Your saved lectures and reminders, ready whenever you are."
-          : state.view === "channels"
-              ? "Explore 963 selected Islamic YouTube channels from 41 countries. Click any channel to browse their videos in the portal."
-              : state.category !== "All Topics"
+      dom.pageDescription.textContent = state.view === "support"
+          ? "A quiet, ad-free space for authentic Islamic knowledge. Completely free for everyone, forever."
+          : state.view === "watch-later"
+              ? "Your saved lectures and reminders, ready whenever you are."
+              : state.view === "channels"
+                  ? "Explore 963 selected Islamic YouTube channels from 41 countries. Click any channel to browse their videos in the portal."
+                  : state.category !== "All Topics"
                   ? `Explore selected videos filed under ${state.category.toLowerCase()}.`
                   : state.channel !== "All Channels"
                       ? `Browse selected videos from ${state.channel}.`
@@ -941,6 +946,73 @@
       renderLoadMore(results.length, "Videos");
   }
 
+  function renderSupport() {
+      const loadMoreWrap = document.getElementById("loadMoreWrap");
+      if (loadMoreWrap) loadMoreWrap.remove();
+
+      dom.resultsCopy.innerHTML = `<strong>Voluntary Developer Support</strong>`;
+      const toolbarRight = $(".toolbar-right");
+      if (toolbarRight) toolbarRight.style.display = "none";
+      dom.emptyStateHost.innerHTML = "";
+
+      dom.videoGrid.innerHTML = `
+        <div class="support-view-card">
+          <div class="support-heart-icon">${icon("heart")}</div>
+          <h2 class="support-title">A Humble Note from the Developer</h2>
+          <div class="support-note-text">
+            <p>
+              <em>Assalamu Alaikum wa Rahmatullahi wa Barakatuh.</em>
+            </p>
+            <p>
+              This portal was built as a quiet, distraction-free space for Muslims and truth-seekers worldwide to access beneficial lectures, Quran recitations, and authentic Islamic knowledge without algorithmic traps, comments, noise, or tracking.
+            </p>
+            <p>
+              <strong>This platform is completely free and will always remain free.</strong> There are no paywalls, accounts required, or forced subscriptions. Supporting is entirely voluntary—please only contribute if you have the means and wish to help offset ongoing domain, server hosting, and maintenance costs.
+            </p>
+            <p class="support-dua">
+              May Allah reward you for your intentions and bless your time and knowledge. A sincere dua is just as appreciated as any contribution.
+            </p>
+          </div>
+
+          <div class="support-divider"></div>
+
+          <h3 class="support-methods-heading">If you want to support the developer:</h3>
+
+          <!-- Shield Badges -->
+          <div class="support-badges-row">
+            <a href="https://paypal.me/diekaiju" target="_blank" rel="noopener noreferrer" title="Support via PayPal">
+              <img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" alt="PayPal">
+            </a>
+            <a href="https://ko-fi.com/diekaiju" target="_blank" rel="noopener noreferrer" title="Support via Ko-fi">
+              <img src="https://img.shields.io/badge/Ko--fi-72A4F2?style=for-the-badge&logo=kofi&logoColor=white" alt="Ko-fi">
+            </a>
+            <a href="https://www.buymeachai.in/diekaiju" target="_blank" rel="noopener noreferrer" title="Support via Buy Me A Chai">
+              <img src="https://img.shields.io/badge/Buy%20Me%20A%20Chai-FF813F?style=for-the-badge&logoColor=white" alt="Buy Me A Chai">
+            </a>
+          </div>
+
+          <!-- Interactive Action Buttons -->
+          <div class="support-cards-grid">
+            <a class="support-action-card paypal-card" href="https://paypal.me/diekaiju" target="_blank" rel="noopener noreferrer">
+              <div class="support-card-badge">PayPal</div>
+              <div class="support-card-desc">Direct voluntary contribution via PayPal</div>
+              <span class="support-btn paypal-btn">Support via PayPal &rarr;</span>
+            </a>
+            <a class="support-action-card kofi-card" href="https://ko-fi.com/diekaiju" target="_blank" rel="noopener noreferrer">
+              <div class="support-card-badge">Ko-fi</div>
+              <div class="support-card-desc">Tip a coffee or one-time donation</div>
+              <span class="support-btn kofi-btn">Support on Ko-fi &rarr;</span>
+            </a>
+            <a class="support-action-card chai-card" href="https://www.buymeachai.in/diekaiju" target="_blank" rel="noopener noreferrer">
+              <div class="support-card-badge">Buy Me A Chai</div>
+              <div class="support-card-desc">Support with UPI, cards & wallets</div>
+              <span class="support-btn chai-btn">Buy Me a Chai &rarr;</span>
+            </a>
+          </div>
+        </div>
+      `;
+  }
+
   function renderAll() {
       renderFilterBars();
       updateNavigation();
@@ -949,11 +1021,16 @@
       dom.clearSearch.classList.toggle("visible", Boolean(state.query));
       dom.sortSelect.value = state.sort;
       if (dom.filterPanel) {
-          dom.filterPanel.style.display = state.view === "channels" ? "none" : "";
+          dom.filterPanel.style.display = (state.view === "channels" || state.view === "support") ? "none" : "";
       }
+      const toolbarRight = $(".toolbar-right");
       if (state.view === "channels") {
+          if (toolbarRight) toolbarRight.style.display = "";
           renderChannels();
+      } else if (state.view === "support") {
+          renderSupport();
       } else {
+          if (toolbarRight) toolbarRight.style.display = "";
           renderVideos();
       }
   }
@@ -1142,6 +1219,10 @@
               state.view = "watch-later";
           } else if (button.dataset.view === "channels") {
               state.view = "channels";
+              state.channel = "All Channels";
+              state.category = "All Topics";
+          } else if (button.dataset.view === "support") {
+              state.view = "support";
               state.channel = "All Channels";
               state.category = "All Topics";
           } else {
@@ -1710,6 +1791,16 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
       }
       if (dom.footerChannelRequest) {
           dom.footerChannelRequest.addEventListener("click", () => openChannelRequestModal("add"));
+      }
+      if (dom.footerSupportBtn) {
+          dom.footerSupportBtn.addEventListener("click", () => {
+              state.view = "support";
+              state.channel = "All Channels";
+              state.category = "All Topics";
+              pushNavigationState();
+              renderAll();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+          });
       }
 
       // Browser & Mobile Hardware Back-Press Navigation
