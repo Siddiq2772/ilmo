@@ -1510,32 +1510,32 @@
 
       const isAdd = channelRequestType === "add";
       const actionLabel = isAdd ? "Add Channel Request" : "Remove Channel Request";
-      const subject = `[Portal Curation] ${actionLabel}: ${channelName}`;
+      const subject = `[ILMO Curation] ${actionLabel}: ${channelName}`;
 
       const bodyText =
-`Islamic Video Portal - Channel Request
+`ILMO - Channel Request
 ---------------------------------------
 Action: ${actionLabel}
 Channel Name / Handle: ${channelName}
 Channel YouTube URL: ${channelUrl || "Not specified"}
 
 Reason / Details:
-${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." : "Please consider removing this channel from the library.")}
+${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." : "Please consider removing this channel from ILMO.")}
 
-Sent from Islamic Video Portal (ilmo)`;
+Sent from ILMO (Islamic Knowledge Without Distraction)`;
 
       const markdownBody =
 `### ${actionLabel}
 
 * **Channel Name / Handle:** ${channelName}
 * **YouTube URL:** ${channelUrl || "N/A"}
-* **Action Requested:** ${isAdd ? "Add to portal library" : "Remove from portal library"}
+* **Action Requested:** ${isAdd ? "Add to ILMO library" : "Remove from ILMO library"}
 
 #### Reason / Notes
-${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." : "Please consider removing this channel from the library.")}
+${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." : "Please consider removing this channel from ILMO.")}
 
 ---
-*Submitted via Islamic Video Portal*`;
+*Submitted via ILMO (Islamic Knowledge Without Distraction)*`;
 
       return { subject, bodyText, markdownBody };
   }

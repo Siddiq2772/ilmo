@@ -163,36 +163,45 @@ All icons are local inline SVG symbols; no icon library.
  }
 
  .brand-mark {
-     width: 37px;
-     height: 37px;
+     width: 38px;
+     height: 38px;
      display: grid;
      place-items: center;
-     color: #06251e;
-     border-radius: 12px;
-     background: linear-gradient(145deg, #34d399, #0d9488);
-     box-shadow: 0 5px 18px rgba(16, 185, 129, .15);
+     border-radius: 11px;
+     background: rgba(16, 185, 129, 0.08);
+     border: 1px solid rgba(16, 185, 129, 0.28);
+     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+     flex-shrink: 0;
+     transition: all 0.2s ease;
  }
 
- .brand-mark .icon {
-     width: 21px;
-     height: 21px;
-     stroke-width: 2.1;
+ .brand-lockup:hover .brand-mark {
+     background: rgba(16, 185, 129, 0.16);
+     border-color: rgba(16, 185, 129, 0.5);
+     box-shadow: 0 6px 18px rgba(16, 185, 129, 0.2);
+ }
+
+ .brand-mark .brand-logo {
+     width: 28px;
+     height: 28px;
+     display: block;
  }
 
  .brand-name {
-     font-size: 14px;
-     line-height: 1.2;
-     font-weight: 750;
-     letter-spacing: -.025em;
+     font-size: 15px;
+     line-height: 1.15;
+     font-weight: 800;
+     letter-spacing: .06em;
      white-space: nowrap;
+     color: var(--text);
  }
 
  .brand-caption {
      display: block;
-     margin-top: 3px;
+     margin-top: 2px;
      color: var(--muted);
-     font-size: 10px;
-     font-weight: 500;
+     font-size: 9.5px;
+     font-weight: 600;
      letter-spacing: .055em;
      text-transform: uppercase;
  }
@@ -1755,9 +1764,14 @@ same theater, rather than using YouTube's recommendation overlays. */
      }
 
      .brand-mark {
-         width: 32px;
-         height: 32px;
+         width: 34px;
+         height: 34px;
          border-radius: 9px;
+     }
+
+     .brand-mark .brand-logo {
+         width: 24px;
+         height: 24px;
      }
 
      .menu-toggle {
