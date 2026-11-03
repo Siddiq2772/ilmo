@@ -305,6 +305,29 @@
         </main>
     </div>
 
+    <!-- Mobile App Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile Navigation">
+        <button class="bottom-nav-item active" type="button" data-view="home" aria-label="Home">
+            <svg class="icon"><use href="#i-home" /></svg>
+            <span>Home</span>
+        </button>
+        <button class="bottom-nav-item" type="button" data-view="channels" aria-label="All Channels">
+            <svg class="icon"><use href="#i-users" /></svg>
+            <span>Channels</span>
+        </button>
+        <button class="bottom-nav-item" type="button" data-view="watch-later" aria-label="Watch Later">
+            <span class="bottom-nav-icon-wrap">
+                <svg class="icon"><use href="#i-bookmark" /></svg>
+                <span class="bottom-saved-badge" id="bottomSavedCount">0</span>
+            </span>
+            <span>Saved</span>
+        </button>
+        <button class="bottom-nav-item" type="button" id="bottomNavPrefs" aria-label="Preferences">
+            <svg class="icon"><use href="#i-settings" /></svg>
+            <span>Settings</span>
+        </button>
+    </nav>
+
     <!-- User Preferences & Onboarding Modal -->
     <div class="pref-modal" id="preferencesModal" aria-hidden="true">
         <section class="pref-dialog" id="prefDialog" role="dialog" aria-modal="true" aria-labelledby="prefModalTitle" tabindex="-1">

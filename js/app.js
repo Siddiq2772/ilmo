@@ -91,7 +91,10 @@
       prefBadgeBtn: $("#prefBadgeBtn"),
       prefBadgeText: $("#prefBadgeText"),
       shuffleFeedBtn: $("#shuffleFeedBtn"),
-      filterPanel: $(".filter-panel")
+      filterPanel: $(".filter-panel"),
+      mobileBottomNav: $("#mobileBottomNav"),
+      bottomSavedCount: $("#bottomSavedCount"),
+      bottomNavPrefs: $("#bottomNavPrefs")
   };
 
   // =========================================================
@@ -348,9 +351,13 @@
 
   function updateSavedCounts() {
       const count = state.saved.size;
-      dom.savedCount.textContent = count;
-      dom.sidebarSavedCount.textContent = count;
-      dom.savedCount.setAttribute("aria-label", `${count} saved videos`);
+      if (dom.savedCount) dom.savedCount.textContent = count;
+      if (dom.sidebarSavedCount) dom.sidebarSavedCount.textContent = count;
+      if (dom.bottomSavedCount) {
+          dom.bottomSavedCount.textContent = count;
+          dom.bottomSavedCount.style.display = count > 0 ? "inline-flex" : "none";
+      }
+      if (dom.savedCount) dom.savedCount.setAttribute("aria-label", `${count} saved videos`);
   }
 
   // =========================================================
@@ -587,6 +594,13 @@
           const active = Boolean(isView || isCategory);
           button.classList.toggle("active", active);
           if (active) button.setAttribute("aria-current", "page");
+          else button.removeAttribute("aria-current");
+      });
+
+      $$(".bottom-nav-item").forEach(button => {
+          const isView = button.dataset.view && button.dataset.view === state.view;
+          button.classList.toggle("active", Boolean(isView));
+          if (isView) button.setAttribute("aria-current", "page");
           else button.removeAttribute("aria-current");
       });
 
@@ -1304,6 +1318,29 @@
           renderAll();
           if (window.matchMedia("(max-width: 820px)").matches) closeMobileDrawer();
       });
+
+      // Mobile Bottom Navigation Bar wiring
+      if (dom.mobileBottomNav) {
+          dom.mobileBottomNav.addEventListener("click", event => {
+              const btn = event.target.closest(".bottom-nav-item");
+              if (!btn) return;
+              if (btn.id === "bottomNavPrefs") {
+                  openPreferencesModal(false);
+                  return;
+              }
+              const view = btn.dataset.view;
+              if (view) {
+                  state.view = view;
+                  if (view === "home") {
+                      state.channel = "All Channels";
+                      state.category = "All Topics";
+                  }
+                  state.visibleCount = PAGE_SIZE;
+                  renderAll();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+          });
+      }
 
       // Preferences and Settings shortcuts
       if (dom.settingsShortcut) {
