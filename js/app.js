@@ -504,6 +504,40 @@
       return sorted;
   }
 
+  function getCurrentNavSnapshot() {
+      return {
+          view: state.view,
+          channel: state.channel,
+          category: state.category,
+          query: state.query
+      };
+  }
+
+  function pushNavigationState() {
+      const current = getCurrentNavSnapshot();
+      const prev = history.state;
+      if (prev &&
+          prev.view === current.view &&
+          prev.channel === current.channel &&
+          prev.category === current.category &&
+          prev.query === current.query) {
+          return;
+      }
+      history.pushState(current, "");
+  }
+
+  function applyNavigationState(s) {
+      state.view = s.view || "home";
+      state.channel = s.channel || "All Channels";
+      state.category = s.category || "All Topics";
+      state.query = s.query || "";
+      if (dom.searchInput) dom.searchInput.value = state.query;
+      if (dom.clearSearch) dom.clearSearch.classList.toggle("visible", Boolean(state.query));
+      state.visibleCount = PAGE_SIZE;
+      renderAll();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function setActiveChannel(channel) {
       state.channel = channel;
       state.category = "All Topics";
@@ -512,6 +546,7 @@
       if (dom.clearSearch) dom.clearSearch.classList.remove("visible");
       state.visibleCount = PAGE_SIZE;
       state.view = state.view === "watch-later" ? "watch-later" : "home";
+      pushNavigationState();
       renderAll();
   }
 
@@ -519,6 +554,7 @@
       state.category = category;
       state.visibleCount = PAGE_SIZE;
       state.view = state.view === "watch-later" ? "watch-later" : "home";
+      pushNavigationState();
       renderAll();
   }
 
@@ -530,6 +566,7 @@
       state.visibleCount = PAGE_SIZE;
       dom.searchInput.value = "";
       dom.sortSelect.value = state.sort;
+      pushNavigationState();
       renderAll();
       dom.searchInput.focus();
   }
@@ -911,6 +948,7 @@
       state.currentVideo = video;
       if (!theaterAlreadyOpen) {
           state.returnFocus = triggerElement || document.activeElement;
+          history.pushState({ modal: "player", videoId: video.id }, "");
       }
       state.descriptionExpanded = false;
 
@@ -951,8 +989,13 @@
       requestAnimationFrame(() => dom.closePlayerButton.focus());
   }
 
-  function closePlayer() {
+  function closePlayer(fromPopState = false) {
       if (!dom.playerModal.classList.contains("is-open")) return;
+
+      if (!fromPopState && history.state && history.state.modal === "player") {
+          history.back();
+          return;
+      }
 
       // Clear the iframe immediately so playback and audio stop before the
       // modal's visual fade-out has finished.
@@ -1037,13 +1080,21 @@
           dom.mobileBackdrop.classList.toggle("visible", state.mobileDrawerOpen);
           dom.mobileBackdrop.setAttribute("aria-hidden", String(!state.mobileDrawerOpen));
           dom.menuToggle.setAttribute("aria-expanded", String(state.mobileDrawerOpen));
+          if (state.mobileDrawerOpen) {
+              history.pushState({ modal: "sidebar" }, "");
+          }
       } else {
           document.body.classList.toggle("sidebar-collapsed");
           dom.menuToggle.setAttribute("aria-expanded", String(!document.body.classList.contains("sidebar-collapsed")));
       }
   }
 
-  function closeMobileDrawer() {
+  function closeMobileDrawer(fromPopState = false) {
+      if (!state.mobileDrawerOpen) return;
+      if (!fromPopState && history.state && history.state.modal === "sidebar") {
+          history.back();
+          return;
+      }
       state.mobileDrawerOpen = false;
       dom.sidebar.classList.remove("mobile-open");
       dom.mobileBackdrop.classList.remove("visible");
@@ -1075,6 +1126,7 @@
           state.category = button.dataset.category;
       }
       closeMobileDrawer();
+      pushNavigationState();
       renderAll();
   }
 
@@ -1109,6 +1161,7 @@
           if (dom.searchInput) dom.searchInput.value = "";
           if (dom.clearSearch) dom.clearSearch.classList.remove("visible");
           state.visibleCount = PAGE_SIZE;
+          pushNavigationState();
           renderAll();
           window.scrollTo({ top: 0, behavior: "smooth" });
       } else if (action === "clear-channel-search") {
@@ -1116,6 +1169,7 @@
           dom.searchInput.value = "";
           dom.clearSearch.classList.remove("visible");
           state.visibleCount = PAGE_SIZE;
+          pushNavigationState();
           renderChannels();
       } else if (action === "open") {
           openPlayer(id, actionButton);
@@ -1128,11 +1182,13 @@
           state.view = "home";
           state.channel = "All Channels";
           state.category = "All Topics";
+          pushNavigationState();
           renderAll();
       } else if (action === "all-channels") {
           state.view = "channels";
           state.channel = "All Channels";
           state.category = "All Topics";
+          pushNavigationState();
           renderAll();
       }
   }
@@ -1257,16 +1313,22 @@
           dom.preferencesModal.classList.add("is-open");
           dom.preferencesModal.setAttribute("aria-hidden", "false");
           document.body.classList.add("modal-open");
+          if (!isFirstTime) {
+              history.pushState({ modal: "preferences" }, "");
+          }
           if (dom.prefDialog) dom.prefDialog.focus();
       }
   }
 
-  function closePreferencesModal() {
-      if (dom.preferencesModal) {
-          dom.preferencesModal.classList.remove("is-open");
-          dom.preferencesModal.setAttribute("aria-hidden", "true");
-          document.body.classList.remove("modal-open");
+  function closePreferencesModal(fromPopState = false) {
+      if (!dom.preferencesModal || !dom.preferencesModal.classList.contains("is-open")) return;
+      if (!fromPopState && history.state && history.state.modal === "preferences") {
+          history.back();
+          return;
       }
+      dom.preferencesModal.classList.remove("is-open");
+      dom.preferencesModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
   }
 
   function initEvents() {
@@ -1316,6 +1378,7 @@
       dom.mobileBackdrop.addEventListener("click", closeMobileDrawer);
       dom.watchLaterShortcut.addEventListener("click", () => {
           state.view = "watch-later";
+          pushNavigationState();
           renderAll();
           if (window.matchMedia("(max-width: 820px)").matches) closeMobileDrawer();
       });
@@ -1337,6 +1400,7 @@
                       state.category = "All Topics";
                   }
                   state.visibleCount = PAGE_SIZE;
+                  pushNavigationState();
                   renderAll();
                   window.scrollTo({ top: 0, behavior: "smooth" });
               }
@@ -1429,10 +1493,11 @@
           state.view = "home";
           state.channel = "All Channels";
           state.category = "All Topics";
+          pushNavigationState();
           renderAll();
       });
 
-      dom.closePlayerButton.addEventListener("click", closePlayer);
+      dom.closePlayerButton.addEventListener("click", () => closePlayer(false));
       dom.playerDialog.addEventListener("click", event => {
           const recommendationButton = event.target.closest("[data-recommendation-id]");
           if (recommendationButton) {
@@ -1441,7 +1506,7 @@
       });
       dom.playerDialog.addEventListener("error", handleThumbnailErrors, true);
       dom.playerModal.addEventListener("click", event => {
-          if (event.target === dom.playerModal) closePlayer();
+          if (event.target === dom.playerModal) closePlayer(false);
       });
       dom.playerSaveButton.addEventListener("click", () => {
           if (state.currentVideo) toggleWatchLater(state.currentVideo.id);
@@ -1453,6 +1518,46 @@
 
       window.addEventListener("resize", () => {
           if (window.matchMedia("(min-width: 821px)").matches && state.mobileDrawerOpen) closeMobileDrawer();
+      });
+
+      // Browser & Mobile Hardware Back-Press Navigation
+      window.addEventListener("popstate", event => {
+          // 1. Close video player modal if open
+          if (dom.playerModal && dom.playerModal.classList.contains("is-open")) {
+              closePlayer(true);
+              return;
+          }
+
+          // 2. Close preferences modal if open
+          if (dom.preferencesModal && dom.preferencesModal.classList.contains("is-open")) {
+              closePreferencesModal(true);
+              return;
+          }
+
+          // 3. Close mobile drawer if open
+          if (state.mobileDrawerOpen) {
+              closeMobileDrawer(true);
+              return;
+          }
+
+          // 4. Restore state if history state is present
+          if (event.state && (event.state.view || event.state.channel || event.state.category)) {
+              applyNavigationState(event.state);
+              return;
+          }
+
+          // 5. If reached root state with active filters or sub-view, revert to home
+          if (state.channel !== "All Channels" || state.category !== "All Topics" || state.query || state.view !== "home") {
+              state.view = "home";
+              state.channel = "All Channels";
+              state.category = "All Topics";
+              state.query = "";
+              if (dom.searchInput) dom.searchInput.value = "";
+              if (dom.clearSearch) dom.clearSearch.classList.remove("visible");
+              state.visibleCount = PAGE_SIZE;
+              renderAll();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+          }
       });
   }
 
@@ -1492,6 +1597,7 @@
       configureGithubLink();
       initEvents();
       renderAll();
+      history.replaceState(getCurrentNavSnapshot(), "");
 
       // If first-time visitor, present the onboarding customization modal
       if (!userPreferences.onboarded) {
