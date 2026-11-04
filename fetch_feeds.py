@@ -95,6 +95,11 @@ def fetch_url(url):
         return response.read().decode("utf-8", errors="ignore")
 
 
+def is_valid_video_id(vid):
+    """Validates that an ID is a genuine 11-char YouTube video ID, not a playlist."""
+    return bool(vid and len(vid) == 11 and not vid.startswith(('PL', 'OL', 'FL')) and re.match(r'^[a-zA-Z0-9_-]{11}$', vid))
+
+
 def parse_rss_feed(xml_content, channel_meta):
     """Parses Atom/RSS XML string from YouTube into structured video dictionaries."""
     videos = []
@@ -109,7 +114,7 @@ def parse_rss_feed(xml_content, channel_meta):
         thumb_el = entry.find("media:group/media:thumbnail", NAMESPACES)
 
         video_id = video_id_el.text.strip() if video_id_el is not None and video_id_el.text else None
-        if not video_id:
+        if not video_id or not is_valid_video_id(video_id):
             continue
 
         title = title_el.text.strip() if title_el is not None and title_el.text else "Untitled"
@@ -168,7 +173,7 @@ def extract_from_channel_page(html_content, channel_meta):
                 cid = lvm.get("contentId")
                 meta = lvm.get("metadata", {}).get("lockupMetadataViewModel", {})
                 title = meta.get("title", {}).get("content", "")
-                if cid and title:
+                if cid and title and is_valid_video_id(cid):
                     found.append({
                         "id": cid,
                         "title": title,
@@ -184,7 +189,7 @@ def extract_from_channel_page(html_content, channel_meta):
                 vr = obj["videoRenderer"]
                 vid = vr.get("videoId")
                 title = vr.get("title", {}).get("runs", [{}])[0].get("text", "")
-                if vid and title:
+                if vid and title and is_valid_video_id(vid):
                     found.append({
                         "id": vid,
                         "title": title,

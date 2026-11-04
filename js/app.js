@@ -482,7 +482,11 @@
       return false;
   }
 
-  window.onThumbError = function(imgElement, videoId) {
+  function isValidVideoId(id) {
+    return Boolean(id && typeof id === "string" && id.length === 11 && !id.startsWith("PL") && !id.startsWith("OL") && !id.startsWith("FL") && /^[a-zA-Z0-9_-]{11}$/.test(id));
+}
+
+window.onThumbError = function(imgElement, videoId) {
       if (videoId) brokenThumbnails.add(videoId);
       const card = imgElement.closest(".video-card, .recommendation-card");
       if (card) {
@@ -1228,14 +1232,77 @@
       dom.playerSaveButton.setAttribute("aria-pressed", String(saved));
   }
 
+  let currentRecommendationCandidates = [];
+
+  function getNextRecommendation(currentVideoId) {
+      const existingIds = new Set(
+          Array.from(dom.recommendationGrid.querySelectorAll("[data-recommendation-id]"))
+              .map(btn => btn.dataset.recommendationId)
+      );
+      existingIds.add(currentVideoId);
+
+      for (const item of currentRecommendationCandidates) {
+          if (!existingIds.has(item.id) && !brokenThumbnails.has(item.id) && isValidVideoId(item.id)) {
+              existingIds.add(item.id);
+              return item;
+          }
+      }
+      return null;
+  }
+
+  function createRecommendationCardHTML(video, currentVideoId) {
+      return `
+  <button class="recommendation-card" type="button"
+    data-recommendation-id="${escapeHTML(video.id)}"
+    aria-label="Play ${escapeHTML(video.title)} by ${escapeHTML(video.channel)}">
+    <span class="recommendation-thumb">
+      <img src="https://i.ytimg.com/vi/${encodeURIComponent(video.id)}/hqdefault.jpg"
+        alt="" loading="lazy" decoding="async"
+        onload="window.onRecThumbLoad(this, '${escapeHTML(video.id)}', '${escapeHTML(currentVideoId)}')"
+        onerror="window.onRecThumbError(this, '${escapeHTML(video.id)}', '${escapeHTML(currentVideoId)}')">
+      <span class="recommendation-play" aria-hidden="true">${icon("play")}</span>
+    </span>
+    <span class="recommendation-copy">
+      <span class="recommendation-title">${escapeHTML(video.title)}</span>
+      <span class="recommendation-meta">${escapeHTML(video.channel)} · ${escapeHTML(video.category)}</span>
+    </span>
+  </button>`;
+  }
+
+  window.onRecThumbError = function(imgElement, videoId, currentVideoId) {
+      if (videoId) brokenThumbnails.add(videoId);
+      const card = imgElement.closest(".recommendation-card");
+      if (!card) return;
+
+      const replacement = getNextRecommendation(currentVideoId);
+      if (replacement) {
+          const temp = document.createElement("div");
+          temp.innerHTML = createRecommendationCardHTML(replacement, currentVideoId).trim();
+          const newCard = temp.firstElementChild;
+          if (newCard) {
+              card.replaceWith(newCard);
+              return;
+          }
+      }
+      card.remove();
+  };
+
+  window.onRecThumbLoad = function(imgElement, videoId, currentVideoId) {
+      // YouTube returns a 120x90 placeholder when a video is deleted, private, or unavailable
+      if (imgElement.naturalWidth <= 120 && imgElement.naturalHeight <= 90) {
+          window.onRecThumbError(imgElement, videoId, currentVideoId);
+      }
+  };
+
   function renderRecommendations(currentVideo) {
       if (!currentVideo) {
           dom.recommendationGrid.innerHTML = "";
+          currentRecommendationCandidates = [];
           return;
       }
 
-      const recommendations = VIDEOS
-          .filter(video => video.id !== currentVideo.id)
+      currentRecommendationCandidates = VIDEOS
+          .filter(video => video.id !== currentVideo.id && isValidVideoId(video.id) && !brokenThumbnails.has(video.id))
           .map(video => ({
               video,
               score: (video.category === currentVideo.category ? 2 : 0) +
@@ -1245,29 +1312,18 @@
               if (b.score !== a.score) return b.score - a.score;
               return new Date(b.video.publishedAt) - new Date(a.video.publishedAt);
           })
-          .slice(0, 4)
           .map(item => item.video);
 
-      if (!recommendations.length) {
+      const initial = currentRecommendationCandidates.slice(0, 4);
+
+      if (!initial.length) {
           dom.recommendationGrid.innerHTML = '<div class="recommendations-empty">Add more videos to the local demo dataset to see suggestions here.</div>';
           return;
       }
 
-      dom.recommendationGrid.innerHTML = recommendations.map(video => `
-  <button class="recommendation-card" type="button"
-    data-recommendation-id="${escapeHTML(video.id)}"
-    aria-label="Play ${escapeHTML(video.title)} by ${escapeHTML(video.channel)}">
-    <span class="recommendation-thumb">
-      <img src="https://i.ytimg.com/vi/${encodeURIComponent(video.id)}/hqdefault.jpg"
-        alt="" loading="lazy" decoding="async">
-      <span class="recommendation-play" aria-hidden="true">${icon("play")}</span>
-    </span>
-    <span class="recommendation-copy">
-      <span class="recommendation-title">${escapeHTML(video.title)}</span>
-      <span class="recommendation-meta">${escapeHTML(video.channel)} · ${escapeHTML(video.category)}</span>
-    </span>
-  </button>
-`).join("");
+      dom.recommendationGrid.innerHTML = initial
+          .map(video => createRecommendationCardHTML(video, currentVideo.id))
+          .join("");
   }
 
   function toggleDescription() {
@@ -2022,7 +2078,7 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
           if (response.ok) {
               const data = await response.json();
               if (Array.isArray(data) && data.length > 0) {
-                  VIDEOS = data;
+                  VIDEOS = data.filter(v => isValidVideoId(v.id));
                   return;
               }
           }
@@ -2030,7 +2086,7 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
           console.info("Direct fetch of videos.json unavailable (e.g. file:// protocol restriction); using videos.js fallback.");
       }
       if (window.VIDEOS_DATA && Array.isArray(window.VIDEOS_DATA)) {
-          VIDEOS = window.VIDEOS_DATA;
+          VIDEOS = window.VIDEOS_DATA.filter(v => isValidVideoId(v.id));
       }
   }
 

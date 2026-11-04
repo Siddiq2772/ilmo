@@ -1,3 +1,32 @@
+/* Global Green Scrollbars & Theme Highlights */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(16, 185, 129, 0.45) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.35);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
  /* =========================================================
 1. DESIGN TOKENS + RESET
 ========================================================= */
@@ -461,7 +490,7 @@ All icons are local inline SVG symbols; no icon library.
      background: var(--sidebar-bg);
      border-right: 1px solid var(--sidebar-border);
      scrollbar-width: thin;
-     scrollbar-color: var(--border) transparent;
+     scrollbar-color: rgba(16, 185, 129, 0.45) transparent;
      transition: transform .25s var(--ease), width .25s var(--ease);
  }
 
@@ -621,7 +650,7 @@ All icons are local inline SVG symbols; no icon library.
      align-items: center;
      gap: 7px;
      margin-bottom: 8px;
-     color: #6ee7b7;
+     color: var(--accent);
      font-size: 10px;
      font-weight: 750;
      letter-spacing: .12em;
@@ -666,12 +695,19 @@ All icons are local inline SVG symbols; no icon library.
      align-items: center;
      gap: 7px;
      padding: 8px 11px;
-     color: #b6c5d6;
-     background: rgba(30, 41, 59, .8);
+     color: var(--text-soft);
+     background: var(--surface-raised);
      border: 1px solid var(--border);
      border-radius: 999px;
      font-size: 11px;
      white-space: nowrap;
+     transition: all 0.18s ease;
+ }
+
+ .quiet-pill:hover {
+     color: var(--accent);
+     border-color: var(--accent);
+     background: rgba(16, 185, 129, 0.08);
  }
 
  .quiet-pill .icon {
@@ -686,9 +722,10 @@ All icons are local inline SVG symbols; no icon library.
  .filter-panel {
      margin-bottom: 22px;
      padding: 17px 18px 15px;
-     background: rgba(17, 28, 49, .8);
-     border: 1px solid rgba(51, 65, 85, .8);
+     background: var(--surface);
+     border: 1px solid var(--border);
      border-radius: var(--radius-md);
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
  }
 
  .filter-row {
@@ -701,7 +738,7 @@ All icons are local inline SVG symbols; no icon library.
  .filter-row+.filter-row {
      margin-top: 13px;
      padding-top: 13px;
-     border-top: 1px solid rgba(51, 65, 85, .55);
+     border-top: 1px solid var(--border);
  }
 
  .filter-label {
@@ -741,13 +778,14 @@ All icons are local inline SVG symbols; no icon library.
      font-size: 11px;
      font-weight: 600;
      white-space: nowrap;
-     transition: color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease;
+     transition: color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
  }
 
  .filter-chip:hover {
-     color: var(--text);
-     background: var(--surface-hover);
+     color: var(--accent);
+     background: rgba(16, 185, 129, 0.08);
      border-color: var(--accent);
+     box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
  }
 
  .filter-chip:active {
@@ -755,10 +793,10 @@ All icons are local inline SVG symbols; no icon library.
  }
 
  .filter-chip.active {
-     color: var(--text);
-     background: rgba(16, 185, 129, .15);
-     border-color: var(--accent);
-     box-shadow: inset 0 0 0 1px var(--accent);
+     color: #ffffff;
+     background: linear-gradient(135deg, #059669, #10b981);
+     border-color: #059669;
+     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
  }
 
  .toolbar {
@@ -860,7 +898,7 @@ All icons are local inline SVG symbols; no icon library.
      aspect-ratio: 16 / 9;
      overflow: hidden;
      padding: 0;
-     background: #17243a;
+     background: var(--surface-raised);
      border: 1px solid rgba(148, 163, 184, .14);
      border-radius: 12px;
      cursor: pointer;
@@ -967,18 +1005,19 @@ All icons are local inline SVG symbols; no icon library.
  }
 
  .channel-avatar {
-     width: 35px;
+      width: 35px;
      height: 35px;
      flex: 0 0 35px;
      display: grid;
      place-items: center;
-     color: #a7f3d0;
-     background: linear-gradient(145deg, #1b4350, #1d3147);
-     border: 1px solid rgba(45, 212, 191, .18);
+     color: #ffffff;
+     background: linear-gradient(135deg, #059669, #10b981);
+     border: 1px solid rgba(16, 185, 129, .35);
      border-radius: 50%;
      font-size: 10px;
      font-weight: 800;
      letter-spacing: -.03em;
+     box-shadow: 0 2px 8px rgba(16, 185, 129, .25);
  }
 
  .card-copy {
@@ -1007,7 +1046,7 @@ All icons are local inline SVG symbols; no icon library.
  }
 
  .title-button:hover {
-     color: #a7f3d0;
+     color: var(--accent);
  }
 
  .card-channel {
@@ -1038,12 +1077,19 @@ All icons are local inline SVG symbols; no icon library.
      display: inline-flex;
      align-items: center;
      padding: 2px 7px;
-     color: #9fb2c6;
-     background: rgba(38, 52, 73, .78);
-     border: 1px solid rgba(71, 85, 105, .48);
+     color: var(--text-soft);
+     background: var(--surface-raised);
+     border: 1px solid var(--border);
      border-radius: 5px;
      font-size: 9px;
      font-weight: 620;
+     transition: all 0.18s ease;
+ }
+
+ .category-tag:hover {
+     color: var(--accent);
+     border-color: rgba(16, 185, 129, 0.45);
+     background: rgba(16, 185, 129, 0.1);
  }
 
  .save-button {
@@ -1063,9 +1109,9 @@ All icons are local inline SVG symbols; no icon library.
  }
 
  .save-button:hover {
-     color: #a7f3d0;
-     background: rgba(16, 185, 129, .1);
-     border-color: rgba(16, 185, 129, .2);
+     color: var(--accent);
+     background: rgba(16, 185, 129, .14);
+     border-color: rgba(16, 185, 129, .35);
  }
 
  .save-button:active {
@@ -1073,11 +1119,11 @@ All icons are local inline SVG symbols; no icon library.
  }
 
  .save-button.saved {
-     color: #6ee7b7;
+     color: var(--accent);
  }
 
  .save-button.saved .icon {
-     fill: rgba(16, 185, 129, .2);
+     fill: rgba(16, 185, 129, .25);
  }
 
  /* =========================================================
@@ -1091,8 +1137,8 @@ All icons are local inline SVG symbols; no icon library.
      justify-content: center;
      padding: 45px 20px;
      text-align: center;
-     background: rgba(17, 28, 49, .48);
-     border: 1px dashed #34465e;
+     background: var(--surface);
+     border: 1px dashed var(--border);
      border-radius: var(--radius-lg);
  }
 
@@ -1176,7 +1222,7 @@ All icons are local inline SVG symbols; no icon library.
      margin-top: 45px;
      padding: 17px 2px 0;
      color: var(--muted-2);
-     border-top: 1px solid rgba(51, 65, 85, .58);
+     border-top: 1px solid var(--border);
      font-size: 10px;
  }
 
@@ -1227,7 +1273,7 @@ All icons are local inline SVG symbols; no icon library.
      transform: translateY(13px) scale(.985);
      transition: transform .28s var(--ease);
      scrollbar-width: thin;
-     scrollbar-color: var(--border) transparent;
+     scrollbar-color: rgba(16, 185, 129, 0.45) transparent;
  }
 
  .player-modal.is-open .player-dialog {
@@ -1276,9 +1322,9 @@ clickable even when the YouTube player itself has keyboard focus. */
      flex: 0 0 38px;
      display: grid;
      place-items: center;
-     color: #f8fafc;
-     background: #263449;
-     border: 1px solid #52647b;
+      color: var(--text);
+     background: var(--surface-raised);
+     border: 1px solid var(--border);
      border-radius: 11px;
      box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
      cursor: pointer;
@@ -1384,10 +1430,10 @@ clickable even when the YouTube player itself has keyboard focus. */
      width: 25px;
      height: 25px;
      display: grid;
-     place-items: center;
-     color: #a7f3d0;
-     background: #1d3c49;
-     border: 1px solid rgba(45, 212, 191, .2);
+      place-items: center;
+     color: #ffffff;
+     background: linear-gradient(135deg, #059669, #10b981);
+     border: 1px solid rgba(16, 185, 129, .35);
      border-radius: 50%;
      font-size: 9px;
      font-weight: 800;
@@ -1714,7 +1760,7 @@ same theater, rather than using YouTube's recommendation overlays. */
          width: min(290px, calc(100vw - 54px));
          height: calc(100vh - var(--header-height));
          padding: 22px 14px;
-         background: #111c31;
+         background: var(--sidebar-bg);
          border-right: 1px solid var(--border);
          box-shadow: 20px 0 45px rgba(0, 0, 0, .3);
          transform: translateX(-110%);
@@ -2371,15 +2417,16 @@ same theater, rather than using YouTube's recommendation overlays. */
 
 .pref-close-btn {
     flex-shrink: 0;
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(71, 85, 105, 0.4);
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
     border-radius: 10px;
-    color: #cbd5e1;
+    color: var(--text);
 }
 
 .pref-close-btn:hover {
-    background: rgba(51, 65, 85, 0.9);
-    color: #fff;
+    background: rgba(16, 185, 129, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .pref-body {
@@ -2647,7 +2694,7 @@ same theater, rather than using YouTube's recommendation overlays. */
     gap: 12px;
     margin-top: 26px;
     padding-top: 18px;
-    border-top: 1px solid #24344d;
+    border-top: 1px solid var(--border);
 }
 
 .pref-save-btn {
@@ -2662,11 +2709,11 @@ same theater, rather than using YouTube's recommendation overlays. */
     align-items: center;
     gap: 6px;
     height: 34px;
-    padding: 0 12px;
-    background: #16243a;
-    border: 1px solid #2c3e58;
+     padding: 0 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    color: #cbd5e1;
+    color: var(--text);
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
@@ -2674,9 +2721,10 @@ same theater, rather than using YouTube's recommendation overlays. */
 }
 
 .shuffle-btn:hover {
-    background: #1e3352;
-    border-color: #34d399;
-    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.12);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
 }
 
 .shuffle-btn:active {
@@ -2686,15 +2734,16 @@ same theater, rather than using YouTube's recommendation overlays. */
 .pref-pill-btn {
     cursor: pointer;
     transition: all 0.18s ease;
-    border: 1px solid rgba(71, 85, 105, 0.4);
-    background: rgba(30, 41, 59, 0.6);
-    color: #cbd5e1;
+    border: 1px solid var(--border);
+    background: var(--surface-raised);
+    color: var(--text-soft);
 }
 
 .pref-pill-btn:hover {
-    background: rgba(52, 211, 153, 0.15);
-    border-color: #34d399;
-    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
 }
 
 /* =========================================================
@@ -2792,13 +2841,13 @@ same theater, rather than using YouTube's recommendation overlays. */
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 2px 8px;
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(71, 85, 105, 0.4);
+     padding: 2px 8px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
-    color: #cbd5e1;
+    color: var(--text-soft);
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2899,22 +2948,22 @@ same theater, rather than using YouTube's recommendation overlays. */
 }
 
 .req-type-btn:hover {
-    color: #e2e8f0;
-    background: rgba(30, 41, 59, 0.4);
+    color: var(--text);
+    background: var(--surface-raised);
 }
 
 .req-type-btn.active[data-type="add"] {
-    background: #192a40;
-    color: #6ee7b7;
-    border-color: rgba(52, 211, 153, 0.45);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.2);
 }
 
 .req-type-btn.active[data-type="remove"] {
-    background: #2a1b24;
-    color: #fca5a5;
-    border-color: rgba(248, 113, 113, 0.45);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: rgba(239, 68, 68, 0.12);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.45);
+    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.2);
 }
 
 .req-form-group {
@@ -2972,17 +3021,17 @@ same theater, rather than using YouTube's recommendation overlays. */
     align-items: center;
     gap: 9px;
     padding: 10px 12px;
-    background: rgba(22, 36, 58, 0.55);
-    border: 1px solid rgba(51, 65, 85, 0.55);
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
     border-radius: 9px;
     font-size: 11.5px;
-    color: #94a3b8;
+    color: var(--text-soft);
     line-height: 1.45;
     margin-top: 4px;
 }
 
 .req-dest-notice code {
-    background: rgba(11, 19, 34, 0.85);
+    background: var(--surface);
     padding: 2px 6px;
     border-radius: 4px;
     color: #34d399;
