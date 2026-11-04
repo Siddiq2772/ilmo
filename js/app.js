@@ -1373,6 +1373,11 @@ window.onThumbError = function(imgElement, videoId) {
   }
 
   function navigateFromSidebar(button) {
+      if (button.id === "installAppSidebar" || button.classList.contains("install-app-btn") || button.dataset.action === "install-app") {
+          closeMobileDrawer();
+          openInstallModal();
+          return;
+      }
       if (button.id === "sidebarSettings" || button.dataset.action === "settings") {
           closeMobileDrawer();
           openPreferencesModal(false);
@@ -1649,6 +1654,62 @@ window.onThumbError = function(imgElement, videoId) {
           if (dom.reqModalTitle) dom.reqModalTitle.textContent = "Report or Request Removal";
           if (dom.reqModalSubtitle) dom.reqModalSubtitle.textContent = "Help keep the portal pure and authentic. Report channels that contain non-Islamic, musical, or inappropriate content.";
           if (dom.reqReason) dom.reqReason.placeholder = "Please explain why this channel should be removed (e.g. not Islamic, contains music, inactive, copyright)...";
+      }
+  }
+
+  let deferredInstallPrompt = null;
+
+  window.addEventListener("beforeinstallprompt", event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      if (dom.btnTriggerNativeInstall) {
+          dom.btnTriggerNativeInstall.innerHTML = `<svg class="icon"><use href="#i-download" /></svg><span>Install App Now</span>`;
+      }
+  });
+
+  window.addEventListener("appinstalled", () => {
+      deferredInstallPrompt = null;
+      closeInstallModal(false);
+      showToast("ILMO was successfully installed as an app!");
+  });
+
+  async function openInstallModal() {
+      const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+      if (isStandalone) {
+          showToast("ILMO is already running as an installed app!");
+          return;
+      }
+
+      // If browser has the native PWA install prompt ready, prompt directly!
+      if (deferredInstallPrompt) {
+          try {
+              deferredInstallPrompt.prompt();
+              const choice = await deferredInstallPrompt.userChoice;
+              if (choice && choice.outcome === "accepted") {
+                  deferredInstallPrompt = null;
+                  return;
+              }
+          } catch (e) {
+              console.warn("Native install prompt error:", e);
+          }
+      }
+
+      // Always open the install modal for clear instructions and guidance
+      if (dom.installModal) {
+          dom.installModal.classList.add("is-open");
+          dom.installModal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+          if (dom.installDialog) dom.installDialog.focus();
+      }
+  }
+
+  function closeInstallModal(restoreFocus = true) {
+      if (!dom.installModal || !dom.installModal.classList.contains("is-open")) return;
+      dom.installModal.classList.remove("is-open");
+      dom.installModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      if (restoreFocus && dom.installAppHeader) {
+          dom.installAppHeader.focus();
       }
   }
 
@@ -2017,7 +2078,10 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
           dom.installAppHeader.addEventListener("click", openInstallModal);
       }
       if (dom.installAppSidebar) {
-          dom.installAppSidebar.addEventListener("click", openInstallModal);
+          dom.installAppSidebar.addEventListener("click", () => {
+              closeMobileDrawer();
+              openInstallModal();
+          });
       }
       if (dom.installCloseBtn) {
           dom.installCloseBtn.addEventListener("click", () => closeInstallModal(true));
