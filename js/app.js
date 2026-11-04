@@ -87,6 +87,9 @@
       prefShuffle: $("#prefShuffle"),
       prefSaveBtn: $("#prefSaveBtn"),
       prefResetBtn: $("#prefResetBtn"),
+      prefThemeGrid: $("#prefThemeGrid"),
+      themeToggle: $("#themeToggle"),
+      themeLabel: $("#themeLabel"),
       settingsShortcut: $("#settingsShortcut"),
       sidebarSettings: $("#sidebarSettings"),
       prefBadgeBtn: $("#prefBadgeBtn"),
@@ -160,7 +163,8 @@
       onboarded: false,
       language: "all",
       audience: "adult",
-      shuffle: true
+      shuffle: true,
+      theme: "system"
   };
   let userPreferences = { ...DEFAULT_PREFERENCES };
 
@@ -173,7 +177,8 @@
               onboarded: Boolean(parsed.onboarded),
               language: parsed.language || "all",
               audience: parsed.audience === "kids" ? "kids" : "adult",
-              shuffle: parsed.shuffle !== false
+              shuffle: parsed.shuffle !== false,
+              theme: parsed.theme || "system"
           };
       } catch (e) {
           return { ...DEFAULT_PREFERENCES };
@@ -205,6 +210,36 @@
           const langStr = langLabels[userPreferences.language] || "All Languages";
           const modeStr = userPreferences.audience === "kids" ? "Kids & Family Mode" : "Adult Mode";
           dom.prefBadgeText.textContent = `${langStr} • ${modeStr}`;
+      }
+  }
+
+  function applyTheme(themeName = userPreferences.theme || "system") {
+      const isSystem = themeName === "system";
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const effectiveTheme = isSystem ? (prefersDark ? "dark" : "light") : themeName;
+
+      document.documentElement.setAttribute("data-theme", effectiveTheme);
+      document.documentElement.setAttribute("data-theme-setting", themeName);
+
+      const metaTheme = $('meta[name="theme-color"]');
+      if (metaTheme) {
+          metaTheme.setAttribute("content", effectiveTheme === "dark" ? "#0f172a" : "#f8fafc");
+      }
+
+      if (dom.themeToggle) {
+          const use = dom.themeToggle.querySelector("use");
+          if (use) {
+              use.setAttribute("href", effectiveTheme === "dark" ? "#i-sun" : "#i-moon");
+          }
+          const label = themeName === "system" ? "Auto" : (themeName === "dark" ? "Dark" : "Light");
+          dom.themeToggle.setAttribute("title", `Theme: ${label} (${effectiveTheme} active) — click to toggle`);
+          if (dom.themeLabel) dom.themeLabel.textContent = label;
+      }
+
+      if (dom.prefThemeGrid) {
+          $$(".theme-card", dom.prefThemeGrid).forEach(c => {
+              c.classList.toggle("active", c.dataset.theme === themeName);
+          });
       }
   }
 
@@ -361,7 +396,18 @@
 
       saveSavedVideos();
       updateSavedCounts();
-      renderVideos();
+      if (state.view === "watch-later") {
+          invalidateFeedCache();
+          renderVideos(false);
+      } else {
+          // Keep existing video grid intact; just update the bookmark button icon
+          const saveButtons = dom.videoGrid.querySelectorAll(`.save-button[data-id="${videoId}"]`);
+          saveButtons.forEach(btn => {
+              btn.classList.toggle("saved", !wasSaved);
+              btn.setAttribute("aria-pressed", !wasSaved ? "true" : "false");
+              btn.setAttribute("aria-label", `${!wasSaved ? "Remove" : "Save"} ${video.title} ${!wasSaved ? "from" : "to"} Watch Later`);
+          });
+      }
       updatePlayerSaveButton();
 
       showToast(wasSaved ? "Removed from Watch Later" : "Added to Watch Later");
@@ -865,34 +911,78 @@
   </article>`;
   }
 
-  function renderChannels() {
-      const results = filterChannels();
-      const visible = results.slice(0, state.visibleCount);
-      dom.videoGrid.innerHTML = visible.map(createChannelCard).join("");
+  let cachedVideos = null;
+  let cachedChannels = null;
+  let currentTotalMatches = 0;
+  let isFetchingMore = false;
 
-      const countCopy = results.length === 1 ? "1 channel" : `${results.length.toLocaleString()} channels`;
-      dom.resultsCopy.innerHTML = `Showing <strong>${Math.min(visible.length, results.length)} of ${countCopy}</strong> (963 in database) &nbsp;·&nbsp; <button class="channel-suggest-header-btn" type="button" data-action="open-channel-request"><svg class="icon sm"><use href="#i-plus" /></svg><span>Suggest Channel</span></button>`;
+  function invalidateFeedCache() {
+      cachedVideos = null;
+      cachedChannels = null;
+  }
 
-      if (results.length === 0) {
-          dom.emptyStateHost.innerHTML = `
-            <div class="empty-state">
-              <div class="empty-icon">${icon("users")}</div>
-              <h2>No channels found</h2>
-              <p>We couldn't find any channel matching "${escapeHTML(state.query)}". Try searching by another name, topic, or country.</p>
-              <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
-                <button class="secondary-button" type="button" data-action="clear-channel-search">Clear Search</button>
-                <button class="primary-button" type="button" data-action="open-channel-request">Suggest This Channel</button>
-              </div>
-            </div>
-          `;
+  function updateChannelHeader(totalCount, visibleCount) {
+      const countCopy = totalCount === 1 ? "1 channel" : `${totalCount.toLocaleString()} channels`;
+      dom.resultsCopy.innerHTML = `Showing <strong>${Math.min(visibleCount, totalCount)} of ${countCopy}</strong> (963 in database) &nbsp;·&nbsp; <button class="channel-suggest-header-btn" type="button" data-action="open-channel-request"><svg class="icon sm"><use href="#i-plus" /></svg><span>Suggest Channel</span></button>`;
+  }
+
+  function renderChannels(appendOnly = false, prevCount = 0) {
+      if (!cachedChannels || !appendOnly) {
+          cachedChannels = filterChannels();
+      }
+      const results = cachedChannels;
+
+      if (appendOnly) {
+          const nextBatch = results.slice(prevCount, state.visibleCount);
+          if (nextBatch.length > 0) {
+              const html = nextBatch.map(createChannelCard).join("");
+              dom.videoGrid.insertAdjacentHTML("beforeend", html);
+          }
       } else {
-          dom.emptyStateHost.innerHTML = "";
+          const visible = results.slice(0, state.visibleCount);
+          dom.videoGrid.innerHTML = visible.map(createChannelCard).join("");
+
+          if (results.length === 0) {
+              dom.emptyStateHost.innerHTML = `
+                <div class="empty-state">
+                  <div class="empty-icon">${icon("users")}</div>
+                  <h2>No channels found</h2>
+                  <p>We couldn't find any channel matching "${escapeHTML(state.query)}". Try searching by another name, topic, or country.</p>
+                  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+                    <button class="secondary-button" type="button" data-action="clear-channel-search">Clear Search</button>
+                    <button class="primary-button" type="button" data-action="open-channel-request">Suggest This Channel</button>
+                  </div>
+                </div>
+              `;
+          } else {
+              dom.emptyStateHost.innerHTML = "";
+          }
       }
 
+      updateChannelHeader(results.length, Math.min(state.visibleCount, results.length));
       renderLoadMore(results.length, "Channels");
   }
 
+  function loadNextPage() {
+      if (state.view === "channels") {
+          const total = cachedChannels ? cachedChannels.length : 0;
+          if (state.visibleCount < total) {
+              const prev = state.visibleCount;
+              state.visibleCount = Math.min(state.visibleCount + PAGE_SIZE, total);
+              renderChannels(true, prev);
+          }
+      } else {
+          const total = cachedVideos ? cachedVideos.length : 0;
+          if (state.visibleCount < total) {
+              const prev = state.visibleCount;
+              state.visibleCount = Math.min(state.visibleCount + PAGE_SIZE, total);
+              renderVideos(true, prev);
+          }
+      }
+  }
+
   function renderLoadMore(totalMatches, itemType = "Videos") {
+      currentTotalMatches = totalMatches;
       let loadMoreWrap = document.getElementById("loadMoreWrap");
       if (state.visibleCount < totalMatches) {
           const remaining = totalMatches - state.visibleCount;
@@ -910,20 +1000,22 @@
               dom.videoGrid.after(loadMoreWrap);
 
               document.getElementById("loadMoreButton").addEventListener("click", () => {
-                  state.visibleCount += PAGE_SIZE;
-                  if (state.view === "channels") renderChannels();
-                  else renderVideos();
+                  if (!isFetchingMore) {
+                      isFetchingMore = true;
+                      loadNextPage();
+                      setTimeout(() => { isFetchingMore = false; }, 150);
+                  }
               });
 
-              // Virtual scroll observer to load automatically on scroll
+              // Virtual scroll observer to load automatically on scroll (like YouTube)
               if ("IntersectionObserver" in window) {
                   scrollObserver = new IntersectionObserver(entries => {
-                      if (entries[0].isIntersecting && state.visibleCount < totalMatches) {
-                          state.visibleCount += PAGE_SIZE;
-                          if (state.view === "channels") renderChannels();
-                          else renderVideos();
+                      if (entries[0].isIntersecting && !isFetchingMore && state.visibleCount < currentTotalMatches) {
+                          isFetchingMore = true;
+                          loadNextPage();
+                          setTimeout(() => { isFetchingMore = false; }, 200);
                       }
-                  }, { rootMargin: "300px" });
+                  }, { rootMargin: "400px" });
                   const sentinel = document.getElementById("scrollSentinel");
                   if (sentinel) scrollObserver.observe(sentinel);
               }
@@ -937,12 +1029,25 @@
       }
   }
 
-  function renderVideos() {
-      const results = filterVideos();
-      const visible = results.slice(0, state.visibleCount);
-      dom.videoGrid.innerHTML = visible.map(createVideoCard).join("");
-      renderEmptyState(results);
-      updateResultCount(results, visible.length);
+  function renderVideos(appendOnly = false, prevCount = 0) {
+      if (!cachedVideos || !appendOnly) {
+          cachedVideos = filterVideos();
+      }
+      const results = cachedVideos;
+
+      if (appendOnly) {
+          const nextBatch = results.slice(prevCount, state.visibleCount);
+          if (nextBatch.length > 0) {
+              const html = nextBatch.map((video, idx) => createVideoCard(video, (prevCount + idx) % PAGE_SIZE)).join("");
+              dom.videoGrid.insertAdjacentHTML("beforeend", html);
+          }
+      } else {
+          const visible = results.slice(0, state.visibleCount);
+          dom.videoGrid.innerHTML = visible.map((video, idx) => createVideoCard(video, idx)).join("");
+          renderEmptyState(results);
+      }
+
+      updateResultCount(results, Math.min(state.visibleCount, results.length));
       renderLoadMore(results.length, "Videos");
   }
 
@@ -1014,6 +1119,7 @@
   }
 
   function renderAll() {
+      invalidateFeedCache();
       renderFilterBars();
       updateNavigation();
       updateSavedCounts();
@@ -1026,12 +1132,12 @@
       const toolbarRight = $(".toolbar-right");
       if (state.view === "channels") {
           if (toolbarRight) toolbarRight.style.display = "";
-          renderChannels();
+          renderChannels(false);
       } else if (state.view === "support") {
           renderSupport();
       } else {
           if (toolbarRight) toolbarRight.style.display = "";
-          renderVideos();
+          renderVideos(false);
       }
   }
 
@@ -1426,6 +1532,14 @@
           dom.prefShuffle.checked = userPreferences.shuffle !== false;
       }
 
+      // Mark active theme card
+      const activeTheme = userPreferences.theme || "system";
+      if (dom.prefThemeGrid) {
+          $$(".theme-card", dom.prefThemeGrid).forEach(btn => {
+              btn.classList.toggle("active", btn.dataset.theme === activeTheme);
+          });
+      }
+
       if (dom.preferencesModal) {
           dom.preferencesModal.classList.add("is-open");
           dom.preferencesModal.setAttribute("aria-hidden", "false");
@@ -1573,8 +1687,9 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
   function initEvents() {
       const debouncedSearch = debounce(() => {
           state.visibleCount = PAGE_SIZE;
-          if (state.view === "channels") renderChannels();
-          else renderVideos();
+          invalidateFeedCache();
+          if (state.view === "channels") renderChannels(false);
+          else renderVideos(false);
       }, 160);
 
       dom.searchInput.addEventListener("input", () => {
@@ -1588,8 +1703,9 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
           state.visibleCount = PAGE_SIZE;
           dom.searchInput.value = "";
           dom.clearSearch.classList.remove("visible");
-          if (state.view === "channels") renderChannels();
-          else renderVideos();
+          invalidateFeedCache();
+          if (state.view === "channels") renderChannels(false);
+          else renderVideos(false);
           dom.searchInput.focus();
       });
 
@@ -1606,7 +1722,8 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
       dom.sortSelect.addEventListener("change", () => {
           state.sort = dom.sortSelect.value;
           state.visibleCount = PAGE_SIZE;
-          renderVideos();
+          invalidateFeedCache();
+          renderVideos(false);
       });
 
       dom.videoGrid.addEventListener("click", handleVideoGridClick);
@@ -1658,7 +1775,8 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
               state.sort = "random";
               if (dom.sortSelect) dom.sortSelect.value = "random";
               state.visibleCount = PAGE_SIZE;
-              renderVideos();
+              invalidateFeedCache();
+              renderVideos(false);
               showToast("🎲 Feed randomized for fresh discovery!");
           });
       }
@@ -1670,6 +1788,42 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
               if (!card) return;
               $$(".lang-card", dom.prefLangGrid).forEach(b => b.classList.remove("active"));
               card.classList.add("active");
+          });
+      }
+
+      if (dom.prefThemeGrid) {
+          dom.prefThemeGrid.addEventListener("click", event => {
+              const card = event.target.closest(".theme-card");
+              if (!card) return;
+              $$(".theme-card", dom.prefThemeGrid).forEach(b => b.classList.remove("active"));
+              card.classList.add("active");
+          });
+      }
+
+      if (dom.themeToggle) {
+          dom.themeToggle.addEventListener("click", () => {
+              const current = userPreferences.theme || "system";
+              let next = "light";
+              if (current === "system") {
+                  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                  next = prefersDark ? "light" : "dark";
+              } else if (current === "light") {
+                  next = "dark";
+              } else {
+                  next = "system";
+              }
+              savePreferences({ theme: next });
+              applyTheme(next);
+              showToast(`Theme: ${next === "system" ? "Device Default" : next.charAt(0).toUpperCase() + next.slice(1)}`);
+          });
+      }
+
+      // Live device theme listener
+      if (window.matchMedia) {
+          window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+              if ((userPreferences.theme || "system") === "system") {
+                  applyTheme("system");
+              }
           });
       }
 
@@ -1692,6 +1846,11 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
                       b.classList.toggle("active", b.dataset.lang === "all");
                   });
               }
+              if (dom.prefThemeGrid) {
+                  $$(".theme-card", dom.prefThemeGrid).forEach(b => {
+                      b.classList.toggle("active", b.dataset.theme === "system");
+                  });
+              }
               if (dom.prefAudienceAdult) dom.prefAudienceAdult.checked = true;
               if (dom.prefShuffle) dom.prefShuffle.checked = true;
           });
@@ -1703,13 +1862,17 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
               const selectedLang = activeLangCard ? activeLangCard.dataset.lang : "all";
               const selectedAudience = dom.prefAudienceKids?.checked ? "kids" : "adult";
               const isShuffle = dom.prefShuffle ? dom.prefShuffle.checked : true;
+              const activeThemeCard = $(".theme-card.active", dom.prefThemeGrid);
+              const selectedTheme = activeThemeCard ? activeThemeCard.dataset.theme : "system";
 
               savePreferences({
                   language: selectedLang,
                   audience: selectedAudience,
                   shuffle: isShuffle,
+                  theme: selectedTheme,
                   onboarded: true
               });
+              applyTheme(selectedTheme);
 
               if (isShuffle) {
                   state.sort = "random";
@@ -1876,6 +2039,7 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
       indexVideos(VIDEOS);
       state.saved = loadSavedVideos();
       userPreferences = loadPreferences();
+      applyTheme(userPreferences.theme);
       updatePreferencesUI();
 
       // If user has shuffle enabled, randomize the home feed
@@ -1893,6 +2057,13 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
           window.setTimeout(() => {
               openPreferencesModal(true);
           }, 350);
+      }
+
+      // Register Progressive Web App (PWA) Service Worker for Android install support
+      if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("sw.js").catch(err => {
+              console.info("Service Worker registration skipped or failed:", err);
+          });
       }
   }
 
