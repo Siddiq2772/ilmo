@@ -137,6 +137,11 @@
         <symbol id="i-heart" viewBox="0 0 24 24">
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
         </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+        </symbol>
     </svg>
 
     <header class="site-header">
@@ -199,6 +204,12 @@
                     </svg>
                     <span class="action-label">Watch Later</span>
                     <span class="saved-count" id="savedCount">0</span>
+                </button>
+                <button class="header-action install-app-btn" id="installAppHeader" type="button"
+                    aria-label="Install ILMO App" title="Install ILMO as an App">
+                    <svg class="icon">
+                        <use href="#i-download" />
+                    </svg><span class="action-label">Install App</span>
                 </button>
                 <a class="header-action github-link" id="githubLink" href="#" target="_blank" rel="noopener noreferrer"
                     hidden aria-label="Project on GitHub">
@@ -287,6 +298,17 @@
                         <svg class="icon">
                             <use href="#i-search" />
                         </svg><span>Documentaries & Media</span>
+                    </button>
+                </nav>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-heading">App</div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item install-app-btn" id="installAppSidebar" type="button" title="Install ILMO as an App">
+                        <svg class="icon">
+                            <use href="#i-download" />
+                        </svg><span>Install App</span>
                     </button>
                 </nav>
             </div>
@@ -550,6 +572,54 @@
             <div class="pref-footer">
                 <button class="secondary-button" id="prefResetBtn" type="button">Reset to Defaults</button>
                 <button class="primary-button pref-save-btn" id="prefSaveBtn" type="button">Save & Continue</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Install App Modal -->
+    <div class="pref-modal" id="installModal" aria-hidden="true">
+        <section class="pref-dialog" id="installDialog" role="dialog" aria-modal="true" aria-labelledby="installModalTitle" tabindex="-1">
+            <div class="pref-header">
+                <div>
+                    <span class="pref-kicker"><svg class="icon"><use href="#i-download" /></svg> Mobile & Desktop</span>
+                    <h2 class="pref-title" id="installModalTitle">Install ILMO App</h2>
+                    <p class="pref-subtitle">Install ILMO on your home screen or desktop for a fast, distraction-free experience.</p>
+                </div>
+                <button class="pref-close-btn" id="installCloseBtn" type="button" aria-label="Close modal">
+                    <svg class="icon"><use href="#i-x" /></svg>
+                </button>
+            </div>
+            <div class="pref-body">
+                <div id="nativeInstallPromptWrap" style="text-align: center; margin-bottom: 8px;">
+                    <button class="primary-button" id="btnTriggerNativeInstall" type="button" style="width: 100%; justify-content: center; padding: 12px 18px; font-size: 13.5px;">
+                        <svg class="icon"><use href="#i-download" /></svg>
+                        <span>Install as Web App</span>
+                    </button>
+                </div>
+                <div class="pref-group">
+                    <span class="pref-label">How to add to Home Screen:</span>
+                    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: var(--text-soft); line-height: 1.55;">
+                        <div style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+                            <strong style="color: var(--text);">🤖 Android (Chrome / Edge / Firefox):</strong><br>
+                            Tap your browser menu <strong>(⋮)</strong> and select <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.
+                        </div>
+                        <div style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+                            <strong style="color: var(--text);">🍏 iPhone & iPad (Safari):</strong><br>
+                            Tap the <strong>Share</strong> button (square with arrow) at the bottom, then tap <strong>"Add to Home Screen"</strong>.
+                        </div>
+                        <div style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+                            <strong style="color: var(--text);">💻 PC & Mac (Chrome / Edge):</strong><br>
+                            Click the <strong>Install icon (⊕)</strong> on the right side of the address bar.
+                        </div>
+                    </div>
+                </div>
+                <div class="pref-group" style="margin-top: 4px;">
+                    <span class="pref-label">Download APK Directly:</span>
+                    <a class="secondary-button" href="https://github.com/Siddiq2772/ilmo/releases/tag/v1" target="_blank" rel="noopener noreferrer" style="justify-content: center; gap: 8px; width: 100%; text-decoration: none;">
+                        <svg class="icon sm"><use href="#i-external" /></svg>
+                        <span>Download Standalone Android APK (v1)</span>
+                    </a>
+                </div>
             </div>
         </section>
     </div>

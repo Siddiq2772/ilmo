@@ -113,6 +113,13 @@
       reqSubmitGmail: $("#reqSubmitGmail"),
       reqSubmitEmail: $("#reqSubmitEmail"),
       reqSubmitGithub: $("#reqSubmitGithub"),
+      installModal: $("#installModal"),
+      installDialog: $("#installDialog"),
+      installCloseBtn: $("#installCloseBtn"),
+      installAppHeader: $("#installAppHeader"),
+      installAppSidebar: $("#installAppSidebar"),
+      btnTriggerNativeInstall: $("#btnTriggerNativeInstall"),
+      nativeInstallPromptWrap: $("#nativeInstallPromptWrap"),
       sidebarChannelRequest: $("#sidebarChannelRequest"),
       footerChannelRequest: $("#footerChannelRequest"),
       footerSupportBtn: $("#footerSupportBtn")
@@ -1496,6 +1503,10 @@ window.onThumbError = function(imgElement, videoId) {
       );
 
       if (event.key === "Escape") {
+          if (dom.installModal && dom.installModal.classList.contains("is-open")) {
+              closeInstallModal(false);
+              return;
+          }
           if (dom.channelRequestModal && dom.channelRequestModal.classList.contains("is-open")) {
               closeChannelRequestModal(false);
           } else if (dom.preferencesModal && dom.preferencesModal.classList.contains("is-open")) {
@@ -2002,6 +2013,36 @@ ${reason || (isAdd ? "Please consider adding this beneficial Islamic channel." :
       if (dom.reqSubmitGithub) {
           dom.reqSubmitGithub.addEventListener("click", submitChannelViaGithub);
       }
+      if (dom.installAppHeader) {
+          dom.installAppHeader.addEventListener("click", openInstallModal);
+      }
+      if (dom.installAppSidebar) {
+          dom.installAppSidebar.addEventListener("click", openInstallModal);
+      }
+      if (dom.installCloseBtn) {
+          dom.installCloseBtn.addEventListener("click", () => closeInstallModal(true));
+      }
+      if (dom.installModal) {
+          dom.installModal.addEventListener("click", event => {
+              if (event.target === dom.installModal) closeInstallModal(true);
+          });
+      }
+      if (dom.btnTriggerNativeInstall) {
+          dom.btnTriggerNativeInstall.addEventListener("click", () => {
+              if (deferredInstallPrompt) {
+                  deferredInstallPrompt.prompt();
+                  deferredInstallPrompt.userChoice.then(({ outcome }) => {
+                      if (outcome === "accepted") {
+                          deferredInstallPrompt = null;
+                          closeInstallModal(false);
+                      }
+                  });
+              } else {
+                  showToast("Use your browser's menu (⋮) -> 'Install app'");
+              }
+          });
+      }
+
       if (dom.sidebarChannelRequest) {
           dom.sidebarChannelRequest.addEventListener("click", () => {
               closeMobileDrawer();

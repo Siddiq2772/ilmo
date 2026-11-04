@@ -1,6 +1,23 @@
 # ILMO — Islamic Knowledge Without Distraction
 
-> **A curated, distraction-free portal and Progressive Web App (PWA) for beneficial Islamic lectures, Quran recitations, and reminders.**
+> **A curated, distraction-free portal and mobile app for beneficial Islamic lectures, Quran recitations, and reminders.**
+
+[![Download Android APK](https://img.shields.io/badge/Download-Android%20APK%20(v1)-10B981?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Siddiq2772/ilmo/releases/tag/v1)
+[![GitHub Release](https://img.shields.io/github/v/release/Siddiq2772/ilmo?style=for-the-badge&color=059669)](https://github.com/Siddiq2772/ilmo/releases/tag/v1)
+
+---
+
+## 📱 Mobile App (Android APK)
+
+Download the official standalone Android APK directly from GitHub Releases:
+
+👉 **[Download ILMO v1 Android APK](https://github.com/Siddiq2772/ilmo/releases/tag/v1)**
+
+### Installation on Android:
+1. Tap the download link above to download the APK.
+2. Open the downloaded file from your notification tray or Downloads folder.
+3. If prompted by Android, permit "Install unknown apps" for your browser.
+4. Tap **Install** to enjoy ILMO as a fast, distraction-free app on your home screen.
 
 ---
 

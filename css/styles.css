@@ -463,6 +463,35 @@ All icons are local inline SVG symbols; no icon library.
      display: none;
  }
 
+ .install-app-btn {
+     color: var(--accent);
+     border-color: rgba(16, 185, 129, 0.35);
+     background: rgba(16, 185, 129, 0.08);
+ }
+
+ .install-app-btn:hover {
+     color: #ffffff;
+     background: var(--accent);
+     border-color: var(--accent);
+     box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+ }
+
+ .nav-item.install-app-btn {
+     color: var(--accent);
+     border: 1px solid rgba(16, 185, 129, 0.25);
+     background: rgba(16, 185, 129, 0.06);
+     border-radius: 9px;
+     margin-bottom: 4px;
+     transition: all 0.18s ease;
+ }
+
+ .nav-item.install-app-btn:hover {
+     color: #ffffff;
+     background: var(--accent);
+     border-color: var(--accent);
+     box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+ }
+
  /* =========================================================
 4. APP SHELL + SIDEBAR
 ========================================================= */
@@ -1954,7 +1983,8 @@ same theater, rather than using YouTube's recommendation overlays. */
      }
 
      .header-action .action-label,
-     .github-link span {
+     .github-link span,
+     .install-app-btn span {
          display: none;
      }
 
