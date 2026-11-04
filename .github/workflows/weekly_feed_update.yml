@@ -1,0 +1,42 @@
+name: Weekly Video Feed Ingestion
+
+on:
+  schedule:
+    # Runs every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab anytime
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-videos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ingest latest non-duplicate videos
+        run: node scrape_new_videos.js --all
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git status --porcelain | grep -E 'videos\.(json|js)'; then
+            git add videos.json videos.js
+            git commit -m "chore(data): automated weekly video feed ingestion [skip ci]"
+            git push
+            echo "New videos committed and pushed successfully."
+          else
+            echo "No new videos discovered. Working tree is clean."
+          fi
