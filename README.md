@@ -25,6 +25,9 @@ Download the official standalone Android APK directly from GitHub Releases:
 
 **ILMO** is designed to provide an ad-free, recommendation-trap-free learning environment. Unlike conventional social video platforms, ILMO features:
 
+- **630+ Curated Channels**: Selected scholars, educators, and institutions across 9 topic categories.
+- **20,000+ Videos**: Genuine lectures, Quran tafseer, and reminders without playlist duplicates.
+- **Automated Weekly Ingestion**: Keeps content fresh through scheduled GitHub Actions pipelines.
 - **Distraction-Free Video Theater**: Videos play in a focused local overlay without algorithmic rabbit holes, external recommendations, comments, or autoplay ads.
 - **Progressive Web App (PWA)**: Installable as a standalone app on Android, iOS, Windows, macOS, and ChromeOS.
 - **Adaptive Light & Dark Themes**: Automatic system color scheme detection (`prefers-color-scheme`) with a one-click toggle in the header and preferences modal.
