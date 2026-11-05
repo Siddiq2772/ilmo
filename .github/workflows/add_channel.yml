@@ -1,0 +1,66 @@
+name: Add Channel
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'Channel URL, @handle, or Channel ID (starts with UC...)'
+        required: true
+        type: string
+      category:
+        description: 'Select Category'
+        required: true
+        type: choice
+        default: 'Lectures & Islamic Studies'
+        options:
+          - 'Lectures & Islamic Studies'
+          - 'Quran & Tafseer'
+          - 'Reminders & Spirituality'
+          - 'Dawah & Outreach'
+          - 'Islamic History & Stories'
+          - 'Children & Family'
+          - 'Nasheeds & Islamic Arts'
+          - 'Documentaries & Media'
+          - 'General Islamic'
+      name:
+        description: 'Display Name (optional, auto-detected from YouTube if empty)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  add-channel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Add channel and fetch latest videos
+        run: |
+          CMD_ARGS="\"${{ inputs.channel }}\" --category \"${{ inputs.category }}\""
+          if [ -n "${{ inputs.name }}" ]; then
+            CMD_ARGS="$CMD_ARGS --name \"${{ inputs.name }}\""
+          fi
+          echo "Running: node add_channel.js $CMD_ARGS"
+          eval node add_channel.js $CMD_ARGS
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add channels.json videos.json videos.js channel_ids.txt channel_ids_with_names.txt islam_channels.json islam_channels.csv || true
+          if git diff --staged --quiet; then
+            echo "No changes detected. Working tree clean."
+          else
+            git commit -m "feat(channel): add '${{ inputs.channel }}' via GitHub Actions [skip ci]"
+            git push
+            echo "New channel and videos committed and pushed successfully."
+          fi

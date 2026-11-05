@@ -1,0 +1,43 @@
+name: Remove Channel
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'Channel Name, @handle, or Channel ID (starts with UC...) to remove'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  remove-channel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Remove channel and related videos
+        run: |
+          echo "Removing channel: ${{ inputs.channel }}"
+          node remove_channel.js -y "${{ inputs.channel }}"
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add channels.json videos.json videos.js channel_ids.txt channel_ids_with_names.txt islam_channels.json islam_channels.csv channels_without_uc_id.txt || true
+          if git diff --staged --quiet; then
+            echo "No matching channel or videos were removed."
+          else
+            git commit -m "chore(channel): remove '${{ inputs.channel }}' via GitHub Actions [skip ci]"
+            git push
+            echo "Channel and videos removed and pushed successfully."
+          fi

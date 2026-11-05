@@ -303,21 +303,21 @@ function findChannelInDatabase(query) {
     return null;
 }
 
-async function resolveChannel(input) {
+async function resolveChannel(input, overrideName = '', overrideCategory = '') {
     let raw = input.trim();
     let channelId = extractUCId(raw);
     let handle = '';
-    let name = '';
-    let category = '';
+    let name = overrideName || '';
+    let category = overrideCategory || '';
 
     // Check if channel already exists in channels.json or islam_channels.json
     const localMatch = findChannelInDatabase(raw);
     if (localMatch) {
         console.log(`[Database Match] Found existing channel record: "${localMatch.name}"`);
         if (localMatch.channelId) channelId = localMatch.channelId;
-        name = localMatch.name;
+        if (!name) name = localMatch.name;
         if (localMatch.handle) handle = localMatch.handle;
-        if (localMatch.category) category = localMatch.category;
+        if (!category && localMatch.category) category = localMatch.category;
     }
 
     const handleMatch = raw.match(/@([a-zA-Z0-9_.-]+)/);
@@ -347,7 +347,7 @@ async function resolveChannel(input) {
                 if (hMatch) handle = hMatch[1];
             }
         } catch (e) {
-            console.log(`[Notice] Could not auto-fetch channel page (${e.message}). Proceeding to manual entry.`);
+            console.log(`[Notice] Could not auto-fetch channel page (${e.message}).`);
         }
     }
 
@@ -362,17 +362,25 @@ async function resolveChannel(input) {
         } catch (e) {}
     }
 
-    // Prompt for missing essentials
+    // Prompt for missing essentials (or fallback if non-interactive)
     if (!channelId) {
+        if (!process.stdin.isTTY) {
+            console.error('[ERROR] Could not auto-detect Channel ID (UC...). Pass the UC ID directly.');
+            return { channelId: '', name: '', handle: '', category: '' };
+        }
         channelId = await askQuestion('Could not auto-detect Channel ID. Enter YouTube Channel ID (starts with UC...): ');
         channelId = extractUCId(channelId);
     }
 
     if (!name) {
-        name = await askQuestion('Enter Channel Display Name: ');
+        if (!process.stdin.isTTY) {
+            name = handle ? handle.replace(/^@/, '') : (channelId || 'Islamic Channel');
+        } else {
+            name = await askQuestion('Enter Channel Display Name: ');
+        }
     }
 
-    if (!handle && channelId) {
+    if (!handle && channelId && process.stdin.isTTY) {
         handle = await askQuestion('Enter Channel @handle (optional, press Enter to skip): ');
     }
     if (handle && !handle.startsWith('@')) {
@@ -760,7 +768,24 @@ async function main() {
         return;
     }
 
-    if (!inputUrlOrId) {
+    // Extract optional CLI flags
+    let catIdx = args.findIndex(a => a === '--category' || a === '-c');
+    let cliCategory = '';
+    if (catIdx !== -1 && args[catIdx + 1]) {
+        cliCategory = args[catIdx + 1];
+    }
+
+    let nameIdx = args.findIndex(a => a === '--name' || a === '-n');
+    let cliName = '';
+    if (nameIdx !== -1 && args[nameIdx + 1]) {
+        cliName = args[nameIdx + 1];
+    }
+
+    if (!inputUrlOrId || inputUrlOrId.startsWith('-')) {
+        if (!process.stdin.isTTY) {
+            console.error('[ERROR] No channel identifier provided. Usage: node add_channel.js <url|handle|uc_id> [--category "..."] [--name "..."]');
+            return;
+        }
         console.log('Options:');
         console.log('  1. Enter a Channel URL, @handle, Channel ID, or Name');
         console.log('  2. Type "missing" to fetch videos for all channels with 0 videos in database\n');
@@ -777,7 +802,7 @@ async function main() {
         return;
     }
 
-    const { channelId, name, handle, category: defaultCategory } = await resolveChannel(inputUrlOrId);
+    const { channelId, name, handle, category: defaultCategory } = await resolveChannel(inputUrlOrId, cliName, cliCategory);
 
     if (!channelId) {
         console.error('\n[ERROR] A valid YouTube Channel ID (UC...) is required. Aborted.');
@@ -798,19 +823,23 @@ async function main() {
     const databaseVideos = loadDatabaseVideos();
     const existingChannelVideos = getVideosForChannel(databaseVideos, channelId, name);
 
-    let chosenCategory = defaultCategory;
+    let chosenCategory = cliCategory || defaultCategory;
     if (!chosenCategory) {
-        console.log('\n[2/3] Choose a category for this channel:');
-        CATEGORIES.forEach((cat, idx) => {
-            console.log(`  ${idx + 1}. ${cat}`);
-        });
-
-        const catChoice = await askQuestion(`Select category number (1-${CATEGORIES.length}) [default 9: General Islamic]: `);
-        const catIndex = parseInt(catChoice, 10) - 1;
-        if (catIndex >= 0 && catIndex < CATEGORIES.length) {
-            chosenCategory = CATEGORIES[catIndex];
-        } else {
+        if (!process.stdin.isTTY) {
             chosenCategory = 'General Islamic';
+        } else {
+            console.log('\n[2/3] Choose a category for this channel:');
+            CATEGORIES.forEach((cat, idx) => {
+                console.log(`  ${idx + 1}. ${cat}`);
+            });
+
+            const catChoice = await askQuestion(`Select category number (1-${CATEGORIES.length}) [default 9: General Islamic]: `);
+            const catIndex = parseInt(catChoice, 10) - 1;
+            if (catIndex >= 0 && catIndex < CATEGORIES.length) {
+                chosenCategory = CATEGORIES[catIndex];
+            } else {
+                chosenCategory = 'General Islamic';
+            }
         }
     }
     console.log(`Category: "${chosenCategory}"`);
