@@ -277,7 +277,7 @@ function playBeep(freq = 420, duration = 0.02, volume = 0.05, pitchMod = 1) {
     const audioCtx = getInteractionAudioContext();
     if (!audioCtx) return;
     if (audioCtx.state === 'suspended') {
-        audioCtx.resume().catch(() => { });
+        audioCtx.resume().catch(() => {});
     }
 
     const now = audioCtx.currentTime;
@@ -517,7 +517,7 @@ function toggleSoundEffects() {
     const enabled = !userPreferences.soundEffects;
     if (!enabled) stopScrollSoundLoop();
 
-
+    
     savePreferences({ soundEffects: enabled });
     if (enabled) playInteractionSound("toggle", { force: true });
     showToast(enabled ? "Interaction sounds enabled" : "Interaction sounds muted");
@@ -2525,7 +2525,7 @@ function initEvents() {
                 haptics,
                 onboarded: true
             });
-
+            
             applyTheme(selectedTheme);
 
             if (isShuffle) {
