@@ -185,7 +185,7 @@ const DEFAULT_PREFERENCES = {
     theme: "system",
     soundEffects: true,
     scrollSounds: true,
-    soundVolume: 0.30,
+    soundVolume: 1.0,
     haptics: true
 };
 let userPreferences = { ...DEFAULT_PREFERENCES };
@@ -204,7 +204,7 @@ function loadPreferences() {
             theme: parsed.theme || "system",
             soundEffects: parsed.soundEffects !== false,
             scrollSounds: parsed.scrollSounds !== false,
-            soundVolume: Number.isFinite(savedVolume) ? Math.max(0, Math.min(1, savedVolume)) : DEFAULT_PREFERENCES.soundVolume,
+            soundVolume: Number.isFinite(savedVolume) ? (savedVolume === 0.3 || savedVolume === 0.30 ? 1.0 : Math.max(0, Math.min(1, savedVolume))) : DEFAULT_PREFERENCES.soundVolume,
             haptics: parsed.haptics !== false
         };
     } catch (e) {
@@ -1146,7 +1146,7 @@ function updateNavigation() {
         : state.view === "watch-later"
             ? "Your saved lectures and reminders, ready whenever you are."
             : state.view === "channels"
-                ? "Explore 963 selected Islamic YouTube channels from 41 countries. Click any channel to browse their videos in the portal."
+                ? `Explore ${ALL_CHANNELS.length ? ALL_CHANNELS.length.toLocaleString() : '2,307'} selected Islamic YouTube channels. Click any channel to browse their videos in the portal.`
                 : state.category !== "All Topics"
                     ? `Explore selected videos filed under ${state.category.toLowerCase()}.`
                     : state.channel !== "All Channels"
@@ -1251,6 +1251,7 @@ function renderEmptyState(results) {
 }
 
 function updateResultCount(results, visibleCount) {
+    if (dom.resultsCopy) dom.resultsCopy.classList.remove("has-suggest-btn");
     const total = state.view === "watch-later" ? state.saved.size : VIDEOS.length;
     const shown = visibleCount !== undefined ? Math.min(visibleCount, results.length) : results.length;
     if (state.view === "watch-later") {
@@ -1346,8 +1347,10 @@ function invalidateFeedCache() {
 }
 
 function updateChannelHeader(totalCount, visibleCount) {
+    if (dom.resultsCopy) dom.resultsCopy.classList.add("has-suggest-btn");
     const countCopy = totalCount === 1 ? "1 channel" : `${totalCount.toLocaleString()} channels`;
-    dom.resultsCopy.innerHTML = `Showing <strong>${Math.min(visibleCount, totalCount)} of ${countCopy}</strong> (963 in database) &nbsp;·&nbsp; <button class="channel-suggest-header-btn" type="button" data-action="open-channel-request"><svg class="icon sm"><use href="#i-plus" /></svg><span>Suggest Channel</span></button>`;
+    const totalInDb = ALL_CHANNELS.length || totalCount;
+    dom.resultsCopy.innerHTML = `Showing <strong>${Math.min(visibleCount, totalCount)} of ${countCopy}</strong> <span class="results-total-note">(${totalInDb.toLocaleString()} in database)</span> &nbsp;·&nbsp; <button class="channel-suggest-header-btn" type="button" data-action="open-channel-request"><svg class="icon sm"><use href="#i-plus" /></svg><span>Suggest Channel</span></button>`;
 }
 
 function renderChannels(appendOnly = false, prevCount = 0) {
@@ -2287,6 +2290,9 @@ function initEvents() {
 
     dom.videoGrid.addEventListener("click", handleVideoGridClick);
     dom.emptyStateHost.addEventListener("click", handleVideoGridClick);
+    if (dom.resultsCopy) {
+        dom.resultsCopy.addEventListener("click", handleVideoGridClick);
+    }
     dom.videoGrid.addEventListener("error", handleThumbnailErrors, true);
 
     dom.menuToggle.addEventListener("click", toggleSidebar);
