@@ -1,36 +1,6 @@
 [
   {
     "id": "",
-    "name": "@Ð£Ð¡Ð¢ÐÐÐÐÐ¨ÐÐ -Ñ2Ñ",
-    "category": "General Islamic",
-    "handle": "@alishersattarov8588",
-    "country": "United States",
-    "subscribers": "607k",
-    "video_count": "15",
-    "channel_url": "https://www.youtube.com/channel/UCTe-eiZ5U2jKYAkKaOb8N1Q"
-  },
-  {
-    "id": "UCw3sNtE0NKfDjI5I3eGvmTQ",
-    "name": "🌍 Beyond Borders Studio",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "39",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCw3sNtE0NKfDjI5I3eGvmTQ"
-  },
-  {
-    "id": "UCgmHOXr7zLR5IvjIQsh_cpw",
-    "name": "🥇 Noor By Hasib",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "1020",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCgmHOXr7zLR5IvjIQsh_cpw"
-  },
-  {
-    "id": "",
     "name": "1st Pillar",
     "category": "Dawah & Outreach",
     "handle": "@1stPillar",
@@ -98,6 +68,16 @@
     "subscribers": "182k",
     "video_count": "933",
     "channel_url": "https://www.youtube.com/channel/UC_R_mftD1FUNCKOq20jI_TA"
+  },
+  {
+    "id": "",
+    "name": "@Ð£Ð¡Ð¢ÐÐÐÐÐ¨ÐÐ -Ñ2Ñ",
+    "category": "General Islamic",
+    "handle": "@alishersattarov8588",
+    "country": "United States",
+    "subscribers": "607k",
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCTe-eiZ5U2jKYAkKaOb8N1Q"
   },
   {
     "id": "UCJENANiqPwNcqRE3X5UIvEQ",
@@ -470,16 +450,6 @@
     "channel_url": "https://www.youtube.com/channel/UCwZqp8-2_b0yYXhZFBcvWqg"
   },
   {
-    "id": "UC9Hmvo0Mv_XpkB6LKx1Wp9Q",
-    "name": "Abu ‘Abdis Salaam Al Juyaanee",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "1790",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UC9Hmvo0Mv_XpkB6LKx1Wp9Q"
-  },
-  {
     "id": "",
     "name": "Abu & Moli",
     "category": "General Islamic",
@@ -650,6 +620,16 @@
     "channel_url": "https://www.youtube.com/channel/UC-IMchcdbrrDqvu5WbekjtQ"
   },
   {
+    "id": "UC9Hmvo0Mv_XpkB6LKx1Wp9Q",
+    "name": "Abu ‘Abdis Salaam Al Juyaanee",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "1790",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UC9Hmvo0Mv_XpkB6LKx1Wp9Q"
+  },
+  {
     "id": "",
     "name": "Abubakr The Muhaajir",
     "category": "Reminders & Spirituality",
@@ -688,16 +668,6 @@
     "subscribers": "6530",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UChp4cimWMnLETeEW_Gk-eWA"
-  },
-  {
-    "id": "",
-    "name": "âð¸ðððððððð âðððð¥ð¤â¡",
-    "category": "Documentaries & Media",
-    "handle": "@everythingabdimalik",
-    "country": "United States",
-    "subscribers": "12.4k",
-    "video_count": "934",
-    "channel_url": "https://www.youtube.com/channel/UCqSBpk2y7ADzmVvvtV67DGA"
   },
   {
     "id": "UCXG8M_4YfmfCFehT3cb_2_A",
@@ -1600,16 +1570,6 @@
     "channel_url": "https://www.youtube.com/channel/UC27gqnPya0EMELWVGKbisvA"
   },
   {
-    "id": "UC-UQ9pRtZ-uhnzfDJzmvnGg",
-    "name": "Alaá El Sayed- Official",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "17600",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UC-UQ9pRtZ-uhnzfDJzmvnGg"
-  },
-  {
     "id": "UCo_zIf9AEVPQ89fWNWMIF0A",
     "name": "Alaa Elsayed",
     "category": "Lectures & Islamic Studies",
@@ -1638,6 +1598,16 @@
     "subscribers": "29900",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCZWmdgBZVgDq6Ovooicj5qg"
+  },
+  {
+    "id": "UC-UQ9pRtZ-uhnzfDJzmvnGg",
+    "name": "Alaá El Sayed- Official",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "17600",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UC-UQ9pRtZ-uhnzfDJzmvnGg"
   },
   {
     "id": "UCxF2MCht9_JuH3-Kwa7ggpg",
@@ -1760,13 +1730,13 @@
     "channel_url": "https://www.youtube.com/channel/UCsREDGnfVpyEmY1JhEWg6qQ"
   },
   {
-    "id": "",
+    "id": "UCNSmh7V8i9bfnytwVT3-5Jw",
     "name": "Ali Ki Voice",
     "category": "Documentaries & Media",
     "handle": "@alikivoice-x2l",
     "country": "India",
     "subscribers": "24.1k",
-    "video_count": "41",
+    "video_count": "3",
     "channel_url": "https://www.youtube.com/channel/UCNSmh7V8i9bfnytwVT3-5Jw"
   },
   {
@@ -1800,14 +1770,14 @@
     "channel_url": "https://www.youtube.com/channel/UCMP7pogb6njxXpRetj-P8Ag"
   },
   {
-    "id": "",
+    "id": "UCOQiSUxfil7ZW-3dVqmpNeg",
     "name": "AlIslamProductions",
     "category": "Documentaries & Media",
     "handle": "@AlIslamProductions",
     "country": "Unknown",
     "subscribers": "20.9k",
-    "video_count": "746",
-    "channel_url": "https://www.youtube.com/channel/UC-4vdSSVuIV_0l_BHWh5QVg"
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCOQiSUxfil7ZW-3dVqmpNeg"
   },
   {
     "id": "",
@@ -1910,14 +1880,14 @@
     "channel_url": "https://www.youtube.com/channel/UCUEgb34cLFue_OxByotH8tg"
   },
   {
-    "id": "",
+    "id": "UCpuZfoVjBKYYG092C0dvXrA",
     "name": "Allama Khadim Hussain Rizvi Official",
     "category": "Documentaries & Media",
     "handle": "@AllamaKhadimHussainRizvi9263",
     "country": "Pakistan",
     "subscribers": "1.18m",
-    "video_count": "2,189",
-    "channel_url": "https://www.youtube.com/@AllamaKhadimHussainRizvi9263"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCpuZfoVjBKYYG092C0dvXrA"
   },
   {
     "id": "",
@@ -3180,14 +3150,14 @@
     "channel_url": "https://www.youtube.com/channel/UC_WnvOu45e2rtdtMi-aHWmQ"
   },
   {
-    "id": "",
+    "id": "UCEOPt2-PWXWeFGajChrtpOg",
     "name": "Borderless Ai",
     "category": "Nasheeds & Islamic Arts",
     "handle": "@BorderlessAiNaat",
     "country": "United States",
     "subscribers": "53.4k",
-    "video_count": "75",
-    "channel_url": "https://www.youtube.com/channel/UC5FuBf7CoYMTY0NLk3wpNQA"
+    "video_count": "5",
+    "channel_url": "https://www.youtube.com/channel/UCEOPt2-PWXWeFGajChrtpOg"
   },
   {
     "id": "UCAjrk9yzQj4Wi8R8Y_6DSDg",
@@ -3680,26 +3650,6 @@
     "channel_url": "https://www.youtube.com/channel/UCtqUiyHVmSGBO_i9aoTZeTA"
   },
   {
-    "id": "",
-    "name": "ð ð¶ðµð¿ð®ð¯ ð ðð¹ðº",
-    "category": "Documentaries & Media",
-    "handle": "@mihrabeilm3837",
-    "country": "India",
-    "subscribers": "98k",
-    "video_count": "15",
-    "channel_url": "https://www.youtube.com/channel/UCjEBVmfdq1gr9jsGp6vc3nA"
-  },
-  {
-    "id": "",
-    "name": "ð°ð¸ð¼ð¯ð Ì",
-    "category": "General Islamic",
-    "handle": "@ISLAMIC_IQUH",
-    "country": "India",
-    "subscribers": "10.9k",
-    "video_count": "269",
-    "channel_url": "https://www.youtube.com/channel/UC06DJhzb-KUi69Np1VB0JdQ"
-  },
-  {
     "id": "UCyUqmn-dFwn8yYvGDeLL68A",
     "name": "Da School zone live",
     "category": "Lectures & Islamic Studies",
@@ -3791,16 +3741,6 @@
   },
   {
     "id": "",
-    "name": "Daily Quran | Recitation",
-    "category": "Quran & Tafseer",
-    "handle": "@DailyQuranRecitation98",
-    "country": "India",
-    "subscribers": "39.2k",
-    "video_count": "239",
-    "channel_url": "https://www.youtube.com/channel/UCLYqZaWVZjbx1gf-l7GDDfQ"
-  },
-  {
-    "id": "",
     "name": "Daily Quran Recitation",
     "category": "Quran & Tafseer",
     "handle": "@QuranRecitation975",
@@ -3818,6 +3758,16 @@
     "subscribers": "19k",
     "video_count": "1,085",
     "channel_url": "https://www.youtube.com/channel/UCceDM3SfCy3Mcg58cHE7Gzg"
+  },
+  {
+    "id": "",
+    "name": "Daily Quran | Recitation",
+    "category": "Quran & Tafseer",
+    "handle": "@DailyQuranRecitation98",
+    "country": "India",
+    "subscribers": "39.2k",
+    "video_count": "239",
+    "channel_url": "https://www.youtube.com/channel/UCLYqZaWVZjbx1gf-l7GDDfQ"
   },
   {
     "id": "",
@@ -4001,16 +3951,6 @@
   },
   {
     "id": "",
-    "name": "Dawah | Ø¯Ø¹ÙØ©",
-    "category": "Dawah & Outreach",
-    "handle": "@myDawah_",
-    "country": "Unknown",
-    "subscribers": "95.1k",
-    "video_count": "15",
-    "channel_url": "https://www.youtube.com/channel/UCRgJjg_KKHViKUP7JZ2PEDw"
-  },
-  {
-    "id": "",
     "name": "Dawah Over Dunya",
     "category": "Dawah & Outreach",
     "handle": "@dawahoverdunya",
@@ -4028,6 +3968,16 @@
     "subscribers": "8",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCiMPYV5eE06jx0ZjVroIZKA"
+  },
+  {
+    "id": "",
+    "name": "Dawah | Ø¯Ø¹ÙØ©",
+    "category": "Dawah & Outreach",
+    "handle": "@myDawah_",
+    "country": "Unknown",
+    "subscribers": "95.1k",
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCRgJjg_KKHViKUP7JZ2PEDw"
   },
   {
     "id": "",
@@ -4071,36 +4021,6 @@
   },
   {
     "id": "",
-    "name": "ðð¡ð¨ð²ðð ðððð¢ðð¢ðð¥",
-    "category": "Documentaries & Media",
-    "handle": "@Shoyeb_Official2.0",
-    "country": "India",
-    "subscribers": "1.13m",
-    "video_count": "999",
-    "channel_url": "https://www.youtube.com/channel/UC7DBM6AhKp4R-uEh0U_mbFQ"
-  },
-  {
-    "id": "",
-    "name": "ðð«ððð¦ðð«",
-    "category": "General Islamic",
-    "handle": "@Dreamer_588",
-    "country": "Unknown",
-    "subscribers": "41.2k",
-    "video_count": "15",
-    "channel_url": "https://www.youtube.com/channel/UCh87ql7TJyQ082LAVIIvPiw"
-  },
-  {
-    "id": "",
-    "name": "ðð°ð°ð³ ðð¢ðºðªð¯ð¨ð´",
-    "category": "General Islamic",
-    "handle": "@Noor_Sayings",
-    "country": "Unknown",
-    "subscribers": "29k",
-    "video_count": "267",
-    "channel_url": "https://www.youtube.com/channel/UCnnju8OMg-8rpjlRAzDFEPA"
-  },
-  {
-    "id": "",
     "name": "DEDICATED2ISLAM",
     "category": "Quran & Tafseer",
     "handle": "@dedicated2islamYT",
@@ -4140,14 +4060,14 @@
     "channel_url": "https://www.youtube.com/channel/UC-sbVH6uyIACoghoRCGBT1A"
   },
   {
-    "id": "",
+    "id": "UCzj0cYYWyX1h8OIp1lwLZPM",
     "name": "Deen Diaries",
     "category": "Reminders & Spirituality",
     "handle": "@DeenDiaries77",
     "country": "United States",
     "subscribers": "50.8k",
     "video_count": "343",
-    "channel_url": "https://www.youtube.com/channel/UCXZ1SEsGr-x8LgDHXmlyQyw"
+    "channel_url": "https://www.youtube.com/channel/UCzj0cYYWyX1h8OIp1lwLZPM"
   },
   {
     "id": "",
@@ -4500,14 +4420,14 @@
     "channel_url": "https://www.youtube.com/channel/UCEFoj-fZuhr1tDAbWAr53Fg"
   },
   {
-    "id": "",
+    "id": "UCbIQbcJEls-lkmVwgHOS30A",
     "name": "Dr Ammaar Saeed",
     "category": "Dawah & Outreach",
     "handle": "@DrAmmaarSaeed",
     "country": "United States",
     "subscribers": "179k",
-    "video_count": "3,875",
-    "channel_url": "https://www.youtube.com/channel/UCDLaEVFNCEW3fhpW4TnhM8A"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCbIQbcJEls-lkmVwgHOS30A"
   },
   {
     "id": "",
@@ -5330,14 +5250,14 @@
     "channel_url": "https://www.youtube.com/channel/UCAwIUYwKRnOsEVptr4u84Sw"
   },
   {
-    "id": "",
+    "id": "UCgyV3eDsDDMnWbT9e6pG80n",
     "name": "Fact by Mazi",
     "category": "General Islamic",
     "handle": "@AmazAli-y7b",
     "country": "Pakistan",
     "subscribers": "12.1k",
     "video_count": "76",
-    "channel_url": "https://www.youtube.com/channel/UCYj5dBpDjz8jRg8jUf507Ag"
+    "channel_url": "https://www.youtube.com/channel/UCgyV3eDsDDMnWbT9e6pG80n"
   },
   {
     "id": "",
@@ -5846,14 +5766,14 @@
     "channel_url": "https://www.youtube.com/channel/UCgKHzCYfpPleevZJgSR3UMA"
   },
   {
-    "id": "",
+    "id": "UCzwlbP97WMQH6VzE1z1_vfg",
     "name": "Fruits Talker",
     "category": "General Islamic",
     "handle": "@fruittalker",
     "country": "Bangladesh",
     "subscribers": "21.1k",
-    "video_count": "415",
-    "channel_url": "https://www.youtube.com/channel/UCF82Akpb33F4uTh7bSrzCjw"
+    "video_count": "6",
+    "channel_url": "https://www.youtube.com/channel/UCzwlbP97WMQH6VzE1z1_vfg"
   },
   {
     "id": "",
@@ -5876,14 +5796,14 @@
     "channel_url": "https://www.youtube.com/channel/UC666R5S7aOxdfrulsXHPLJQ"
   },
   {
-    "id": "",
+    "id": "UCR7ArvSBL3oByMlaIaSJaEg",
     "name": "FUNNY MAX",
     "category": "Documentaries & Media",
     "handle": "@FUNNYMAX-j3",
     "country": "Bangladesh",
     "subscribers": "11.1k",
     "video_count": "142",
-    "channel_url": "https://www.youtube.com/channel/UCLUK9votXz0AtN0oZQIjGyw"
+    "channel_url": "https://www.youtube.com/channel/UCR7ArvSBL3oByMlaIaSJaEg"
   },
   {
     "id": "",
@@ -6066,14 +5986,14 @@
     "channel_url": "https://www.youtube.com/channel/UCamD-LiCVPVt_QrLsrsy3Vw"
   },
   {
-    "id": "",
+    "id": "UCcn9K00eELGpnNkCfAORXhZ",
     "name": "Guided by Faith",
     "category": "Reminders & Spirituality",
     "handle": "@GuidedByFaith9",
     "country": "United States",
     "subscribers": "19.9k",
     "video_count": "231",
-    "channel_url": "https://www.youtube.com/channel/UCv1l8teLJ9oh-lrYjdue16g"
+    "channel_url": "https://www.youtube.com/channel/UCcn9K00eELGpnNkCfAORXhZ"
   },
   {
     "id": "UC6EqhLH31EEChhxuNf4kdOw",
@@ -6316,16 +6236,6 @@
     "channel_url": "https://www.youtube.com/channel/UCVStJNbWC6IbffWAZX5092A"
   },
   {
-    "id": "UCeEDkYsXDOaYWWV65sPptmw",
-    "name": "𝗛𝗮𝗹𝗮𝗹 𝗘𝗱𝗶𝘁𝘀",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "1900",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCeEDkYsXDOaYWWV65sPptmw"
-  },
-  {
     "id": "",
     "name": "Halal Recaps",
     "category": "Islamic History & Stories",
@@ -6336,14 +6246,14 @@
     "channel_url": "https://www.youtube.com/channel/UCr3eImfdaRon6KthoEhNJQQ"
   },
   {
-    "id": "",
+    "id": "UCkuL5WhkN_c5l0ldMXiyzyg",
     "name": "Halal Researcher",
     "category": "Lectures & Islamic Studies",
     "handle": "@halalresearcherofficial",
     "country": "Unknown",
     "subscribers": "62.5k",
-    "video_count": "490",
-    "channel_url": "https://www.youtube.com/channel/UCXjjgn1umyh4cIBqP3CnN9g"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCkuL5WhkN_c5l0ldMXiyzyg"
   },
   {
     "id": "UCPq76d2nZwAGNmoZEMimdVw",
@@ -6544,16 +6454,6 @@
     "subscribers": "95",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCwX-PbjysVPZbJx1abnW3mw"
-  },
-  {
-    "id": "UC1D7o7NmYIdR3Tk-WXqbwuA",
-    "name": "ℌ𝔞𝔫𝔦𝔣-𝔱𝔳",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "786",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UC1D7o7NmYIdR3Tk-WXqbwuA"
   },
   {
     "id": "",
@@ -6826,16 +6726,6 @@
     "channel_url": "https://www.youtube.com/channel/UCJM06C3wKynXelHFq9FDlqw"
   },
   {
-    "id": "UCgGk1xe3LkVPRpoSS-64omQ",
-    "name": "Héritage Sunnite",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "132",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCgGk1xe3LkVPRpoSS-64omQ"
-  },
-  {
     "id": "UCxGUiNLP6NgySR5UUGoFEuw",
     "name": "Hermanus FynArts",
     "category": "Lectures & Islamic Studies",
@@ -6996,14 +6886,14 @@
     "channel_url": "https://www.youtube.com/channel/UC08kNaGsn3QFCO8U6UVNY4w"
   },
   {
-    "id": "",
+    "id": "UC08kNaGsn3QFCO8U6UVNY4w",
     "name": "HollykabbaFastð",
     "category": "Children & Family",
     "handle": "@HollykabbaFast",
     "country": "Pakistan",
     "subscribers": "214k",
     "video_count": "767",
-    "channel_url": "https://www.youtube.com/channel/UClP0htoXhyw-SDVuU6CNuAw"
+    "channel_url": "https://www.youtube.com/channel/UC08kNaGsn3QFCO8U6UVNY4w"
   },
   {
     "id": "",
@@ -7026,14 +6916,14 @@
     "channel_url": "https://www.youtube.com/channel/UCyReHW_lOHv2c2bh-uJs-8A"
   },
   {
-    "id": "",
+    "id": "UC0zQXU4cHh6YVprcG9RLXhh",
     "name": "Holy Makkah",
     "category": "Children & Family",
     "handle": "@HolyMakkah-e9t",
     "country": "Pakistan",
     "subscribers": "18.2k",
     "video_count": "50",
-    "channel_url": "https://www.youtube.com/channel/UCGRq6ZREcRvk7IcZkoPnwEg"
+    "channel_url": "https://www.youtube.com/channel/UC0zQXU4cHh6YVprcG9RLXhh"
   },
   {
     "id": "",
@@ -7244,6 +7134,16 @@
     "subscribers": "12600",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCqgckp8N_jEt5mrjKZEc0Sw"
+  },
+  {
+    "id": "UCgGk1xe3LkVPRpoSS-64omQ",
+    "name": "Héritage Sunnite",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "132",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCgGk1xe3LkVPRpoSS-64omQ"
   },
   {
     "id": "",
@@ -7946,14 +7846,14 @@
     "channel_url": "https://www.youtube.com/channel/UCc_3vLqtWRBnRYFQCVMevVg"
   },
   {
-    "id": "",
+    "id": "UCKcPfBdoOHjGfUJcIOFwlRA",
     "name": "interactive story",
     "category": "Documentaries & Media",
     "handle": "@12Ashi",
     "country": "Pakistan",
     "subscribers": "428k",
-    "video_count": "313",
-    "channel_url": "https://www.youtube.com/channel/UC1A6A6EEjkpni_RgLJAT7VA"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCKcPfBdoOHjGfUJcIOFwlRA"
   },
   {
     "id": "",
@@ -8426,14 +8326,14 @@
     "channel_url": "https://www.youtube.com/channel/UCsYtnxJRl9MsYhpOhkjiHNA"
   },
   {
-    "id": "",
+    "id": "UCjtVZ24VDarRuBWQ8YcW5hQ",
     "name": "Islamic Answers",
     "category": "Documentaries & Media",
     "handle": "@islamic.answers.4m",
     "country": "Pakistan",
     "subscribers": "46.5k",
-    "video_count": "176",
-    "channel_url": "https://www.youtube.com/channel/UC1BokPczbcCEKVOXA4qDc4Q"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCjtVZ24VDarRuBWQ8YcW5hQ"
   },
   {
     "id": "UCW6EuqJma2eR3o9j6vTYXpA",
@@ -8886,14 +8786,14 @@
     "channel_url": "https://www.youtube.com/channel/UCQnpbKXR6_3atmD16UlJk1Q"
   },
   {
-    "id": "",
+    "id": "UCrxa8Qq0FgWwODo5Q92hwlw",
     "name": "Islamic Pur",
     "category": "Reminders & Spirituality",
     "handle": "@IslamicPur_786",
     "country": "United States",
     "subscribers": "550k",
-    "video_count": "212",
-    "channel_url": "https://www.youtube.com/@IslamicPur_786"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCrxa8Qq0FgWwODo5Q92hwlw"
   },
   {
     "id": "",
@@ -8956,14 +8856,14 @@
     "channel_url": "https://www.youtube.com/channel/UCfQwvWaA8CWQlLDLFG_FfOQ"
   },
   {
-    "id": "",
+    "id": "UC5Yb6y_Lo59FKNq0Iea05zw",
     "name": "Islamic Rooh",
     "category": "General Islamic",
     "handle": "@IslamicRooh-0",
     "country": "India",
     "subscribers": "27.1k",
-    "video_count": "913",
-    "channel_url": "https://www.youtube.com/channel/UC8S-VUxeQ4KPh5PCpLvr-bw"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UC5Yb6y_Lo59FKNq0Iea05zw"
   },
   {
     "id": "",
@@ -9126,14 +9026,14 @@
     "channel_url": "https://www.youtube.com/@IslamicTalkWithDilshad"
   },
   {
-    "id": "",
+    "id": "UC1XrhzT6FGdc9eAso7Kv3CQ",
     "name": "Islamic Teacher Official",
     "category": "General Islamic",
     "handle": "@IslamicTeacherOfficial786",
     "country": "Pakistan",
     "subscribers": "9.35m",
-    "video_count": "1,783",
-    "channel_url": "https://www.youtube.com/@IslamicTeacherOfficial786"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UC1XrhzT6FGdc9eAso7Kv3CQ"
   },
   {
     "id": "",
@@ -9216,14 +9116,14 @@
     "channel_url": "https://www.youtube.com/channel/UCPNKj8o3BP616p5ymljNtUg"
   },
   {
-    "id": "",
+    "id": "UC03ln1ePVeHK6rYdFYqtCKQ",
     "name": "Islamic world",
     "category": "Documentaries & Media",
     "handle": "@Islami-z7p",
     "country": "Unknown",
     "subscribers": "79.6k",
-    "video_count": "161",
-    "channel_url": "https://www.youtube.com/channel/UCnDgrpPx4GAFgteo63KHevw"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UC03ln1ePVeHK6rYdFYqtCKQ"
   },
   {
     "id": "",
@@ -9244,6 +9144,16 @@
     "subscribers": "191k",
     "video_count": "166",
     "channel_url": "https://www.youtube.com/channel/UC8TUDG1jtEgC5CNDfpk8RrQ"
+  },
+  {
+    "id": "",
+    "name": "Islamic-Waves.com [Official]",
+    "category": "Documentaries & Media",
+    "handle": "@IslamicwavesOfficial",
+    "country": "Pakistan",
+    "subscribers": "137k",
+    "video_count": "2,828",
+    "channel_url": "https://www.youtube.com/channel/UCitxiOWcp6B2j_Y5IR-yzFA"
   },
   {
     "id": "",
@@ -9274,16 +9184,6 @@
     "subscribers": "35.4k",
     "video_count": "248",
     "channel_url": "https://www.youtube.com/channel/UCTW33ttdste7AYMjNiouZNQ"
-  },
-  {
-    "id": "",
-    "name": "Islamic-Waves.com [Official]",
-    "category": "Documentaries & Media",
-    "handle": "@IslamicwavesOfficial",
-    "country": "Pakistan",
-    "subscribers": "137k",
-    "video_count": "2,828",
-    "channel_url": "https://www.youtube.com/channel/UCitxiOWcp6B2j_Y5IR-yzFA"
   },
   {
     "id": "",
@@ -9986,14 +9886,14 @@
     "channel_url": "https://www.youtube.com/channel/UCRM7vASihPbBC7QuHPAIp-w"
   },
   {
-    "id": "",
+    "id": "UC6ij0pxRG-K6EKFMZTrCWCw",
     "name": "KaabaOfficialMakkah",
     "category": "General Islamic",
     "handle": "@KaabaOfficialMakkah",
     "country": "Pakistan",
     "subscribers": "740k",
-    "video_count": "6,387",
-    "channel_url": "https://www.youtube.com/channel/UCgvQrp0J0qEeBQ1OYJbMZLg"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UC6ij0pxRG-K6EKFMZTrCWCw"
   },
   {
     "id": "",
@@ -10026,14 +9926,14 @@
     "channel_url": "https://www.youtube.com/channel/UCGimhdDDZkhGGD1aA1pvQmg"
   },
   {
-    "id": "",
+    "id": "UCYB5PClmh9u9F-lfi6EHPEQ",
     "name": "KALAM E ALLAH",
     "category": "Nasheeds & Islamic Arts",
     "handle": "@KALAMEALLAH-quran",
     "country": "Unknown",
     "subscribers": "55.9k",
-    "video_count": "383",
-    "channel_url": "https://www.youtube.com/channel/UCrbD_oMSAnDQrY5U5KmO0hA"
+    "video_count": "2",
+    "channel_url": "https://www.youtube.com/channel/UCYB5PClmh9u9F-lfi6EHPEQ"
   },
   {
     "id": "",
@@ -10286,14 +10186,14 @@
     "channel_url": "https://www.youtube.com/channel/UC30E6Otkkwdnz0lv0-QHj-Q"
   },
   {
-    "id": "",
+    "id": "UCgKgRKAy5z5XUq3lgEJBaMg",
     "name": "Khanversations with Prof. Muqtedar Khan",
     "category": "Lectures & Islamic Studies",
     "handle": "@ProfMuqtedarKhan",
     "country": "United States",
     "subscribers": "200k",
-    "video_count": "1,635",
-    "channel_url": "https://www.youtube.com/@ProfMuqtedarKhan"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCgKgRKAy5z5XUq3lgEJBaMg"
   },
   {
     "id": "",
@@ -10676,14 +10576,14 @@
     "channel_url": "https://www.youtube.com/channel/UCqhyqYLZzpgqmOXVjsM0lSw"
   },
   {
-    "id": "",
+    "id": "UCvfj4FOPhEVpLiRkE8kfImA",
     "name": "Legacy of Islam",
     "category": "Reminders & Spirituality",
     "handle": "@LegacyofIslam1",
     "country": "United States",
     "subscribers": "52.9k",
-    "video_count": "395",
-    "channel_url": "https://www.youtube.com/channel/UCIY12NNDw3-GZVFiLaX5waw"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCvfj4FOPhEVpLiRkE8kfImA"
   },
   {
     "id": "UCUsjGGLMoUu5NLOh24fu_hQ",
@@ -10756,14 +10656,14 @@
     "channel_url": "https://www.youtube.com/channel/UCNQlhkmkMNGxPXpS9suzpcA"
   },
   {
-    "id": "",
+    "id": "UCuALumZU0S2CpMRwUHVWtTQ",
     "name": "LifeNest - Travel Documentary",
     "category": "Documentaries & Media",
     "handle": "@LifeNest-3",
     "country": "Canada",
     "subscribers": "26.1k",
-    "video_count": "20",
-    "channel_url": "https://www.youtube.com/channel/UCoLjwUc-Ojbm0TQrey2kaoA"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCuALumZU0S2CpMRwUHVWtTQ"
   },
   {
     "id": "",
@@ -10896,14 +10796,14 @@
     "channel_url": "https://www.youtube.com/channel/UCfgcmunjJh-XMtkWzWsqhoQ"
   },
   {
-    "id": "",
+    "id": "UC9O1mKRVBmjOZR2JaNHyBCx",
     "name": "Living Beautiful Life",
     "category": "Documentaries & Media",
     "handle": "@toushifahmed786",
     "country": "United Arab Emirates",
     "subscribers": "21.8k",
     "video_count": "1,899",
-    "channel_url": "https://www.youtube.com/channel/UCcqRMFivWIdzcwt_OfHDH5w"
+    "channel_url": "https://www.youtube.com/channel/UC9O1mKRVBmjOZR2JaNHyBCx"
   },
   {
     "id": "UCH4x02hDEztYjvSnzGCaJug",
@@ -11096,14 +10996,14 @@
     "channel_url": "https://www.youtube.com/channel/UCChe21YywMHEAJ347Koep6Q"
   },
   {
-    "id": "",
+    "id": "UCfSmrkM_OGTFMR4kkFxrNDQ",
     "name": "Madani Channel",
     "category": "Reminders & Spirituality",
     "handle": "@MadaniChannelOfficial",
     "country": "Pakistan",
     "subscribers": "3.59m",
-    "video_count": "58,398",
-    "channel_url": "https://www.youtube.com/@MadaniChannelOfficial"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCfSmrkM_OGTFMR4kkFxrNDQ"
   },
   {
     "id": "",
@@ -11176,14 +11076,14 @@
     "channel_url": "https://www.youtube.com/channel/UCM7tZJpribI6Gap8XgqkMcA"
   },
   {
-    "id": "",
+    "id": "UCz0k190DINE6CzLWb6FHgJY",
     "name": "MadinaofficialKSA2",
     "category": "Documentaries & Media",
     "handle": "@MadinaofficialKSA2",
     "country": "Pakistan",
     "subscribers": "23k",
     "video_count": "159",
-    "channel_url": "https://www.youtube.com/channel/UC_ZpvfZpQoTuKYCx12zICiA"
+    "channel_url": "https://www.youtube.com/channel/UCz0k190DINE6CzLWb6FHgJY"
   },
   {
     "id": "",
@@ -11446,14 +11346,14 @@
     "channel_url": "https://www.youtube.com/channel/UC-hGwLuO_qS-vP9x_DnDrKA"
   },
   {
-    "id": "",
+    "id": "UC0zQXU4cHh6YVprcG9RLXhh",
     "name": "MASF reels",
     "category": "Reminders & Spirituality",
     "handle": "@masf.reels7821",
     "country": "Pakistan",
     "subscribers": "10.5k",
     "video_count": "140",
-    "channel_url": "https://www.youtube.com/channel/UC3BiIKFjP2s_q2k9k_TWowQ"
+    "channel_url": "https://www.youtube.com/channel/UC0zQXU4cHh6YVprcG9RLXhh"
   },
   {
     "id": "UC0l-avApKt0N79IIWdZkTug",
@@ -11696,24 +11596,24 @@
     "channel_url": "https://www.youtube.com/channel/UCDt0OPSg22EelCmbwbAkfVQ"
   },
   {
-    "id": "",
+    "id": "UC5K5SaA6pnRlDg9OTg4FgPi",
     "name": "Meccashorts",
     "category": "Children & Family",
     "handle": "@Meccashorts-g2x",
     "country": "Pakistan",
     "subscribers": "223k",
     "video_count": "1,051",
-    "channel_url": "https://www.youtube.com/channel/UCIkKXk8VuSFQyV-JCiNrtdA"
+    "channel_url": "https://www.youtube.com/channel/UC5K5SaA6pnRlDg9OTg4FgPi"
   },
   {
-    "id": "",
+    "id": "UCuW8FitpDbw1TsQKi004pys",
     "name": "MeccaShortt",
     "category": "Children & Family",
     "handle": "@MeccaShortt",
     "country": "Pakistan",
     "subscribers": "60.8k",
     "video_count": "483",
-    "channel_url": "https://www.youtube.com/channel/UCsHd6r9ww470p2FgNd4Puzw"
+    "channel_url": "https://www.youtube.com/channel/UCuW8FitpDbw1TsQKi004pys"
   },
   {
     "id": "UCspR_V_lKTQd2TuidbqrE1w",
@@ -12486,14 +12386,14 @@
     "channel_url": "https://www.youtube.com/channel/UC9Z6245Z4wY9WG0p98jUGZQ"
   },
   {
-    "id": "",
+    "id": "UCl3moj6xwUImR67pNv1fE_Q",
     "name": "Motivation Urdu Quotes",
     "category": "Reminders & Spirituality",
     "handle": "@motivationurduquotes",
     "country": "Pakistan",
     "subscribers": "23.6k",
-    "video_count": "221",
-    "channel_url": "https://www.youtube.com/channel/UC8TXi2PpWzM5a3RBKIUlBGg"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCl3moj6xwUImR67pNv1fE_Q"
   },
   {
     "id": "UCZioqGAmgf6s8lNfPZK8hfA",
@@ -12576,26 +12476,6 @@
     "channel_url": "https://www.youtube.com/channel/UCZorHzqbPTr8dg6jfjOdLzg"
   },
   {
-    "id": "",
-    "name": "Mr_Asif",
-    "category": "Documentaries & Media",
-    "handle": "@Mr_Asif-h1c",
-    "country": "Unknown",
-    "subscribers": "223k",
-    "video_count": "379",
-    "channel_url": "https://www.youtube.com/channel/UCDp4GJwXHBDLDVmWUzUrplA"
-  },
-  {
-    "id": "",
-    "name": "MR_MOHAMMAD GANI",
-    "category": "Nasheeds & Islamic Arts",
-    "handle": "@MR_MOHAMMEDGANI-q6j3w",
-    "country": "Saudi Arabia",
-    "subscribers": "227k",
-    "video_count": "418",
-    "channel_url": "https://www.youtube.com/channel/UCalqToVMCIbPUB0cmFAx7mw"
-  },
-  {
     "id": "UCruM3lAiL70HM9seRwPSS4A",
     "name": "Mr. and Mrs. Friendly Exmuslim",
     "category": "Lectures & Islamic Studies",
@@ -12626,6 +12506,26 @@
     "channel_url": "https://www.youtube.com/channel/UCRfCqEvq0zgDkg6nqr5x10A"
   },
   {
+    "id": "UCDp4GJwXHBDLDVmWUzUrplA",
+    "name": "Mr_Asif",
+    "category": "Documentaries & Media",
+    "handle": "@Mr_Asif-h1c",
+    "country": "Unknown",
+    "subscribers": "223k",
+    "video_count": "379",
+    "channel_url": "https://www.youtube.com/channel/UCDp4GJwXHBDLDVmWUzUrplA"
+  },
+  {
+    "id": "",
+    "name": "MR_MOHAMMAD GANI",
+    "category": "Nasheeds & Islamic Arts",
+    "handle": "@MR_MOHAMMEDGANI-q6j3w",
+    "country": "Saudi Arabia",
+    "subscribers": "227k",
+    "video_count": "418",
+    "channel_url": "https://www.youtube.com/channel/UCalqToVMCIbPUB0cmFAx7mw"
+  },
+  {
     "id": "UCCKJWY9MDayH0zJ6wTSNu2A",
     "name": "MrAbuTaubah",
     "category": "Lectures & Islamic Studies",
@@ -12646,14 +12546,14 @@
     "channel_url": "https://www.youtube.com/channel/UCT4dv7zYmof8pTlMu31pUgQ"
   },
   {
-    "id": "",
+    "id": "UC9R36TLXufk0_OaObixVWJg",
     "name": "MS Network 2.O",
     "category": "Documentaries & Media",
     "handle": "@MSNetwork2.O",
     "country": "India",
     "subscribers": "1.23m",
-    "video_count": "366",
-    "channel_url": "https://www.youtube.com/channel/UCaH-CHFFBmcifyQoSXMg_tQ"
+    "video_count": "3",
+    "channel_url": "https://www.youtube.com/channel/UC9R36TLXufk0_OaObixVWJg"
   },
   {
     "id": "UCAAu9c8AFe4x5cm3KvNr8ow",
@@ -13712,16 +13612,6 @@
     "channel_url": "https://www.youtube.com/@mzrislamic"
   },
   {
-    "id": "UCo8T_r1DjaylsiXgxbZNhbw",
-    "name": "Na’ima B. Robert",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "73000",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCo8T_r1DjaylsiXgxbZNhbw"
-  },
-  {
     "id": "",
     "name": "Nabeeha Ejaz",
     "category": "Children & Family",
@@ -13970,6 +13860,16 @@
     "subscribers": "16.7k",
     "video_count": "125",
     "channel_url": "https://www.youtube.com/channel/UC59s3U4kQkhxraDZ6YU-27Q"
+  },
+  {
+    "id": "UCo8T_r1DjaylsiXgxbZNhbw",
+    "name": "Na’ima B. Robert",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "73000",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCo8T_r1DjaylsiXgxbZNhbw"
   },
   {
     "id": "UCRv63s05P58cFEz2_aGbvwg",
@@ -14312,6 +14212,12 @@
     "channel_url": "https://www.youtube.com/channel/UCdhfFnU8qbO0vkoZLfzGYZA"
   },
   {
+    "id": "UCce-z7S59CW3RsAa1dDBBLQ",
+    "name": "Nouman Ali Khan (Bayyinah)",
+    "category": "Quran & Tafseer",
+    "handle": "@NoumanAliKhanBayyinahnon-offic"
+  },
+  {
     "id": "UC9O1Tw8GLrpv39EO68bASlg",
     "name": "Nouman ali khan - INDIA",
     "category": "Lectures & Islamic Studies",
@@ -14322,20 +14228,14 @@
     "channel_url": "https://www.youtube.com/channel/UC9O1Tw8GLrpv39EO68bASlg"
   },
   {
-    "id": "",
+    "id": "UCRtiU-lpcBSi-ipFKyfIkug",
     "name": "Nouman Ali Khan - Official - Bayyinah",
     "category": "Quran & Tafseer",
     "handle": "@bayyinah",
     "country": "United States",
     "subscribers": "2.72m",
-    "video_count": "2,235",
-    "channel_url": "https://www.youtube.com/@bayyinah"
-  },
-  {
-    "id": "UCce-z7S59CW3RsAa1dDBBLQ",
-    "name": "Nouman Ali Khan (Bayyinah)",
-    "category": "Quran & Tafseer",
-    "handle": "@NoumanAliKhanBayyinahnon-offic"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCRtiU-lpcBSi-ipFKyfIkug"
   },
   {
     "id": "UCBp1Y9HQxZrc7WHxG_oG_1g",
@@ -14368,7 +14268,7 @@
     "channel_url": "https://www.youtube.com/@NourishTV"
   },
   {
-    "id": "",
+    "id": "UCWUy6ZX1rdFCXL53Of7zLFw",
     "name": "NR VOICE 0.1",
     "category": "General Islamic",
     "handle": "@nrvoice0.1",
@@ -14378,7 +14278,7 @@
     "channel_url": "https://www.youtube.com/channel/UCWUy6ZX1rdFCXL53Of7zLFw"
   },
   {
-    "id": "",
+    "id": "UCbtplcHuLIbn81Cn03NcvKA",
     "name": "NR VOICE 0.2",
     "category": "Documentaries & Media",
     "handle": "@NRVOICE0.2",
@@ -14408,14 +14308,14 @@
     "channel_url": "https://www.youtube.com/channel/UCsiGmnFwPTWYtNiNhMMZHfg"
   },
   {
-    "id": "",
+    "id": "UC9aTCf76MPefMygWuS-_uMQ",
     "name": "Nurul Kawsar Shakib",
     "category": "Documentaries & Media",
     "handle": "@nurulkawsarshakib",
     "country": "Unknown",
     "subscribers": "17.9k",
-    "video_count": "335",
-    "channel_url": "https://www.youtube.com/channel/UCQR90Y-x1LVqwZavGE0WVaw"
+    "video_count": "3",
+    "channel_url": "https://www.youtube.com/channel/UC9aTCf76MPefMygWuS-_uMQ"
   },
   {
     "id": "",
@@ -14426,96 +14326,6 @@
     "subscribers": "35.1k",
     "video_count": "1,914",
     "channel_url": "https://www.youtube.com/channel/UCHmqETWkUFc0QE3fw7ceyAw"
-  },
-  {
-    "id": "",
-    "name": "Ø§ÙØ³ÙÙÙØ© Ø§ÙÙØ±Ø¢ÙÙØ© | Quranic Peace",
-    "category": "Quran & Tafseer",
-    "handle": "@quranicpeace1",
-    "country": "United Arab Emirates",
-    "subscribers": "20.1k",
-    "video_count": "1,471",
-    "channel_url": "https://www.youtube.com/channel/UCnaU5CtZ_Z6o8zJg4kT5SJQ"
-  },
-  {
-    "id": "",
-    "name": "Ø§ÙÙØ±Ø¢Ù Ø§ÙÚ©Ø±ÛÙ Al-Quran",
-    "category": "Quran & Tafseer",
-    "handle": "@al_quran117",
-    "country": "India",
-    "subscribers": "286k",
-    "video_count": "1,384",
-    "channel_url": "https://www.youtube.com/channel/UCWriRLnPly12QHejY7qg5cA"
-  },
-  {
-    "id": "",
-    "name": "Ø§ÙÙØ±Ø¢Ù Ø§ÙÙØ±ÙÙ AlQuran4K",
-    "category": "Quran & Tafseer",
-    "handle": "@AlQuran4KOfficial",
-    "country": "United Kingdom",
-    "subscribers": "826k",
-    "video_count": "136",
-    "channel_url": "https://www.youtube.com/channel/UCfBw_uwZb_oFLyVsjWk6owQ"
-  },
-  {
-    "id": "",
-    "name": "Ø¨Ú©Ú¾Ø±Û Ù ÙØªÛ",
-    "category": "General Islamic",
-    "handle": "@Bikhre_Moti_official",
-    "country": "Pakistan",
-    "subscribers": "36.7k",
-    "video_count": "1,281",
-    "channel_url": "https://www.youtube.com/channel/UCRSxUTW0WNP2b5IM0o5e40g"
-  },
-  {
-    "id": "",
-    "name": "Ø£Ù ÙØ© ØªÙÙÙ - Ummah Toon",
-    "category": "Documentaries & Media",
-    "handle": "@ummahtoon",
-    "country": "Unknown",
-    "subscribers": "266k",
-    "video_count": "215",
-    "channel_url": "https://www.youtube.com/channel/UChL1Rckcbcctqe3x4ONiZ6g"
-  },
-  {
-    "id": "",
-    "name": "Ø£ÙØ§ Ù Ø³ÙÙ - I'm a Muslim",
-    "category": "General Islamic",
-    "handle": "@iamamuslim",
-    "country": "Saudi Arabia",
-    "subscribers": "7.41m",
-    "video_count": "12,686",
-    "channel_url": "https://www.youtube.com/@iamamuslim"
-  },
-  {
-    "id": "",
-    "name": "Ø¹Ø¨Ø§Ø¯ Ø§ÙØ±Ø­Ù Ù - Holy Quran",
-    "category": "Quran & Tafseer",
-    "handle": "@RAWAFED39-ep4wu",
-    "country": "Unknown",
-    "subscribers": "28.5k",
-    "video_count": "4,284",
-    "channel_url": "https://www.youtube.com/channel/UCeEWZ0T_uPRB3JBWtnPJo9w"
-  },
-  {
-    "id": "",
-    "name": "Ø³Ø§ÙÙ Ø§ÙØ±ÙÙÙÙ salem alruwaili",
-    "category": "Documentaries & Media",
-    "handle": "@salemalruwailiofficial",
-    "country": "United Arab Emirates",
-    "subscribers": "192k",
-    "video_count": "1,045",
-    "channel_url": "https://www.youtube.com/channel/UCtG6AuZuinM-nhHKvncdxZw"
-  },
-  {
-    "id": "",
-    "name": "Ø³ÙÙÙØ© Ø§ÙÙØ¬Ø§Ø© - The Ship of Salvation",
-    "category": "Lectures & Islamic Studies",
-    "handle": "@-TheShipofSalvation",
-    "country": "Unknown",
-    "subscribers": "15.7k",
-    "video_count": "727",
-    "channel_url": "https://www.youtube.com/channel/UCFJsCMcBtvJweCWI8NB-G2g"
   },
   {
     "id": "UCwNg1qNWejZPIvjxZ_y2LPg",
@@ -14808,14 +14618,14 @@
     "channel_url": "https://www.youtube.com/channel/UCvJyEIx_it2jFYP5M1OzGng"
   },
   {
-    "id": "",
+    "id": "UCizDaZmZB4NH57OAdlBu4Ra",
     "name": "ONE QURAN",
     "category": "Quran & Tafseer",
     "handle": "@onequran56",
     "country": "United Kingdom",
     "subscribers": "13.2k",
     "video_count": "696",
-    "channel_url": "https://www.youtube.com/channel/UCr1D98TdYyhvdXDTh_I6Ubg"
+    "channel_url": "https://www.youtube.com/channel/UCizDaZmZB4NH57OAdlBu4Ra"
   },
   {
     "id": "",
@@ -14948,14 +14758,14 @@
     "channel_url": "https://www.youtube.com/channel/UC5vGeCGGgdAH4_TsEEePt7g"
   },
   {
-    "id": "",
+    "id": "UCr-aPoKaFR0qxuKGmLTYy9g",
     "name": "Paigham TV Official",
     "category": "Quran & Tafseer",
     "handle": "@Paigham-TV",
     "country": "Pakistan",
     "subscribers": "616k",
-    "video_count": "9,008",
-    "channel_url": "https://www.youtube.com/@Paigham-TV"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCr-aPoKaFR0qxuKGmLTYy9g"
   },
   {
     "id": "UCPWCYV9txl_Bl2ZINSW5WzA",
@@ -15238,14 +15048,14 @@
     "channel_url": "https://www.youtube.com/channel/UCVp5Ze24V2iFiUY1y0WtRaA"
   },
   {
-    "id": "",
+    "id": "UCZWnGLurXZ5Fe6IQmj-Qv_w",
     "name": "QalbVerse",
     "category": "Lectures & Islamic Studies",
     "handle": "@QalbVerse-0",
     "country": "United States",
     "subscribers": "10k",
-    "video_count": "100",
-    "channel_url": "https://www.youtube.com/channel/UCxV7OKOEvTiI7NFp_wnH2Pg"
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCZWnGLurXZ5Fe6IQmj-Qv_w"
   },
   {
     "id": "",
@@ -15378,14 +15188,14 @@
     "channel_url": "https://www.youtube.com/channel/UC-JV9WFxhgKjzC8yGi7pQZg"
   },
   {
-    "id": "",
+    "id": "UCak-K4H4qD_HAiscf5jbHVw",
     "name": "Qur'an.with.tarjuma_",
     "category": "Quran & Tafseer",
     "handle": "@Quran.with.tarjumaa",
     "country": "India",
     "subscribers": "10.5k",
-    "video_count": "331",
-    "channel_url": "https://www.youtube.com/channel/UCsqlKApjBFoYWYrubIMk7Vw"
+    "video_count": "4",
+    "channel_url": "https://www.youtube.com/channel/UCak-K4H4qD_HAiscf5jbHVw"
   },
   {
     "id": "UCdnA-2KJUiJ4sqkawcIDcDQ",
@@ -15408,14 +15218,14 @@
     "channel_url": "https://www.youtube.com/channel/UCQ5QX9w3u-PrlF4iHopfR4g"
   },
   {
-    "id": "",
+    "id": "UCkTvCyNfUFwUxGu71rf6iSu",
     "name": "Quran & Islam",
     "category": "Quran & Tafseer",
     "handle": "@quranandislam42",
     "country": "United States",
     "subscribers": "777k",
     "video_count": "44",
-    "channel_url": "https://www.youtube.com/@quranandislam42"
+    "channel_url": "https://www.youtube.com/channel/UCkTvCyNfUFwUxGu71rf6iSu"
   },
   {
     "id": "",
@@ -15708,14 +15518,14 @@
     "channel_url": "https://www.youtube.com/channel/UCbzEz_SWvd72huwnkUlYmzA"
   },
   {
-    "id": "",
+    "id": "UC2S4v6Tnd0q2QpuFyJwNMnz",
     "name": "R & F Rhythm",
     "category": "General Islamic",
     "handle": "@RezaAndFatema",
     "country": "United States",
     "subscribers": "20.3k",
     "video_count": "102",
-    "channel_url": "https://www.youtube.com/channel/UCjtsdskFiUBJ7oEWQun13wQ"
+    "channel_url": "https://www.youtube.com/channel/UC2S4v6Tnd0q2QpuFyJwNMnz"
   },
   {
     "id": "UCqiS2mW5lOBKIsFzHzpUbWA",
@@ -15758,14 +15568,14 @@
     "channel_url": "https://www.youtube.com/channel/UCOWb4g-OoxtqXYRlxs0kAKA"
   },
   {
-    "id": "",
+    "id": "UC1pJxdCZMf1FWB22x_B0Bkw",
     "name": "Rahe Life Urdu Quotes",
     "category": "Reminders & Spirituality",
     "handle": "@rahelife",
     "country": "Pakistan",
     "subscribers": "60.2k",
-    "video_count": "347",
-    "channel_url": "https://www.youtube.com/channel/UCtT6CUP05LMrxjuAFVH1K1Q"
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UC1pJxdCZMf1FWB22x_B0Bkw"
   },
   {
     "id": "UC1HB5LWdx1LgkAi8YodjydA",
@@ -16328,14 +16138,14 @@
     "channel_url": "https://www.youtube.com/channel/UC0Ng-9GDX5sV2r-Ux42-vPw"
   },
   {
-    "id": "",
+    "id": "UC0zQXU4cHh6YVprcG9RLXhh",
     "name": "Rise",
     "category": "General Islamic",
     "handle": "@riserespect-w1z",
     "country": "United Kingdom",
     "subscribers": "28.1k",
     "video_count": "354",
-    "channel_url": "https://www.youtube.com/channel/UC8o_6rD4hg0slhOqrtOtIJw"
+    "channel_url": "https://www.youtube.com/channel/UC0zQXU4cHh6YVprcG9RLXhh"
   },
   {
     "id": "UC2UU6kQAoSwQ6HSfrM_u9pw",
@@ -17108,16 +16918,6 @@
     "channel_url": "https://www.youtube.com/channel/UCgBFwF1mQGpHp4nvEmZ4u1A"
   },
   {
-    "id": "UCzfxafzBIsAoe-VBxqYh9Hw",
-    "name": "Sapience | United States",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "2060",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCzfxafzBIsAoe-VBxqYh9Hw"
-  },
-  {
     "id": "",
     "name": "Sapience Institute",
     "category": "Lectures & Islamic Studies",
@@ -17126,6 +16926,16 @@
     "subscribers": "108k",
     "video_count": "579",
     "channel_url": "https://www.youtube.com/channel/UCeZBhrU8xHcik0ZgtDwjsdA"
+  },
+  {
+    "id": "UCzfxafzBIsAoe-VBxqYh9Hw",
+    "name": "Sapience | United States",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "2060",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCzfxafzBIsAoe-VBxqYh9Hw"
   },
   {
     "id": "UCZKOe05mfctrvw71VQFbIIQ",
@@ -17146,16 +16956,6 @@
     "subscribers": "8",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCtvMPSCXqB0fqd1LJPnt63w"
-  },
-  {
-    "id": "UCSDZyxUYo67g5_4MBMNRl7g",
-    "name": "𝒮𝒶𝓇𝒶𝒽 𝒮𝓊𝓁𝓉𝒶𝓃",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "148",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCSDZyxUYo67g5_4MBMNRl7g"
   },
   {
     "id": "UCBwBul6oiZwQRwhr3vPomsA",
@@ -17928,16 +17728,6 @@
     "channel_url": "https://www.youtube.com/channel/UCpeV1NBA_rXbMdQS8geckGA"
   },
   {
-    "id": "UClDqSBo8YT7LWHYljERSFVQ",
-    "name": "𝗦𝗵𝗶𝗵𝗮𝗯 𝗛𝗮𝗹𝗮𝗹 𝗧𝗼𝗼𝗻𝘀",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "4530",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UClDqSBo8YT7LWHYljERSFVQ"
-  },
-  {
     "id": "UChboMUE6n7jX9qC_Klv3-Rg",
     "name": "Shoaib Ahmed Malik",
     "category": "Lectures & Islamic Studies",
@@ -18378,14 +18168,14 @@
     "channel_url": "https://www.youtube.com/channel/UCpZYQnHigQbhMz1jEUvtgxA"
   },
   {
-    "id": "",
+    "id": "UC9LBzrfwrDp9hiuzc7c8UQb",
     "name": "Stories Collection",
     "category": "Children & Family",
     "handle": "@GuidedSouls328",
     "country": "United States",
     "subscribers": "19.4k",
     "video_count": "1,593",
-    "channel_url": "https://www.youtube.com/channel/UC5P_ouHIon75OeVA_N2tKDg"
+    "channel_url": "https://www.youtube.com/channel/UC9LBzrfwrDp9hiuzc7c8UQb"
   },
   {
     "id": "",
@@ -18558,14 +18348,14 @@
     "channel_url": "https://www.youtube.com/channel/UCFUyK6TcS1THIslTTZr9_og"
   },
   {
-    "id": "",
+    "id": "UCUlZJ3bfbMF8mjDffLYpTVw",
     "name": "Success of Deen",
     "category": "Lectures & Islamic Studies",
     "handle": "@SuccessofDeen",
     "country": "United States",
     "subscribers": "22.5k",
-    "video_count": "200",
-    "channel_url": "https://www.youtube.com/channel/UCw7HoFRHIFAb3eH9hk8UkKA"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCUlZJ3bfbMF8mjDffLYpTVw"
   },
   {
     "id": "UC8s-OdMUGM-I38yd3jzOwsQ",
@@ -19269,16 +19059,6 @@
   },
   {
     "id": "",
-    "name": "Thatâs Her Podcast",
-    "category": "Documentaries & Media",
-    "handle": "@MUMMASIRSHOW",
-    "country": "India",
-    "subscribers": "123k",
-    "video_count": "321",
-    "channel_url": "https://www.youtube.com/channel/UCvJ8Sybot0Q2x5O-blFs_Sg"
-  },
-  {
-    "id": "",
     "name": "Thatdeengirl",
     "category": "Reminders & Spirituality",
     "handle": "@Thatdeengirl14",
@@ -19286,6 +19066,16 @@
     "subscribers": "33k",
     "video_count": "194",
     "channel_url": "https://www.youtube.com/channel/UCykcotgsboZj8N_KC3Zb7UA"
+  },
+  {
+    "id": "",
+    "name": "Thatâs Her Podcast",
+    "category": "Documentaries & Media",
+    "handle": "@MUMMASIRSHOW",
+    "country": "India",
+    "subscribers": "123k",
+    "video_count": "321",
+    "channel_url": "https://www.youtube.com/channel/UCvJ8Sybot0Q2x5O-blFs_Sg"
   },
   {
     "id": "",
@@ -19598,14 +19388,14 @@
     "channel_url": "https://www.youtube.com/channel/UCQI6dbnVQa0LHTwMJzwm3dQ"
   },
   {
-    "id": "",
+    "id": "UCGnkkQkauegTCeOrgWo7ftg",
     "name": "The Great Allah",
     "category": "Reminders & Spirituality",
     "handle": "@TheGreatAllah01",
     "country": "Pakistan",
     "subscribers": "30.1k",
-    "video_count": "59",
-    "channel_url": "https://www.youtube.com/channel/UCwtW2exHaGD6Td2BdmQYgDQ"
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCGnkkQkauegTCeOrgWo7ftg"
   },
   {
     "id": "UCEdQZ9GYTCaq0CPLuVTcNuA",
@@ -20238,24 +20028,14 @@
     "channel_url": "https://www.youtube.com/channel/UCDmbQrs9yVDONBVvQfQ27XQ"
   },
   {
-    "id": "",
-    "name": "The Qurâanic Path",
-    "category": "Quran & Tafseer",
-    "handle": "@thequranicpath78",
-    "country": "Unknown",
-    "subscribers": "24.5k",
-    "video_count": "105",
-    "channel_url": "https://www.youtube.com/channel/UC4D54pFQJA_yVHBbU4uFn5A"
-  },
-  {
-    "id": "",
+    "id": "UC0zQXU4cHh6YVprcG9RLXhh",
     "name": "The Quran Call",
     "category": "Quran & Tafseer",
     "handle": "@TheQuranCall2026",
     "country": "Unknown",
     "subscribers": "14.3k",
     "video_count": "2,498",
-    "channel_url": "https://www.youtube.com/channel/UC_AlMgu2a2ayyLkaEfjO0zA"
+    "channel_url": "https://www.youtube.com/channel/UC0zQXU4cHh6YVprcG9RLXhh"
   },
   {
     "id": "",
@@ -20286,6 +20066,16 @@
     "subscribers": "40k",
     "video_count": "128",
     "channel_url": "https://www.youtube.com/channel/UC8TGpRHZQZ-J0WO6Z7tIOEg"
+  },
+  {
+    "id": "",
+    "name": "The Qurâanic Path",
+    "category": "Quran & Tafseer",
+    "handle": "@thequranicpath78",
+    "country": "Unknown",
+    "subscribers": "24.5k",
+    "video_count": "105",
+    "channel_url": "https://www.youtube.com/channel/UC4D54pFQJA_yVHBbU4uFn5A"
   },
   {
     "id": "",
@@ -20508,14 +20298,14 @@
     "channel_url": "https://www.youtube.com/channel/UCXHz5brnR9qwqvQvF3VJdgQ"
   },
   {
-    "id": "",
+    "id": "UCpYIekpxwhG6bb8LRmS2LPr",
     "name": "TheHalalBuzz",
     "category": "General Islamic",
     "handle": "@TheHalalBuzz",
     "country": "Indonesia",
     "subscribers": "21.5k",
     "video_count": "118",
-    "channel_url": "https://www.youtube.com/channel/UCJRYwhCgO-wKWmD4OP1eypA"
+    "channel_url": "https://www.youtube.com/channel/UCpYIekpxwhG6bb8LRmS2LPr"
   },
   {
     "id": "UCvEIu5c1swdDjrSuKmKB1Hg",
@@ -20618,14 +20408,14 @@
     "channel_url": "https://www.youtube.com/channel/UCHhFDilKaj5JTMCpj_So_1w"
   },
   {
-    "id": "",
+    "id": "UCFiQVQeWCAb1x5K5VLCvX7Q",
     "name": "TILAWAT BY QURAN SHORTS",
     "category": "Quran & Tafseer",
     "handle": "@tilawatbyquraan",
     "country": "Unknown",
     "subscribers": "19.4k",
-    "video_count": "1,460",
-    "channel_url": "https://www.youtube.com/channel/UCSypqstApx9oC1KvAdO26Tg"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCFiQVQeWCAb1x5K5VLCvX7Q"
   },
   {
     "id": "",
@@ -21054,14 +20844,14 @@
     "channel_url": "https://www.youtube.com/channel/UCrLT4TrxXo9Er3IQYq_zgoA"
   },
   {
-    "id": "",
+    "id": "UCdqEwn5bGGbFE0u8UqdHmGQ",
     "name": "Understand Al-Quran Official",
     "category": "Quran & Tafseer",
     "handle": "@understandquran",
     "country": "India",
     "subscribers": "459k",
-    "video_count": "2,403",
-    "channel_url": "https://www.youtube.com/@understandquran"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCdqEwn5bGGbFE0u8UqdHmGQ"
   },
   {
     "id": "",
@@ -21092,16 +20882,6 @@
     "subscribers": "54.8k",
     "video_count": "68",
     "channel_url": "https://www.youtube.com/channel/UCzMhXMGPX1PHAHZFC4PUsEw"
-  },
-  {
-    "id": "",
-    "name": "ÙØ±Ø¢ÙÛ Ø§Ø±Ø´Ø§Ø¯Ø§Øª (Qur'ani irshadaat)",
-    "category": "Children & Family",
-    "handle": "@MisbahQuran",
-    "country": "Pakistan",
-    "subscribers": "31.2k",
-    "video_count": "195",
-    "channel_url": "https://www.youtube.com/channel/UCjH-nRLaWzTFdxV-1xw2lYg"
   },
   {
     "id": "",
@@ -21232,56 +21012,6 @@
     "subscribers": "349",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCT4H_iDPLoDLwC947bhxpLA"
-  },
-  {
-    "id": "",
-    "name": "ÙÙØ·Ù Ø¦Ù ÙÙØ¨Ù ð¤ | TO REASSURE YOUR HEART",
-    "category": "Quran & Tafseer",
-    "handle": "@to_reassure_your_heart-quran",
-    "country": "Saudi Arabia",
-    "subscribers": "112k",
-    "video_count": "412",
-    "channel_url": "https://www.youtube.com/channel/UCmoLHpDB1IP1Nnka4Xsarug"
-  },
-  {
-    "id": "",
-    "name": "ÙÙØ§Ø© Ø§ÙÙØ±Ø¢Ù 2 - Quran",
-    "category": "Quran & Tafseer",
-    "handle": "@QuranForU36",
-    "country": "Iraq",
-    "subscribers": "500k",
-    "video_count": "15",
-    "channel_url": "https://www.youtube.com/channel/UC6W_OgG8P31BVf9EVe5d8Ig"
-  },
-  {
-    "id": "",
-    "name": "ÙÙØ± Ø§ÙÙØ±Ø¢Ù | Light of Quran",
-    "category": "Quran & Tafseer",
-    "handle": "@hopemediauae",
-    "country": "United Arab Emirates",
-    "subscribers": "17.8k",
-    "video_count": "213",
-    "channel_url": "https://www.youtube.com/channel/UCyXqB2dAKZ1nzXPOilt46vg"
-  },
-  {
-    "id": "",
-    "name": "ÚÛÚ¯Ø§Û Ø¦ÛØ³ÙØ§Ù Regay Islam",
-    "category": "General Islamic",
-    "handle": "@RegayIslam11",
-    "country": "Iraq",
-    "subscribers": "115k",
-    "video_count": "11,055",
-    "channel_url": "https://www.youtube.com/@RegayIslam11"
-  },
-  {
-    "id": "",
-    "name": "ÙÙÙÙ - Holy Quran",
-    "category": "Quran & Tafseer",
-    "handle": "@Rawafed16Feb1-k5h",
-    "country": "Jordan",
-    "subscribers": "45.3k",
-    "video_count": "468",
-    "channel_url": "https://www.youtube.com/channel/UCGivimwiOwyOn0uDkVpomyw"
   },
   {
     "id": "UCjz6SfS-AWYAm2kMLT9bPJg",
@@ -21514,14 +21244,14 @@
     "channel_url": "https://www.youtube.com/channel/UCUVNrK8hgpn505PdXQNwWHg"
   },
   {
-    "id": "",
+    "id": "UC0YFIQN9rn-BIuN5d8iBTbg",
     "name": "Waqar Ahmad",
     "category": "Documentaries & Media",
     "handle": "@Waqar_Ahmad10",
     "country": "Pakistan",
     "subscribers": "142k",
-    "video_count": "743",
-    "channel_url": "https://www.youtube.com/channel/UC0AnxWJRUYfITuvHuJgijXw"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UC0YFIQN9rn-BIuN5d8iBTbg"
   },
   {
     "id": "UCDphCzc_6e4lu78I3IFScyw",
@@ -21584,14 +21314,14 @@
     "channel_url": "https://www.youtube.com/channel/UCSP-ByGljDphNocsF7IOonw"
   },
   {
-    "id": "",
+    "id": "UC3kfx81WYXgNBf1bNIcO5Fg",
     "name": "WAYOFLIFESQ",
     "category": "Dawah & Outreach",
     "handle": "@WAYOFLIFESQ",
     "country": "United States",
     "subscribers": "2.17m",
-    "video_count": "1,490",
-    "channel_url": "https://www.youtube.com/@WAYOFLIFESQ"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UC3kfx81WYXgNBf1bNIcO5Fg"
   },
   {
     "id": "UCaliOYhT-BNO7QmEt7e0EbA",
@@ -21872,16 +21602,6 @@
     "subscribers": "1030",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCFEZSK4zcyJrUTpmlN5gcvw"
-  },
-  {
-    "id": "UCwWY4Qz6RC20XlhUovnCDUg",
-    "name": "𝐘𝐀𝐐𝐄𝐄𝐍 | یقین",
-    "category": "Lectures & Islamic Studies",
-    "handle": "",
-    "country": "Unknown",
-    "subscribers": "147",
-    "video_count": "1",
-    "channel_url": "https://www.youtube.com/channel/UCwWY4Qz6RC20XlhUovnCDUg"
   },
   {
     "id": "UC9N1XGN3uwEYPpd761wEstQ",
@@ -22190,14 +21910,14 @@
     "channel_url": "https://www.youtube.com/channel/UC9droFt7nSQlw1Arv2Tr_bw"
   },
   {
-    "id": "",
+    "id": "UCxPIT-jU8QTqo250zibbDKg",
     "name": "YT islam",
     "category": "Reminders & Spirituality",
     "handle": "@YTislam7",
     "country": "Pakistan",
     "subscribers": "60.2k",
-    "video_count": "1,315",
-    "channel_url": "https://www.youtube.com/channel/UCXih71RSouFcjwvbaxNVItQ"
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCxPIT-jU8QTqo250zibbDKg"
   },
   {
     "id": "UCXJ_fVhh6q-otVu2WX5xvAA",
@@ -22650,6 +22370,216 @@
     "channel_url": "https://www.youtube.com/channel/UCcxIpNs-SlVSu2BkkCPxKyg"
   },
   {
+    "id": "",
+    "name": "âð¸ðððððððð âðððð¥ð¤â¡",
+    "category": "Documentaries & Media",
+    "handle": "@everythingabdimalik",
+    "country": "United States",
+    "subscribers": "12.4k",
+    "video_count": "934",
+    "channel_url": "https://www.youtube.com/channel/UCqSBpk2y7ADzmVvvtV67DGA"
+  },
+  {
+    "id": "",
+    "name": "ðð«ððð¦ðð«",
+    "category": "General Islamic",
+    "handle": "@Dreamer_588",
+    "country": "Unknown",
+    "subscribers": "41.2k",
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCh87ql7TJyQ082LAVIIvPiw"
+  },
+  {
+    "id": "",
+    "name": "ðð¡ð¨ð²ðð ðððð¢ðð¢ðð¥",
+    "category": "Documentaries & Media",
+    "handle": "@Shoyeb_Official2.0",
+    "country": "India",
+    "subscribers": "1.13m",
+    "video_count": "999",
+    "channel_url": "https://www.youtube.com/channel/UC7DBM6AhKp4R-uEh0U_mbFQ"
+  },
+  {
+    "id": "",
+    "name": "ð°ð¸ð¼ð¯ð Ì",
+    "category": "General Islamic",
+    "handle": "@ISLAMIC_IQUH",
+    "country": "India",
+    "subscribers": "10.9k",
+    "video_count": "269",
+    "channel_url": "https://www.youtube.com/channel/UC06DJhzb-KUi69Np1VB0JdQ"
+  },
+  {
+    "id": "",
+    "name": "ð ð¶ðµð¿ð®ð¯ ð ðð¹ðº",
+    "category": "Documentaries & Media",
+    "handle": "@mihrabeilm3837",
+    "country": "India",
+    "subscribers": "98k",
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UCjEBVmfdq1gr9jsGp6vc3nA"
+  },
+  {
+    "id": "",
+    "name": "ðð°ð°ð³ ðð¢ðºðªð¯ð¨ð´",
+    "category": "General Islamic",
+    "handle": "@Noor_Sayings",
+    "country": "Unknown",
+    "subscribers": "29k",
+    "video_count": "267",
+    "channel_url": "https://www.youtube.com/channel/UCnnju8OMg-8rpjlRAzDFEPA"
+  },
+  {
+    "id": "",
+    "name": "Ø£Ù ÙØ© ØªÙÙÙ - Ummah Toon",
+    "category": "Documentaries & Media",
+    "handle": "@ummahtoon",
+    "country": "Unknown",
+    "subscribers": "266k",
+    "video_count": "215",
+    "channel_url": "https://www.youtube.com/channel/UChL1Rckcbcctqe3x4ONiZ6g"
+  },
+  {
+    "id": "",
+    "name": "Ø£ÙØ§ Ù Ø³ÙÙ - I'm a Muslim",
+    "category": "General Islamic",
+    "handle": "@iamamuslim",
+    "country": "Saudi Arabia",
+    "subscribers": "7.41m",
+    "video_count": "12,686",
+    "channel_url": "https://www.youtube.com/@iamamuslim"
+  },
+  {
+    "id": "",
+    "name": "Ø§ÙØ³ÙÙÙØ© Ø§ÙÙØ±Ø¢ÙÙØ© | Quranic Peace",
+    "category": "Quran & Tafseer",
+    "handle": "@quranicpeace1",
+    "country": "United Arab Emirates",
+    "subscribers": "20.1k",
+    "video_count": "1,471",
+    "channel_url": "https://www.youtube.com/channel/UCnaU5CtZ_Z6o8zJg4kT5SJQ"
+  },
+  {
+    "id": "",
+    "name": "Ø§ÙÙØ±Ø¢Ù Ø§ÙÙØ±ÙÙ AlQuran4K",
+    "category": "Quran & Tafseer",
+    "handle": "@AlQuran4KOfficial",
+    "country": "United Kingdom",
+    "subscribers": "826k",
+    "video_count": "136",
+    "channel_url": "https://www.youtube.com/channel/UCfBw_uwZb_oFLyVsjWk6owQ"
+  },
+  {
+    "id": "",
+    "name": "Ø§ÙÙØ±Ø¢Ù Ø§ÙÚ©Ø±ÛÙ Al-Quran",
+    "category": "Quran & Tafseer",
+    "handle": "@al_quran117",
+    "country": "India",
+    "subscribers": "286k",
+    "video_count": "1,384",
+    "channel_url": "https://www.youtube.com/channel/UCWriRLnPly12QHejY7qg5cA"
+  },
+  {
+    "id": "",
+    "name": "Ø¨Ú©Ú¾Ø±Û Ù ÙØªÛ",
+    "category": "General Islamic",
+    "handle": "@Bikhre_Moti_official",
+    "country": "Pakistan",
+    "subscribers": "36.7k",
+    "video_count": "1,281",
+    "channel_url": "https://www.youtube.com/channel/UCRSxUTW0WNP2b5IM0o5e40g"
+  },
+  {
+    "id": "",
+    "name": "Ø³Ø§ÙÙ Ø§ÙØ±ÙÙÙÙ salem alruwaili",
+    "category": "Documentaries & Media",
+    "handle": "@salemalruwailiofficial",
+    "country": "United Arab Emirates",
+    "subscribers": "192k",
+    "video_count": "1,045",
+    "channel_url": "https://www.youtube.com/channel/UCtG6AuZuinM-nhHKvncdxZw"
+  },
+  {
+    "id": "",
+    "name": "Ø³ÙÙÙØ© Ø§ÙÙØ¬Ø§Ø© - The Ship of Salvation",
+    "category": "Lectures & Islamic Studies",
+    "handle": "@-TheShipofSalvation",
+    "country": "Unknown",
+    "subscribers": "15.7k",
+    "video_count": "727",
+    "channel_url": "https://www.youtube.com/channel/UCFJsCMcBtvJweCWI8NB-G2g"
+  },
+  {
+    "id": "",
+    "name": "Ø¹Ø¨Ø§Ø¯ Ø§ÙØ±Ø­Ù Ù - Holy Quran",
+    "category": "Quran & Tafseer",
+    "handle": "@RAWAFED39-ep4wu",
+    "country": "Unknown",
+    "subscribers": "28.5k",
+    "video_count": "4,284",
+    "channel_url": "https://www.youtube.com/channel/UCeEWZ0T_uPRB3JBWtnPJo9w"
+  },
+  {
+    "id": "",
+    "name": "ÙØ±Ø¢ÙÛ Ø§Ø±Ø´Ø§Ø¯Ø§Øª (Qur'ani irshadaat)",
+    "category": "Children & Family",
+    "handle": "@MisbahQuran",
+    "country": "Pakistan",
+    "subscribers": "31.2k",
+    "video_count": "195",
+    "channel_url": "https://www.youtube.com/channel/UCjH-nRLaWzTFdxV-1xw2lYg"
+  },
+  {
+    "id": "",
+    "name": "ÙÙØ§Ø© Ø§ÙÙØ±Ø¢Ù 2 - Quran",
+    "category": "Quran & Tafseer",
+    "handle": "@QuranForU36",
+    "country": "Iraq",
+    "subscribers": "500k",
+    "video_count": "15",
+    "channel_url": "https://www.youtube.com/channel/UC6W_OgG8P31BVf9EVe5d8Ig"
+  },
+  {
+    "id": "",
+    "name": "ÙÙØ·Ù Ø¦Ù ÙÙØ¨Ù ð¤ | TO REASSURE YOUR HEART",
+    "category": "Quran & Tafseer",
+    "handle": "@to_reassure_your_heart-quran",
+    "country": "Saudi Arabia",
+    "subscribers": "112k",
+    "video_count": "412",
+    "channel_url": "https://www.youtube.com/channel/UCmoLHpDB1IP1Nnka4Xsarug"
+  },
+  {
+    "id": "",
+    "name": "ÙÙØ± Ø§ÙÙØ±Ø¢Ù | Light of Quran",
+    "category": "Quran & Tafseer",
+    "handle": "@hopemediauae",
+    "country": "United Arab Emirates",
+    "subscribers": "17.8k",
+    "video_count": "213",
+    "channel_url": "https://www.youtube.com/channel/UCyXqB2dAKZ1nzXPOilt46vg"
+  },
+  {
+    "id": "",
+    "name": "ÙÙÙÙ - Holy Quran",
+    "category": "Quran & Tafseer",
+    "handle": "@Rawafed16Feb1-k5h",
+    "country": "Jordan",
+    "subscribers": "45.3k",
+    "video_count": "468",
+    "channel_url": "https://www.youtube.com/channel/UCGivimwiOwyOn0uDkVpomyw"
+  },
+  {
+    "id": "",
+    "name": "ÚÛÚ¯Ø§Û Ø¦ÛØ³ÙØ§Ù Regay Islam",
+    "category": "General Islamic",
+    "handle": "@RegayIslam11",
+    "country": "Iraq",
+    "subscribers": "115k",
+    "video_count": "11,055",
+    "channel_url": "https://www.youtube.com/@RegayIslam11"
+  },
+  {
     "id": "UCrusF4_NrZbzLxtX0ZRfLEQ",
     "name": "بودكاست المفيد El Moufid Podcast",
     "category": "Lectures & Islamic Studies",
@@ -22760,6 +22690,16 @@
     "channel_url": "https://www.youtube.com/channel/UCQUmlkVCs4V2hO7L1vG41_g"
   },
   {
+    "id": "UC1D7o7NmYIdR3Tk-WXqbwuA",
+    "name": "ℌ𝔞𝔫𝔦𝔣-𝔱𝔳",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "786",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UC1D7o7NmYIdR3Tk-WXqbwuA"
+  },
+  {
     "id": "UCEziQASfA7KILSjLvyYKphA",
     "name": "伊斯蘭真理",
     "category": "Lectures & Islamic Studies",
@@ -22768,5 +22708,65 @@
     "subscribers": "15",
     "video_count": "1",
     "channel_url": "https://www.youtube.com/channel/UCEziQASfA7KILSjLvyYKphA"
+  },
+  {
+    "id": "UCwWY4Qz6RC20XlhUovnCDUg",
+    "name": "𝐘𝐀𝐐𝐄𝐄𝐍 | یقین",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "147",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCwWY4Qz6RC20XlhUovnCDUg"
+  },
+  {
+    "id": "UCSDZyxUYo67g5_4MBMNRl7g",
+    "name": "𝒮𝒶𝓇𝒶𝒽 𝒮𝓊𝓁𝓉𝒶𝓃",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "148",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCSDZyxUYo67g5_4MBMNRl7g"
+  },
+  {
+    "id": "UCeEDkYsXDOaYWWV65sPptmw",
+    "name": "𝗛𝗮𝗹𝗮𝗹 𝗘𝗱𝗶𝘁𝘀",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "1900",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCeEDkYsXDOaYWWV65sPptmw"
+  },
+  {
+    "id": "UClDqSBo8YT7LWHYljERSFVQ",
+    "name": "𝗦𝗵𝗶𝗵𝗮𝗯 𝗛𝗮𝗹𝗮𝗹 𝗧𝗼𝗼𝗻𝘀",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "4530",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UClDqSBo8YT7LWHYljERSFVQ"
+  },
+  {
+    "id": "UCw3sNtE0NKfDjI5I3eGvmTQ",
+    "name": "🌍 Beyond Borders Studio",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "39",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCw3sNtE0NKfDjI5I3eGvmTQ"
+  },
+  {
+    "id": "UCgmHOXr7zLR5IvjIQsh_cpw",
+    "name": "🥇 Noor By Hasib",
+    "category": "Lectures & Islamic Studies",
+    "handle": "",
+    "country": "Unknown",
+    "subscribers": "1020",
+    "video_count": "1",
+    "channel_url": "https://www.youtube.com/channel/UCgmHOXr7zLR5IvjIQsh_cpw"
   }
 ]
