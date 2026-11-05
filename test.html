@@ -30,7 +30,7 @@
     <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <link rel="stylesheet" href="css/styles.css?v=2.1.0">
+    <link rel="stylesheet" href="css/styles.css?v=2.3.4">
 </head>
 
 <body>
@@ -495,6 +495,18 @@
                         <span class="pref-label-sub">Filter content to your preferred language or explore
                             globally</span>
                     </label>
+                    <div class="mobile-pref-control">
+                        <select id="prefLanguageSelect" class="pref-select">
+                            <option value="all">All Languages</option>
+                            <option value="en">English</option>
+                            <option value="ur">Urdu</option>
+                            <option value="ar">Arabic</option>
+                            <option value="id">Indonesian</option>
+                            <option value="bn">Bengali</option>
+                            <option value="hi">Hindi</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </div>
                     <div class="pref-lang-grid" id="prefLangGrid">
                         <button type="button" class="lang-card active" data-lang="all">
                             <span class="lang-flag">🌐</span>
@@ -546,6 +558,12 @@
                         <span class="pref-label-sub">Choose whether to view full library content or family/kids safe
                             mode</span>
                     </label>
+                    <div class="mobile-pref-control">
+                        <select id="prefAudienceSelect" class="pref-select">
+                            <option value="adult">Adult & General Mode</option>
+                            <option value="kids">Kids & Family Mode</option>
+                        </select>
+                    </div>
                     <div class="pref-audience-grid">
                         <label class="audience-card" for="audienceAdult">
                             <input type="radio" name="prefAudience" id="audienceAdult" value="adult" checked>
@@ -660,6 +678,13 @@
                         <span class="pref-label-main">Appearance & Theme</span>
                         <span class="pref-label-sub">Choose Light, Dark, or automatically detect device theme</span>
                     </label>
+                    <div class="mobile-pref-control">
+                        <select id="prefThemeSelect" class="pref-select">
+                            <option value="system">Device Theme</option>
+                            <option value="light">Light Theme</option>
+                            <option value="dark">Dark Theme</option>
+                        </select>
+                    </div>
                     <div class="pref-theme-grid" id="prefThemeGrid">
                         <button type="button" class="theme-card active" data-theme="system">
                             <span class="theme-card-icon">📱</span>
@@ -918,7 +943,7 @@
     <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
 
     <script src="videos.js"></script>
-    <script src="js/app.js?v=2.3.1" defer></script>
+    <script src="js/app.js?v=2.3.4" defer></script>
 </body>
 
 </html>

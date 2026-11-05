@@ -82,12 +82,15 @@ const dom = {
     prefModalSubtitle: $("#prefModalSubtitle"),
     prefCloseBtn: $("#prefCloseBtn"),
     prefLangGrid: $("#prefLangGrid"),
+    prefLanguageSelect: $("#prefLanguageSelect"),
     prefAudienceAdult: $("#audienceAdult"),
     prefAudienceKids: $("#audienceKids"),
+    prefAudienceSelect: $("#prefAudienceSelect"),
     prefShuffle: $("#prefShuffle"),
     prefSaveBtn: $("#prefSaveBtn"),
     prefResetBtn: $("#prefResetBtn"),
     prefThemeGrid: $("#prefThemeGrid"),
+    prefThemeSelect: $("#prefThemeSelect"),
     themeToggle: $("#themeToggle"),
     themeLabel: $("#themeLabel"),
     soundToggle: $("#soundToggle"),
@@ -274,7 +277,7 @@ function playBeep(freq = 420, duration = 0.02, volume = 0.05, pitchMod = 1) {
     const audioCtx = getInteractionAudioContext();
     if (!audioCtx) return;
     if (audioCtx.state === 'suspended') {
-        audioCtx.resume().catch(() => {});
+        audioCtx.resume().catch(() => { });
     }
 
     const now = audioCtx.currentTime;
@@ -514,7 +517,7 @@ function toggleSoundEffects() {
     const enabled = !userPreferences.soundEffects;
     if (!enabled) stopScrollSoundLoop();
 
-    
+
     savePreferences({ soundEffects: enabled });
     if (enabled) playInteractionSound("toggle", { force: true });
     showToast(enabled ? "Interaction sounds enabled" : "Interaction sounds muted");
@@ -1253,7 +1256,7 @@ function updateResultCount(results, visibleCount) {
     if (state.view === "watch-later") {
         dom.resultsCopy.innerHTML = `Showing <strong>${shown} of ${results.length} saved videos</strong>`;
     } else {
-        dom.resultsCopy.innerHTML = `Showing <strong>${shown} of ${results.length.toLocaleString()} videos</strong> (${total.toLocaleString()} total in library)`;
+        dom.resultsCopy.innerHTML = `Showing <strong>${shown} of ${results.length.toLocaleString()} videos</strong> <span class="results-total-note">(${total.toLocaleString()} total in library)</span>`;
     }
 }
 
@@ -2028,6 +2031,18 @@ function openPreferencesModal(isFirstTime = false) {
         });
     }
 
+    if (dom.prefLanguageSelect) {
+        dom.prefLanguageSelect.value = activeLang;
+    }
+
+    if (dom.prefAudienceSelect) {
+        dom.prefAudienceSelect.value = userPreferences.audience || "adult";
+    }
+
+    if (dom.prefThemeSelect) {
+        dom.prefThemeSelect.value = activeTheme;
+    }
+
     if (dom.preferencesModal) {
         dom.preferencesModal.classList.add("is-open");
         dom.preferencesModal.setAttribute("aria-hidden", "false");
@@ -2332,6 +2347,7 @@ function initEvents() {
             if (!card) return;
             $$(".lang-card", dom.prefLangGrid).forEach(b => b.classList.remove("active"));
             card.classList.add("active");
+            if (dom.prefLanguageSelect) dom.prefLanguageSelect.value = card.dataset.lang;
         });
     }
 
@@ -2341,8 +2357,39 @@ function initEvents() {
             if (!card) return;
             $$(".theme-card", dom.prefThemeGrid).forEach(b => b.classList.remove("active"));
             card.classList.add("active");
+            if (dom.prefThemeSelect) dom.prefThemeSelect.value = card.dataset.theme;
         });
     }
+
+    // Mobile dropdown synchronization
+    dom.prefLanguageSelect?.addEventListener("change", () => {
+        $$(".lang-card", dom.prefLangGrid).forEach(btn => {
+            btn.classList.toggle(
+                "active",
+                btn.dataset.lang === dom.prefLanguageSelect.value
+            );
+        });
+    });
+
+    dom.prefAudienceSelect?.addEventListener("change", () => {
+        if (dom.prefAudienceAdult) {
+            dom.prefAudienceAdult.checked =
+                dom.prefAudienceSelect.value === "adult";
+        }
+        if (dom.prefAudienceKids) {
+            dom.prefAudienceKids.checked =
+                dom.prefAudienceSelect.value === "kids";
+        }
+    });
+
+    dom.prefThemeSelect?.addEventListener("change", () => {
+        $$(".theme-card", dom.prefThemeGrid).forEach(btn => {
+            btn.classList.toggle(
+                "active",
+                btn.dataset.theme === dom.prefThemeSelect.value
+            );
+        });
+    });
 
     if (dom.soundToggle) {
         dom.soundToggle.addEventListener("click", toggleSoundEffects);
@@ -2442,6 +2489,9 @@ function initEvents() {
                 });
             }
             if (dom.prefAudienceAdult) dom.prefAudienceAdult.checked = true;
+            if (dom.prefLanguageSelect) dom.prefLanguageSelect.value = "all";
+            if (dom.prefAudienceSelect) dom.prefAudienceSelect.value = "adult";
+            if (dom.prefThemeSelect) dom.prefThemeSelect.value = "system";
             if (dom.prefShuffle) dom.prefShuffle.checked = true;
             if (dom.prefSoundEffects) dom.prefSoundEffects.checked = true;
             if (dom.prefScrollSounds) dom.prefScrollSounds.checked = true;
@@ -2454,15 +2504,15 @@ function initEvents() {
     if (dom.prefSaveBtn) {
         dom.prefSaveBtn.addEventListener("click", () => {
             const activeLangCard = $(".lang-card.active", dom.prefLangGrid);
-            const selectedLang = activeLangCard ? activeLangCard.dataset.lang : "all";
-            const selectedAudience = dom.prefAudienceKids?.checked ? "kids" : "adult";
+            const selectedLang = dom.prefLanguageSelect?.value || (activeLangCard ? activeLangCard.dataset.lang : "all");
+            const selectedAudience = dom.prefAudienceSelect?.value || (dom.prefAudienceKids?.checked ? "kids" : "adult");
             const isShuffle = dom.prefShuffle ? dom.prefShuffle.checked : true;
             const soundEffects = dom.prefSoundEffects ? dom.prefSoundEffects.checked : true;
             const scrollSounds = dom.prefScrollSounds ? dom.prefScrollSounds.checked : true;
             const soundVolume = dom.prefSoundVolume ? Math.max(0, Math.min(1, Number(dom.prefSoundVolume.value) || 0)) : DEFAULT_PREFERENCES.soundVolume;
             const haptics = dom.prefHaptics ? dom.prefHaptics.checked : true;
             const activeThemeCard = $(".theme-card.active", dom.prefThemeGrid);
-            const selectedTheme = activeThemeCard ? activeThemeCard.dataset.theme : "system";
+            const selectedTheme = dom.prefThemeSelect?.value || (activeThemeCard ? activeThemeCard.dataset.theme : "system");
 
             savePreferences({
                 language: selectedLang,
@@ -2475,7 +2525,7 @@ function initEvents() {
                 haptics,
                 onboarded: true
             });
-            
+
             applyTheme(selectedTheme);
 
             if (isShuffle) {

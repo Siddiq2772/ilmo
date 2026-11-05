@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0f172a">
     <script>
-        (function() {
+        (function () {
             try {
                 var raw = localStorage.getItem("ilmo_user_preferences_v1");
                 var prefs = raw ? JSON.parse(raw) : {};
@@ -17,7 +17,7 @@
                 document.documentElement.setAttribute("data-theme-setting", theme);
                 var meta = document.querySelector('meta[name="theme-color"]');
                 if (meta) meta.setAttribute("content", effective === "dark" ? "#0f172a" : "#f8fafc");
-            } catch (e) {}
+            } catch (e) { }
         })();
     </script>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <link rel="stylesheet" href="css/styles.css?v=2.0.2">
+    <link rel="stylesheet" href="css/styles.css?v=2.3.4">
 </head>
 
 <body>
@@ -101,7 +101,8 @@
         </symbol>
         <symbol id="i-sun" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="5" />
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
         </symbol>
         <symbol id="i-alert" viewBox="0 0 24 24">
             <path d="M10.3 3.9 2.2 18a2 2 0 0 0 1.7 3h16.2a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
@@ -115,7 +116,8 @@
         </symbol>
         <symbol id="i-settings" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="3" />
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
         </symbol>
         <symbol id="i-shuffle" viewBox="0 0 24 24">
             <polyline points="16 3 21 3 21 8" />
@@ -135,7 +137,8 @@
             <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7" />
         </symbol>
         <symbol id="i-heart" viewBox="0 0 24 24">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
         </symbol>
         <symbol id="i-download" viewBox="0 0 24 24">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -153,18 +156,19 @@
                         <use href="#i-menu" />
                     </svg>
                 </button>
-                <a class="brand-lockup" href="#" id="brandHome" aria-label="ILMO - Islamic Knowledge Without Distraction">
+                <a class="brand-lockup" href="#" id="brandHome"
+                    aria-label="ILMO - Islamic Knowledge Without Distraction">
                     <span class="brand-mark" aria-hidden="true">
                         <svg class="brand-logo" viewBox="0 0 48 48" width="30" height="30" fill="none">
                             <g stroke="#10B981" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M24 16.5C19.5 12.8 13.5 11.8 7 14v21 c6.5-2.2 12.5-1.2 17 2.5"/>
-                                <path d="M24 16.5c4.5-3.7 10.5-4.7 17-2.5v21 c-6.5-2.2-12.5-1.2-17 2.5"/>
+                                <path d="M24 16.5C19.5 12.8 13.5 11.8 7 14v21 c6.5-2.2 12.5-1.2 17 2.5" />
+                                <path d="M24 16.5c4.5-3.7 10.5-4.7 17-2.5v21 c-6.5-2.2-12.5-1.2-17 2.5" />
                             </g>
                             <g stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round">
-                                <path d="M13 20c3-.7 5.8-.2 8.5 1.1"/>
-                                <path d="M13 26c3-.7 5.8-.2 8.5 1.1"/>
-                                <path d="M35 20c-3-.7-5.8-.2-8.5 1.1"/>
-                                <path d="M35 26c-3-.7-5.8-.2-8.5 1.1"/>
+                                <path d="M13 20c3-.7 5.8-.2 8.5 1.1" />
+                                <path d="M13 26c3-.7 5.8-.2 8.5 1.1" />
+                                <path d="M35 20c-3-.7-5.8-.2-8.5 1.1" />
+                                <path d="M35 26c-3-.7-5.8-.2-8.5 1.1" />
                             </g>
                         </svg>
                     </span>
@@ -186,7 +190,8 @@
             </label>
 
             <div class="header-actions">
-                <button class="header-action" id="themeToggle" type="button" aria-label="Toggle Theme" title="Theme: Device Default">
+                <button class="header-action" id="themeToggle" type="button" aria-label="Toggle Theme"
+                    title="Theme: Device Default">
                     <svg class="icon">
                         <use href="#i-moon" />
                     </svg>
@@ -305,7 +310,8 @@
             <div class="sidebar-section">
                 <div class="sidebar-heading">App</div>
                 <nav class="sidebar-nav">
-                    <button class="nav-item install-app-btn" id="installAppSidebar" type="button" title="Install ILMO as an App">
+                    <button class="nav-item install-app-btn" id="installAppSidebar" type="button"
+                        title="Install ILMO as an App">
                         <svg class="icon">
                             <use href="#i-download" />
                         </svg><span>Install App</span>
@@ -343,7 +349,8 @@
                         <span class="quiet-pill"><svg class="icon">
                                 <use href="#i-moon" />
                             </svg> Distraction-free by design</span>
-                        <button class="quiet-pill pref-pill-btn" id="prefBadgeBtn" type="button" title="Change language or audience mode">
+                        <button class="quiet-pill pref-pill-btn" id="prefBadgeBtn" type="button"
+                            title="Change language or audience mode">
                             <svg class="icon">
                                 <use href="#i-settings" />
                             </svg>
@@ -368,8 +375,11 @@
                         <div class="results-copy" id="resultsCopy" aria-live="polite">Showing <strong>0 videos</strong>
                         </div>
                         <div class="toolbar-right">
-                            <button class="shuffle-btn" id="shuffleFeedBtn" type="button" title="Shuffle feed for fresh discovery">
-                                <svg class="icon sm"><use href="#i-shuffle" /></svg>
+                            <button class="shuffle-btn" id="shuffleFeedBtn" type="button"
+                                title="Shuffle feed for fresh discovery">
+                                <svg class="icon sm">
+                                    <use href="#i-shuffle" />
+                                </svg>
                                 <span>Shuffle</span>
                             </button>
                             <label class="sort-label" for="sortSelect">Sort by</label>
@@ -391,14 +401,19 @@
 
                 <footer class="site-footer">
                     <span class="footer-brand">ILMO</span>
-                    <span class="footer-note">Islamic Knowledge Without Distraction. Videos are embedded from YouTube.</span>
+                    <span class="footer-note">Islamic Knowledge Without Distraction. Videos are embedded from
+                        YouTube.</span>
                     <div class="footer-links">
                         <button class="footer-link-btn" id="footerChannelRequest" type="button">
-                            <svg class="icon sm"><use href="#i-flag" /></svg>
+                            <svg class="icon sm">
+                                <use href="#i-flag" />
+                            </svg>
                             <span>Suggest or Report a Channel</span>
                         </button>
                         <button class="footer-link-btn" id="footerSupportBtn" type="button" data-view="support">
-                            <svg class="icon sm"><use href="#i-heart" /></svg>
+                            <svg class="icon sm">
+                                <use href="#i-heart" />
+                            </svg>
                             <span>Support the Developer</span>
                         </button>
                     </div>
@@ -410,37 +425,50 @@
     <!-- Mobile App Bottom Navigation Bar -->
     <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile Navigation">
         <button class="bottom-nav-item active" type="button" data-view="home" aria-label="Home">
-            <svg class="icon"><use href="#i-home" /></svg>
+            <svg class="icon">
+                <use href="#i-home" />
+            </svg>
             <span>Home</span>
         </button>
         <button class="bottom-nav-item" type="button" data-view="channels" aria-label="All Channels">
-            <svg class="icon"><use href="#i-users" /></svg>
+            <svg class="icon">
+                <use href="#i-users" />
+            </svg>
             <span>Channels</span>
         </button>
         <button class="bottom-nav-item" type="button" data-view="watch-later" aria-label="Watch Later">
             <span class="bottom-nav-icon-wrap">
-                <svg class="icon"><use href="#i-bookmark" /></svg>
+                <svg class="icon">
+                    <use href="#i-bookmark" />
+                </svg>
                 <span class="bottom-saved-badge" id="bottomSavedCount">0</span>
             </span>
             <span>Saved</span>
         </button>
         <button class="bottom-nav-item" type="button" id="bottomNavPrefs" aria-label="Preferences">
-            <svg class="icon"><use href="#i-settings" /></svg>
+            <svg class="icon">
+                <use href="#i-settings" />
+            </svg>
             <span>Settings</span>
         </button>
     </nav>
 
     <!-- User Preferences & Onboarding Modal -->
     <div class="pref-modal" id="preferencesModal" aria-hidden="true">
-        <section class="pref-dialog" id="prefDialog" role="dialog" aria-modal="true" aria-labelledby="prefModalTitle" tabindex="-1">
+        <section class="pref-dialog" id="prefDialog" role="dialog" aria-modal="true" aria-labelledby="prefModalTitle"
+            tabindex="-1">
             <div class="pref-header">
                 <div class="pref-title-group">
                     <span class="pref-kicker" id="prefModalKicker">First-time Setup</span>
                     <h2 class="pref-title" id="prefModalTitle">Welcome to ILMO</h2>
-                    <p class="pref-subtitle" id="prefModalSubtitle">Islamic Knowledge Without Distraction. Customize your preferences below for fresh, focused discovery.</p>
+                    <p class="pref-subtitle" id="prefModalSubtitle">Islamic Knowledge Without Distraction. Customize
+                        your preferences below for fresh, focused discovery.</p>
                 </div>
-                <button class="icon-button pref-close-btn" id="prefCloseBtn" type="button" aria-label="Close preferences">
-                    <svg class="icon"><use href="#i-x" /></svg>
+                <button class="icon-button pref-close-btn" id="prefCloseBtn" type="button"
+                    aria-label="Close preferences">
+                    <svg class="icon">
+                        <use href="#i-x" />
+                    </svg>
                 </button>
             </div>
 
@@ -449,8 +477,21 @@
                 <div class="pref-group">
                     <label class="pref-label">
                         <span class="pref-label-main">Preferred Language</span>
-                        <span class="pref-label-sub">Filter content to your preferred language or explore globally</span>
+                        <span class="pref-label-sub">Filter content to your preferred language or explore
+                            globally</span>
                     </label>
+                    <div class="mobile-pref-control">
+                        <select id="prefLanguageSelect" class="pref-select">
+                            <option value="all">All Languages</option>
+                            <option value="en">English</option>
+                            <option value="ur">Urdu</option>
+                            <option value="ar">Arabic</option>
+                            <option value="id">Indonesian</option>
+                            <option value="bn">Bengali</option>
+                            <option value="hi">Hindi</option>
+                            <option value="fr">French</option>
+                        </select>
+                    </div>
                     <div class="pref-lang-grid" id="prefLangGrid">
                         <button type="button" class="lang-card active" data-lang="all">
                             <span class="lang-flag">🌐</span>
@@ -499,8 +540,15 @@
                 <div class="pref-group">
                     <label class="pref-label">
                         <span class="pref-label-main">Audience Mode</span>
-                        <span class="pref-label-sub">Choose whether to view full library content or family/kids safe mode</span>
+                        <span class="pref-label-sub">Choose whether to view full library content or family/kids safe
+                            mode</span>
                     </label>
+                    <div class="mobile-pref-control">
+                        <select id="prefAudienceSelect" class="pref-select">
+                            <option value="adult">Adult & General Mode</option>
+                            <option value="kids">Kids & Family Mode</option>
+                        </select>
+                    </div>
                     <div class="pref-audience-grid">
                         <label class="audience-card" for="audienceAdult">
                             <input type="radio" name="prefAudience" id="audienceAdult" value="adult" checked>
@@ -508,7 +556,8 @@
                                 <div class="audience-icon">🧑</div>
                                 <div class="audience-info">
                                     <div class="audience-title">Adult & General Mode</div>
-                                    <div class="audience-desc">Full access to in-depth scholarly lectures, tafseer, fiqh, debates, and Islamic history.</div>
+                                    <div class="audience-desc">Full access to in-depth scholarly lectures, tafseer,
+                                        fiqh, debates, and Islamic history.</div>
                                 </div>
                             </div>
                         </label>
@@ -518,7 +567,8 @@
                                 <div class="audience-icon">🧒</div>
                                 <div class="audience-info">
                                     <div class="audience-title">Kids & Family Mode</div>
-                                    <div class="audience-desc">Curated safe content: Prophet stories for children, educational animations, moral cartoons & nasheeds.</div>
+                                    <div class="audience-desc">Curated safe content: Prophet stories for children,
+                                        educational animations, moral cartoons & nasheeds.</div>
                                 </div>
                             </div>
                         </label>
@@ -537,10 +587,74 @@
                             <div class="toggle-icon">🎲</div>
                             <div class="toggle-info">
                                 <div class="toggle-title">Randomize feed on each visit</div>
-                                <div class="toggle-desc">Show a fresh, randomized sequence every time you visit or refresh to discover diverse topics and speakers.</div>
+                                <div class="toggle-desc">Show a fresh, randomized sequence every time you visit or
+                                    refresh to discover diverse topics and speakers.</div>
                             </div>
                         </div>
                     </label>
+                </div>
+
+                <!-- Interaction Sounds & Haptics -->
+                <div class="pref-group sound-settings">
+                    <label class="pref-label">
+                        <span class="pref-label-main">Sound & Touch Feedback</span>
+                        <span class="pref-label-sub">Subtle mechanical clicks, gear-like scrolling ticks and gentle
+                            vibration make the interface feel tactile.</span>
+                    </label>
+
+                    <label class="pref-toggle-card" for="prefSoundEffects">
+                        <input type="checkbox" id="prefSoundEffects" checked>
+                        <div class="toggle-card-content">
+                            <div class="toggle-icon">⚙️</div>
+                            <div class="toggle-info">
+                                <div class="toggle-title">Interaction sound effects</div>
+                                <div class="toggle-desc">Soft clicks, tab changes, bookmark chimes and modal whooshes.
+                                    No speech or narration.</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="pref-toggle-card" for="prefScrollSounds">
+                        <input type="checkbox" id="prefScrollSounds" checked>
+                        <div class="toggle-card-content">
+                            <div class="toggle-icon">〰️</div>
+                            <div class="toggle-info">
+                                <div class="toggle-title">Gear-like scrolling texture</div>
+                                <div class="toggle-desc">A quiet mechanical tick after a short scrolling distance, never
+                                    a continuous sound.</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <div class="sound-volume-control">
+                        <div class="sound-volume-heading">
+                            <label for="prefSoundVolume">Sound volume</label>
+                            <output id="soundVolumeValue" for="prefSoundVolume">30%</output>
+                        </div>
+                        <input class="sound-volume-range" type="range" id="prefSoundVolume" min="0" max="1" step="0.05"
+                            value="0.30">
+                    </div>
+
+                    <label class="pref-toggle-card" for="prefHaptics">
+                        <input type="checkbox" id="prefHaptics" checked>
+                        <div class="toggle-card-content">
+                            <div class="toggle-icon">📳</div>
+                            <div class="toggle-info">
+                                <div class="toggle-title">Gentle haptic feedback</div>
+                                <div class="toggle-desc">Short vibration pulses on supported phones. Availability
+                                    depends on the browser and device.</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <button class="secondary-button sound-preview-button" id="previewSoundsBtn" type="button">
+                        <svg class="icon sm">
+                            <use href="#i-volume-2" />
+                        </svg>
+                        <span>Preview interaction sounds</span>
+                    </button>
+                    <p class="sound-support-note">Audio starts after your first touch or click, as required by browser
+                        autoplay policies. Sound is generated locally; no audio files are downloaded.</p>
                 </div>
 
                 <!-- Theme / Appearance -->
@@ -549,6 +663,13 @@
                         <span class="pref-label-main">Appearance & Theme</span>
                         <span class="pref-label-sub">Choose Light, Dark, or automatically detect device theme</span>
                     </label>
+                    <div class="mobile-pref-control">
+                        <select id="prefThemeSelect" class="pref-select">
+                            <option value="system">Device Theme</option>
+                            <option value="light">Light Theme</option>
+                            <option value="dark">Dark Theme</option>
+                        </select>
+                    </div>
                     <div class="pref-theme-grid" id="prefThemeGrid">
                         <button type="button" class="theme-card active" data-theme="system">
                             <span class="theme-card-icon">📱</span>
@@ -578,36 +699,51 @@
 
     <!-- Install App Modal -->
     <div class="pref-modal" id="installModal" aria-hidden="true">
-        <section class="pref-dialog" id="installDialog" role="dialog" aria-modal="true" aria-labelledby="installModalTitle" tabindex="-1">
+        <section class="pref-dialog" id="installDialog" role="dialog" aria-modal="true"
+            aria-labelledby="installModalTitle" tabindex="-1">
             <div class="pref-header">
                 <div>
-                    <span class="pref-kicker"><svg class="icon"><use href="#i-download" /></svg> Mobile & Desktop</span>
+                    <span class="pref-kicker"><svg class="icon">
+                            <use href="#i-download" />
+                        </svg> Mobile & Desktop</span>
                     <h2 class="pref-title" id="installModalTitle">Install ILMO App</h2>
-                    <p class="pref-subtitle">Install ILMO on your home screen or desktop for a fast, distraction-free experience.</p>
+                    <p class="pref-subtitle">Install ILMO on your home screen or desktop for a fast, distraction-free
+                        experience.</p>
                 </div>
                 <button class="pref-close-btn" id="installCloseBtn" type="button" aria-label="Close modal">
-                    <svg class="icon"><use href="#i-x" /></svg>
+                    <svg class="icon">
+                        <use href="#i-x" />
+                    </svg>
                 </button>
             </div>
             <div class="pref-body">
                 <div id="nativeInstallPromptWrap" style="text-align: center; margin-bottom: 8px;">
-                    <button class="primary-button" id="btnTriggerNativeInstall" type="button" style="width: 100%; justify-content: center; padding: 12px 18px; font-size: 13.5px;">
-                        <svg class="icon"><use href="#i-download" /></svg>
+                    <button class="primary-button" id="btnTriggerNativeInstall" type="button"
+                        style="width: 100%; justify-content: center; padding: 12px 18px; font-size: 13.5px;">
+                        <svg class="icon">
+                            <use href="#i-download" />
+                        </svg>
                         <span>Install as Web App</span>
                     </button>
                 </div>
                 <div class="pref-group">
                     <span class="pref-label">How to add to Home Screen:</span>
-                    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: var(--text-soft); line-height: 1.55;">
-                        <div style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+                    <div
+                        style="display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: var(--text-soft); line-height: 1.55;">
+                        <div
+                            style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
                             <strong style="color: var(--text);">🤖 Android (Chrome / Edge / Firefox):</strong><br>
-                            Tap your browser menu <strong>(⋮)</strong> and select <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.
+                            Tap your browser menu <strong>(⋮)</strong> and select <strong>"Install app"</strong> or
+                            <strong>"Add to Home screen"</strong>.
                         </div>
-                        <div style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+                        <div
+                            style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
                             <strong style="color: var(--text);">🍏 iPhone & iPad (Safari):</strong><br>
-                            Tap the <strong>Share</strong> button (square with arrow) at the bottom, then tap <strong>"Add to Home Screen"</strong>.
+                            Tap the <strong>Share</strong> button (square with arrow) at the bottom, then tap
+                            <strong>"Add to Home Screen"</strong>.
                         </div>
-                        <div style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+                        <div
+                            style="padding: 10px 12px; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
                             <strong style="color: var(--text);">💻 PC & Mac (Chrome / Edge):</strong><br>
                             Click the <strong>Install icon (⊕)</strong> on the right side of the address bar.
                         </div>
@@ -615,8 +751,12 @@
                 </div>
                 <div class="pref-group" style="margin-top: 4px;">
                     <span class="pref-label">Download APK Directly:</span>
-                    <a class="secondary-button" href="https://github.com/Siddiq2772/ilmo/releases/tag/v1" target="_blank" rel="noopener noreferrer" style="justify-content: center; gap: 8px; width: 100%; text-decoration: none;">
-                        <svg class="icon sm"><use href="#i-external" /></svg>
+                    <a class="secondary-button" href="https://github.com/Siddiq2772/ilmo/releases/tag/v1"
+                        target="_blank" rel="noopener noreferrer"
+                        style="justify-content: center; gap: 8px; width: 100%; text-decoration: none;">
+                        <svg class="icon sm">
+                            <use href="#i-external" />
+                        </svg>
                         <span>Download Standalone Android APK (v1)</span>
                     </a>
                 </div>
@@ -630,12 +770,17 @@
             aria-labelledby="reqModalTitle" tabindex="-1">
             <div class="pref-header">
                 <div>
-                    <span class="pref-kicker" id="reqModalKicker"><svg class="icon"><use href="#i-users" /></svg> Channel Curation</span>
+                    <span class="pref-kicker" id="reqModalKicker"><svg class="icon">
+                            <use href="#i-users" />
+                        </svg> Channel Curation</span>
                     <h2 class="pref-title" id="reqModalTitle">Suggest or Report a Channel</h2>
-                    <p class="pref-subtitle" id="reqModalSubtitle">Help keep this portal beneficial and authentic. Request a new Islamic channel to be added or report an existing channel to be removed.</p>
+                    <p class="pref-subtitle" id="reqModalSubtitle">Help keep this portal beneficial and authentic.
+                        Request a new Islamic channel to be added or report an existing channel to be removed.</p>
                 </div>
                 <button class="pref-close-btn" id="reqCloseBtn" type="button" aria-label="Close modal">
-                    <svg class="icon"><use href="#i-x" /></svg>
+                    <svg class="icon">
+                        <use href="#i-x" />
+                    </svg>
                 </button>
             </div>
 
@@ -643,11 +788,15 @@
                 <!-- Action Type Switcher: Add vs Remove -->
                 <div class="req-type-switcher" role="radiogroup" aria-label="Request type">
                     <button type="button" class="req-type-btn active" id="reqTypeAdd" data-type="add">
-                        <svg class="icon sm"><use href="#i-plus" /></svg>
+                        <svg class="icon sm">
+                            <use href="#i-plus" />
+                        </svg>
                         <span>Request to Add Channel</span>
                     </button>
                     <button type="button" class="req-type-btn" id="reqTypeRemove" data-type="remove">
-                        <svg class="icon sm"><use href="#i-flag" /></svg>
+                        <svg class="icon sm">
+                            <use href="#i-flag" />
+                        </svg>
                         <span>Report / Remove Channel</span>
                     </button>
                 </div>
@@ -657,41 +806,56 @@
                     <label class="req-form-label" for="reqChannelName">
                         Channel Name or Handle <span class="req-star">*</span>
                     </label>
-                    <input type="text" id="reqChannelName" class="req-form-input" placeholder="e.g. Yaqeen Institute or @yaqeeninstituteofficial" required>
+                    <input type="text" id="reqChannelName" class="req-form-input"
+                        placeholder="e.g. Yaqeen Institute or @yaqeeninstituteofficial" required>
                 </div>
 
                 <div class="req-form-group">
                     <label class="req-form-label" for="reqChannelUrl">
                         Channel YouTube Link <span class="req-optional">(optional)</span>
                     </label>
-                    <input type="url" id="reqChannelUrl" class="req-form-input" placeholder="e.g. https://youtube.com/@channel">
+                    <input type="url" id="reqChannelUrl" class="req-form-input"
+                        placeholder="e.g. https://youtube.com/@channel">
                 </div>
 
                 <div class="req-form-group">
                     <label class="req-form-label" for="reqReason">
                         Reason / Notes <span class="req-star">*</span>
                     </label>
-                    <textarea id="reqReason" class="req-form-textarea" rows="3" placeholder="Tell us why this channel should be added (e.g. language, topics covered) or why it should be removed (e.g. non-Islamic, music, misleading content)..."></textarea>
+                    <textarea id="reqReason" class="req-form-textarea" rows="3"
+                        placeholder="Tell us why this channel should be added (e.g. language, topics covered) or why it should be removed (e.g. non-Islamic, music, misleading content)..."></textarea>
                 </div>
 
                 <!-- Submission Methods Note -->
                 <div class="req-dest-notice">
-                    <svg class="icon sm"><use href="#i-shield" /></svg>
-                    <span>Submissions are sent directly to <code>diekaiju@duck.com</code> via <strong>Gmail</strong> or as a <strong>GitHub Issue</strong>.</span>
+                    <svg class="icon sm">
+                        <use href="#i-shield" />
+                    </svg>
+                    <span>Submissions are sent directly to <code>diekaiju@duck.com</code> via <strong>Gmail</strong> or
+                        as a <strong>GitHub Issue</strong>.</span>
                 </div>
             </div>
 
             <div class="pref-footer req-footer">
-                <button class="secondary-button req-method-btn" id="reqSubmitGmail" type="button" title="Send pre-filled request using Gmail Web">
-                    <svg class="icon sm"><use href="#i-mail" /></svg>
+                <button class="secondary-button req-method-btn" id="reqSubmitGmail" type="button"
+                    title="Send pre-filled request using Gmail Web">
+                    <svg class="icon sm">
+                        <use href="#i-mail" />
+                    </svg>
                     <span>Send via Gmail</span>
                 </button>
-                <button class="secondary-button req-method-btn" id="reqSubmitEmail" type="button" title="Send request using your default mail app">
-                    <svg class="icon sm"><use href="#i-mail" /></svg>
+                <button class="secondary-button req-method-btn" id="reqSubmitEmail" type="button"
+                    title="Send request using your default mail app">
+                    <svg class="icon sm">
+                        <use href="#i-mail" />
+                    </svg>
                     <span>Default Email App</span>
                 </button>
-                <button class="primary-button req-method-btn" id="reqSubmitGithub" type="button" title="Open a pre-filled Issue on GitHub repository">
-                    <svg class="icon sm"><use href="#i-github" /></svg>
+                <button class="primary-button req-method-btn" id="reqSubmitGithub" type="button"
+                    title="Open a pre-filled Issue on GitHub repository">
+                    <svg class="icon sm">
+                        <use href="#i-github" />
+                    </svg>
                     <span>Open GitHub Issue</span>
                 </button>
             </div>
@@ -764,7 +928,7 @@
     <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
 
     <script src="videos.js"></script>
-    <script src="js/app.js?v=2.3.1" defer></script>
+    <script src="js/app.js?v=2.3.4" defer></script>
 </body>
 
 </html>

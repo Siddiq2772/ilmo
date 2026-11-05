@@ -2397,7 +2397,7 @@ same theater, rather than using YouTube's recommendation overlays. */
 
 .pref-dialog {
     position: relative;
-    width: min(100%, 620px);
+    width: min(100%, 540px);
     max-height: calc(100vh - 48px);
     overflow-y: auto;
     padding: 24px 28px;
@@ -3716,9 +3716,16 @@ a,
     }
 
     .results-copy {
+        flex: 1 1 0%;
         min-width: 0;
-        font-size: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
         white-space: nowrap;
+        font-size: 11px;
+    }
+
+    .results-total-note {
+        display: none !important;
     }
 
     .toolbar-right {
@@ -3727,6 +3734,7 @@ a,
         justify-content: flex-end;
         gap: 6px;
         min-width: 0;
+        flex-shrink: 0;
     }
 
     .shuffle-btn {
@@ -4403,33 +4411,39 @@ a,
 
     .video-grid {
         grid-template-columns: minmax(0, 1fr) !important;
-        gap: 13px;
+        gap: 16px;
     }
 
     .video-card {
-        display: grid;
-        grid-template-columns: 42% minmax(0, 1fr);
-        align-items: stretch;
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 14px;
+        overflow: hidden;
     }
 
     .thumb-button {
-        height: 100%;
-        min-height: 104px;
-        aspect-ratio: auto;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 0;
     }
 
     .card-body {
         min-width: 0;
         align-items: flex-start;
-        padding: 9px 7px;
+        padding: 10px 10px 12px;
     }
 
     .title-button {
-        font-size: 11px;
+        font-size: 13px;
+        line-height: 1.45;
     }
 
     .card-meta {
-        margin-top: 5px;
+        margin-top: 6px;
     }
 
     .filter-label {
@@ -4583,6 +4597,124 @@ a,
     line-height: 1.5;
 }
 
+/* =========================================================
+   SIMPLIFIED MODERN PREFERENCES & TOGGLE SWITCHES
+   ========================================================= */
+
+.mobile-pref-control {
+    display: block;
+}
+
+.pref-lang-grid,
+.pref-audience-grid,
+.pref-theme-grid {
+    display: none !important;
+}
+
+.pref-select {
+    appearance: auto;
+    -webkit-appearance: auto;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 14px;
+    color: var(--text);
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    font: inherit;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.pref-select:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent);
+}
+
+.pref-select:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+}
+
+/* Modern Toggle Switches (Desktop & Mobile) */
+.pref-toggle-card {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.pref-toggle-card input {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    z-index: 2;
+    width: 44px;
+    height: 26px;
+    margin: 0;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%);
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.pref-toggle-card input::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    left: 2px;
+    background: white;
+    border-radius: 50%;
+    transition: transform .2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.pref-toggle-card input:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.pref-toggle-card input:checked::before {
+    transform: translateX(18px);
+}
+
+.toggle-card-content {
+    min-height: 52px;
+    padding: 12px 70px 12px 14px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    transition: background .18s ease, border-color .18s ease;
+}
+
+.pref-toggle-card:hover .toggle-card-content {
+    background: var(--surface-hover);
+    border-color: rgba(16, 185, 129, 0.35);
+}
+
+.toggle-icon,
+.toggle-desc {
+    display: none !important;
+}
+
+.toggle-title {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 550;
+    color: var(--text);
+}
+
 @media (max-width: 620px) {
     .sound-volume-control {
         padding: 12px;
@@ -4590,5 +4722,132 @@ a,
 
     .sound-preview-button {
         min-height: 43px;
+    }
+}
+
+/* ==========================================
+   YOUTUBE-STYLE MOBILE VIDEO FEED
+   ========================================== */
+
+@media (max-width: 620px) {
+    /* One video per row */
+    .video-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 24px 0 !important;
+    }
+
+    /* Remove the enclosing card appearance */
+    .video-card {
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
+
+    .video-card:hover {
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* Full-width rounded thumbnail */
+    .thumb-button {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px !important;
+        border: none;
+        overflow: hidden;
+    }
+
+    .thumb-button img {
+        border-radius: inherit;
+    }
+
+    /* YouTube-style information row */
+    .card-body {
+        display: grid !important;
+        grid-template-columns: 40px minmax(0, 1fr) 34px;
+        align-items: start;
+        gap: 10px;
+        padding: 10px 2px 0 !important;
+    }
+
+    /* Channel avatar */
+    .channel-avatar {
+        display: grid !important;
+        width: 38px;
+        height: 38px;
+        flex: none;
+        border-radius: 50%;
+        font-size: 12px;
+    }
+
+    /* Video title */
+    .title-button {
+        font-size: 14px;
+        font-weight: 650;
+        line-height: 1.4;
+        max-height: 40px;
+        -webkit-line-clamp: 2;
+    }
+
+    /* Channel name */
+    .card-channel {
+        margin-top: 5px;
+        font-size: 12px;
+        color: var(--muted);
+    }
+
+    /* Video metadata */
+    .card-meta {
+        margin-top: 5px;
+        font-size: 11px;
+        gap: 5px;
+        color: var(--muted);
+    }
+
+    /* Keep category, but remove badge styling */
+    .category-tag {
+        padding: 0;
+        border: none;
+        background: transparent;
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    /* Watch Later */
+    .save-button {
+        width: 34px;
+        height: 34px;
+        margin: 0;
+    }
+}
+
+/* Small phone adjustments */
+@media (max-width: 380px) {
+    .video-grid {
+        gap: 20px 0 !important;
+    }
+
+    .card-body {
+        grid-template-columns: 36px minmax(0, 1fr) 32px;
+        gap: 8px;
+    }
+
+    .channel-avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+    .sort-select {
+        width: 125px;
+        max-width: 38vw;
+        padding: 0 20px 0 7px;
+        font-size: 10px;
+    }
+
+    .results-copy {
+        font-size: 10px;
     }
 }
